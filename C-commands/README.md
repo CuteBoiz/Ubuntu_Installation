@@ -1,8 +1,7 @@
-#C Commands
+# C Commands
 
 ## I. Install & Run A C Program
-<ul style = "none">
-
+<ul style = "list-style-type:none">
 <li><b>Step 1: Install the build-essential packages</b></li>
 
 In order to complie and execute a C program, you need to have the essential packages installed on your system.
