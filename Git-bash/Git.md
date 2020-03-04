@@ -8,6 +8,10 @@
 
 `git config --global user.email "CuteBoiz@example.com"`
 
+###Make git store user name and password and will never ask for it:
+
+`git config --global credential.helper store`
+
 ### Create a new local respository
 
 `git init`
@@ -60,11 +64,43 @@
 ### Pull
 >Fetch and Merge changes on the remote server to your working directory:
 
-`git pull`
+```
+git pull
+```
 
 ### Merge
+>To merge a diffrent branch into your active branch:
+
+`git merge <brachname>`
+
+### Differences
+>View all the merge conflicts:
+`git diff`
+
+>View the conflicts against the base file:
+`git diff --base <filename>`
+
+>Preview changes, before merging:
+`git diff <sourcebranch> <targetbranch>`
+
+>After you've manually resolved any conflicts, you mark the changed file:
+`git add <file name`
+
+# UNDO LOCAL CHANGES
+>If you mess up, you can replace changes in your working tree with the last content in head:
+
+```
+git checkout -- <file name>
+```
+>Changes already added to the index, as well as new files, will be kept.
 
 
+
+>Instead, to drop all your local chagnes and commits, fetch the lastest history from the server and point your local master branch at it, do this:
+```
+git fetch origin
+git reset --hard origin/master
+```
 # BRANCHES
 
 
