@@ -1,8 +1,8 @@
 # Ubuntu
 Some Linux Commands
 
-## I.Prequiste Programs
-### 1.Google Chorme
+# I.Prequiste Programs
+## 1.Google Chorme
 <ul>
 <li><b>Donwload:</b></li>
 
@@ -23,13 +23,13 @@ $ sudo apt-get purge google-chrome-stable
 ```
 </ul>
 
-### 2.Update & Upgrade Packages
+## 2.Update & Upgrade Packages
 ```
 $ sudo apt-get update
 $ sudo apt-get upgrade
 ```
 
-### 3.Unikey
+## 3.Unikey
 <ul>
 <li><b>Step 1: Install ibus-unikey</b></li>
 
@@ -53,20 +53,20 @@ $ ibus restart
 <li><b>Step 4: Restart Ubuntu</b></li>
 </ul>
 
-### 4. Fonts
+## 4. Fonts
 
 ```
 $ sudo apt-get install ttf-mscorefonts-installer [Tab] -> [Enter]
 ```
 
-### 5. GNOME Tweak Tool
+## 5. GNOME Tweak Tool
 ```
 $ sudo apt install gnome-tweaks
 ```
 
 [Tweak Configuring](https://itsfoss.com/gnome-tweak-tool/)
 
-### 6.Sublime Text
+## 6.Sublime Text
 
 <ul>
 <li><b>Step 1: Install GPG key</b></li>
@@ -93,17 +93,16 @@ $ echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/s
 $ sudo apt-get update
 $ sudo apt-get install sublime-text
 ```
+</ul>
 
-<ul>
-
-### 7. Git Bash
+## 7. Git Bash
 ```
 $ sudo add-apt-repository ppa:git-core/ppa
 $ sudo apt-get update
 $ sudo apt-get install git
 ```
 
-### 8. Clean apt cache to free up space
+## 8. Clean apt cache to free up space
 
 ```
 $ sudo du -sh /var/cache/apt/archives
