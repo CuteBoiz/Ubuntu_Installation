@@ -11,72 +11,72 @@
 [V. Branches](https://github.com/CuteBoiz/Ubuntu/blob/master/Git-bash/Git.md#v-branches)
 
 ## I. Begin
-
-#### 1. Tell Git who you are
+<ul>
+<li><b> Tell Git who you are </b></li>
 ```
-git config --global user.name "CuteBoiz"
-git config --global user.email "CuteBoiz@example.com"
-```
-
-#### 2. Make git store user name and password and will never ask for it:
-
-```
-git config --global credential.helper store
+$ git config --global user.name "CuteBoiz"
+$ git config --global user.email "CuteBoiz@example.com"
 ```
 
-#### 3. Create a new local respository
+<li><b> Make git store user name and password and will never ask for it: </b></li>
 
 ```
-git init
+$ git config --global credential.helper store
 ```
 
-#### 4. Connect to a remote repository
->*If you haven't connected your local repository to a remote server, add the server to be able to push to it:*
+<li><b> Create a new local respository: </b></li>
 
 ```
-git remote add origin <server>
+$ git init
 ```
 
->*List add currently configured remote repositories:*
+<li><b> Connect to a remote repository: </b></li>
+If you haven't connected your local repository to a remote server, add the server to be able to push to it:
 
 ```
-git remote -v
+$ git remote add origin <server>
 ```
 
-#### 5. Check out a repository
+List add currently configured remote repositories:
 
 ```
-git clone /path/to/repository
+$ git remote -v
 ```
 
+<li><b> Check out a repository: </b></li>
+
+```
+$ git clone /path/to/repository
+```
+</ul>
 ## II. File Execution
 
 #### 1. Add file
 >*Add one or more files to staging:*
 
 ```
-git add <filename>
-git add .
+$ git add <filename>
+$ git add .
 ```
 
 #### 2. Status
 >*List the files you've changed and those still need to add or commit:*
 
 ```
-git status
+$ git status
 ```
 
 #### 3. Commit
 >*Commit changes to head(but not yet to the remote repository):*
 
 ```
-git commit -m "Commit message"
+$ git commit -m "Commit message"
 ```
 
 >*Commit any files you're added with `git add` and also commit any files you've changed since then:*
 
 ```
-git commit -a
+$ git commit -a
 ```
 
 
@@ -84,7 +84,7 @@ git commit -a
 >*Send changes to the master branch of your remote repository*
 
 ```
-git push origin master
+$ git push origin master
 ```
 
 
@@ -94,42 +94,42 @@ git push origin master
 >*Fetch and Merge changes on the remote server to your working directory:*
 
 ```
-git pull
+$ git pull
 ```
 
 #### 2. Merge
 >*To merge a diffrent branch into your active branch:*
 
 ```
-git merge <brachname>
+$ git merge <brachname>
 ```
 
 #### 3. Differences
 ***View all the merge conflicts:***
 ```
-git diff
+$ git diff
 ```
 
 ***View the conflicts against the base file:***
 ```
-git diff --base <filename>
+$ git diff --base <filename>
 ```
 
 ***Preview changes, before merging***
 ```
-git diff <sourcebranch> <targetbranch>
+$ git diff <sourcebranch> <targetbranch>
 ```
 
 ***After you've manually resolved any conflicts, you mark the changed file:***
 ```
-git add <file name>
+$ git add <file name>
 ```
 
 ## IV. Undo Local Changes
 >*If you mess up, you can replace changes in your working tree with the last content in head:*
 
 ```
-git checkout -- <file name>
+$ git checkout -- <file name>
 ```
 >*Changes already added to the index, as well as new files, will be kept.*
 </br>
@@ -137,31 +137,31 @@ git checkout -- <file name>
 
 >*Instead, to drop all your local chagnes and commits, fetch the lastest history from the server and point your local master branch at it, do this:*
 ```
-git fetch origin
-git reset --hard origin/master
+$ git fetch origin
+$ git reset --hard origin/master
 ```
 ## V. Branches
 
 ***Create a branch and switch to it:***
-`git checkout -b <branchname> ` 
+`$ git checkout -b <branchname> ` 
 
 ***Switch branch:***
-`git checkout <branchname> `
+`$ git checkout <branchname> `
 
 ***List all the branches:***
-`git branch`
+`$ git branch`
 
 ***Delete the feature branch:***
-`git branch -d <branchname> `
+`$ git branch -d <branchname> `
 
 ***Push the branch:***
-`git push origin <branchname> `
+`$ git push origin <branchname> `
 
 ***Push all branches:***
-`git push --all origin `
+`$ git push --all origin `
 
 ***Delete a branch:***
-`git push origin :<branchname>`
+`$ git push origin :<branchname>`
 
 
 
