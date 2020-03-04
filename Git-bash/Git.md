@@ -1,8 +1,8 @@
 # Git Command
 
-# I. BEGIN PATH
+# I. Begin
 
-### Tell Git who you are
+#### Tell Git who you are
 ```
 git config --global user.name "CuteBoiz"
 git config --global user.email "CuteBoiz@example.com"
@@ -21,13 +21,13 @@ git init
 ```
 
 #### Connect to a remote repository
->If you haven't connected your local repository to a remote server, add the server to be able to push to it:
+>*If you haven't connected your local repository to a remote server, add the server to be able to push to it:*
 
 ```
 git remote add origin <server>
 ```
 
->List add currently configured remote repositories:
+>*List add currently configured remote repositories:*
 
 ```
 git remote -v
@@ -39,7 +39,7 @@ git remote -v
 git clone /path/to/repository
 ```
 
-# II. FILE EXCUTION 
+# II. File Execution
 
 #### Add file
 >Add one or more files to staging:
@@ -50,20 +50,20 @@ git add .
 ```
 
 #### Status
->List the files you've changed and those still need to add or commit:
+>*List the files you've changed and those still need to add or commit:*
 
 ```
 git status
 ```
 
 #### Commit
->Commit changes to head(but not yet to the remote repository):
+>*Commit changes to head(but not yet to the remote repository):*
 
 ```
 git commit -m "Commit message"
 ```
 
->Commit any files you're added with `git add` and also commit any files you've changed since then:
+>*Commit any files you're added with `git add` and also commit any files you've changed since then:*
 
 ```
 git commit -a
@@ -71,17 +71,17 @@ git commit -a
 
 
 #### Push
->Send changes to the master branch of your remote repository
+>*Send changes to the master branch of your remote repository*
 
 ```
 git push origin master
 ```
 
 
-# III. UPDATE FROM THE REMOTE REPOSITORY
+# III. Update The Remote Repository
 
-#### Pull
->Fetch and Merge changes on the remote server to your working directory:
+#### Pull 
+>*Fetch and Merge changes on the remote server to your working directory:*
 
 ```
 git pull
@@ -95,19 +95,19 @@ git merge <brachname>
 ```
 
 #### Differences
->View all the merge conflicts:
+***View all the merge conflicts:***
 `git diff`
 
->View the conflicts against the base file:
+***View the conflicts against the base file:***
 `git diff --base <filename>`
 
->Preview changes, before merging:
+***Preview changes, before merging***
 `git diff <sourcebranch> <targetbranch>`
 
->After you've manually resolved any conflicts, you mark the changed file:
+***After you've manually resolved any conflicts, you mark the changed file:***
 `git add <file name`
 
-# IV. UNDO LOCAL CHANGES
+# IV. Undo local changes
 >If you mess up, you can replace changes in your working tree with the last content in head:
 
 ```
@@ -122,38 +122,23 @@ git checkout -- <file name>
 git fetch origin
 git reset --hard origin/master
 ```
-# V. BRANCHES
+# V. Branches
 
-#### Create a branch and switch to it:
-```
-git checkout -b <branchname>
-```
-#### Switch branch 
-```
-git checkout <branchname>
-```
-#### List all the branches
-```
-git branch
-```
-#### Delete the feature branch
-```
-git branch -d <branchname>
-```
-#### Push the branch
->Push to remote repository, so others can use it
-```
-git push origin <branchname>
-```
-#### Push all branches
-```
-git push --all origin
-```
-#### Delete a branch
-```
-git push origin :<branchname>
-```
+***Create a branch and switch to it: *** `git checkout -b <branchname> ` 
 
-# VI. TAGS
+***Switch branch: *** `git checkout <branchname> `
+
+***List all the branches: *** `git branch`
+
+***Delete the feature branch: *** `git branch -d <branchname> `
+
+***Push the branch:***
+>Push to remote repository, so others can use it:  `git push origin <branchname> `
+
+***Push all branches: *** `git push --all origin `
+
+***Delete a branch: *** `git push origin :<branchname>`
+
+
 
 
