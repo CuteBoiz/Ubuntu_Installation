@@ -127,22 +127,22 @@ git reset --hard origin/master
 ***Create a branch and switch to it:***
 `git checkout -b <branchname> ` 
 
-***Switch branch: ***
+***Switch branch:***
 `git checkout <branchname> `
 
 ***List all the branches: ***
 `git branch`
 
-***Delete the feature branch: ***
+***Delete the feature branch:***
 `git branch -d <branchname> `
 
 ***Push the branch:***
 >Push to remote repository, so others can use it:  `git push origin <branchname> `
 
-***Push all branches: ***
+***Push all branches:***
 `git push --all origin `
 
-***Delete a branch: ***
+***Delete a branch:***
 `git push origin :<branchname>`
 
 
