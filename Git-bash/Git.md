@@ -1,10 +1,15 @@
 # Git Command
 
 [I. Begin](https://github.com/CuteBoiz/Ubuntu/blob/master/Git-bash/Git.md#i-begin)
+
 [II. File Excution](https://github.com/CuteBoiz/Ubuntu/blob/master/Git-bash/Git.md#ii-file-execution)
+
 [III. Update The Remote Repository](https://github.com/CuteBoiz/Ubuntu/blob/master/Git-bash/Git.md#iii-update-the-remote-repository)
+
 [IV. Undo Local Changes](https://github.com/CuteBoiz/Ubuntu/blob/master/Git-bash/Git.md#iv-undo-local-changes)
+
 [V. Branches](https://github.com/CuteBoiz/Ubuntu/blob/master/Git-bash/Git.md#v-branches)
+
 ## I. Begin
 
 #### 1. Tell Git who you are
