@@ -5,7 +5,7 @@ Some Linux Commands
 <h3>1.Google Chorme</h3>
 
 <p><b><i>Donwload: </i></b></p>
-avc `wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb`asd
+`wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb `
 
 <p><b><i>Install: </i></b></p>
 `sudo dpkg -i --force-depends google-chrome-stable_current_amd64.deb`
