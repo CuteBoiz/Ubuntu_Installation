@@ -45,11 +45,42 @@ sudo apt-get install ibus-unikey
 `sudo apt-get install ttf-mscorefonts-installer`
 [Tab] -> [Enter]
 
-### 5. Gnome Teak Tool
+### 5. GNOME Tweak Tool
 
 `sudo apt install gnome-tweaks`
 
 [Tweak configuring](https://itsfoss.com/gnome-tweak-tool/)
 
 ### 6.Sublime Text
+*Step 1: Install GPG key*
+
+`wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -`
+
+*Step 2: Ensure apt is set up to work with https sources:*
+
+`wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -`
+
+*Step 3: Select channel to use*
+
+`echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list`
+
+*Step 4: Update apt source and Install*
+
+`sudo apt-get update`
+
+`sudo apt-get install sublime-text`
+
+### 7. Git Bash
+
+```
+sudo add-apt-repository ppa:git-core/ppa
+sudo apt-get update
+sudo apt-get install git
+```
+
+### 8. Clean apt cache to free up space
+
+`sudo du -sh /var/cache/apt/archives`
+
+`sudo apt clean`
 
