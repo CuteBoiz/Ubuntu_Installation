@@ -42,7 +42,7 @@ git clone /path/to/repository
 # II. File Execution
 
 #### Add file
->Add one or more files to staging:
+>*Add one or more files to staging:*
 
 ```
 git add <filename>
@@ -88,7 +88,7 @@ git pull
 ```
 
 #### Merge
->To merge a diffrent branch into your active branch:
+>*To merge a diffrent branch into your active branch:*
 
 ```
 git merge <brachname>
@@ -96,28 +96,32 @@ git merge <brachname>
 
 #### Differences
 ***View all the merge conflicts:***
+
 `git diff`
 
 ***View the conflicts against the base file:***
+
 `git diff --base <filename>`
 
 ***Preview changes, before merging***
+
 `git diff <sourcebranch> <targetbranch>`
 
 ***After you've manually resolved any conflicts, you mark the changed file:***
+
 `git add <file name`
 
 # IV. Undo local changes
->If you mess up, you can replace changes in your working tree with the last content in head:
+>*If you mess up, you can replace changes in your working tree with the last content in head:*
 
 ```
 git checkout -- <file name>
 ```
->Changes already added to the index, as well as new files, will be kept.
+>*Changes already added to the index, as well as new files, will be kept.*
 </br>
 </br>
 
->Instead, to drop all your local chagnes and commits, fetch the lastest history from the server and point your local master branch at it, do this:
+>*Instead, to drop all your local chagnes and commits, fetch the lastest history from the server and point your local master branch at it, do this:*
 ```
 git fetch origin
 git reset --hard origin/master
@@ -130,14 +134,16 @@ git reset --hard origin/master
 ***Switch branch:***
 `git checkout <branchname> `
 
-***List all the branches: ***
+***List all the branches:***
 `git branch`
 
 ***Delete the feature branch:***
 `git branch -d <branchname> `
 
 ***Push the branch:***
->Push to remote repository, so others can use it:  `git push origin <branchname> `
+>*Push to remote repository, so others can use it:*
+
+`git push origin <branchname> `
 
 ***Push all branches:***
 `git push --all origin `
