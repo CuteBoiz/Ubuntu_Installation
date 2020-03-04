@@ -2,25 +2,25 @@
 
 # I. Begin
 
-#### Tell Git who you are
+#### 1. Tell Git who you are
 ```
 git config --global user.name "CuteBoiz"
 git config --global user.email "CuteBoiz@example.com"
 ```
 
-#### Make git store user name and password and will never ask for it:
+#### 2. Make git store user name and password and will never ask for it:
 
 ```
 git config --global credential.helper store
 ```
 
-#### Create a new local respository
+#### 3. Create a new local respository
 
 ```
 git init
 ```
 
-#### Connect to a remote repository
+#### 4. Connect to a remote repository
 >*If you haven't connected your local repository to a remote server, add the server to be able to push to it:*
 
 ```
@@ -33,7 +33,7 @@ git remote add origin <server>
 git remote -v
 ```
 
-#### Check out a repository
+#### 5. Check out a repository
 
 ```
 git clone /path/to/repository
@@ -41,7 +41,7 @@ git clone /path/to/repository
 
 # II. File Execution
 
-#### Add file
+#### 1. Add file
 >*Add one or more files to staging:*
 
 ```
@@ -49,14 +49,14 @@ git add <filename>
 git add .
 ```
 
-#### Status
+#### 2. Status
 >*List the files you've changed and those still need to add or commit:*
 
 ```
 git status
 ```
 
-#### Commit
+#### 3. Commit
 >*Commit changes to head(but not yet to the remote repository):*
 
 ```
@@ -70,7 +70,7 @@ git commit -a
 ```
 
 
-#### Push
+#### 4. Push
 >*Send changes to the master branch of your remote repository*
 
 ```
@@ -80,36 +80,40 @@ git push origin master
 
 # III. Update The Remote Repository
 
-#### Pull 
+#### 1. Pull 
 >*Fetch and Merge changes on the remote server to your working directory:*
 
 ```
 git pull
 ```
 
-#### Merge
+#### 2. Merge
 >*To merge a diffrent branch into your active branch:*
 
 ```
 git merge <brachname>
 ```
 
-#### Differences
+#### 3. Differences
 ***View all the merge conflicts:***
-
-`git diff`
+```
+git diff
+```
 
 ***View the conflicts against the base file:***
-
-`git diff --base <filename>`
+```
+git diff --base <filename>
+```
 
 ***Preview changes, before merging***
-
-`git diff <sourcebranch> <targetbranch>`
+```
+git diff <sourcebranch> <targetbranch>
+```
 
 ***After you've manually resolved any conflicts, you mark the changed file:***
-
-`git add <file name`
+```
+git add <file name>
+```
 
 # IV. Undo local changes
 >*If you mess up, you can replace changes in your working tree with the last content in head:*
@@ -141,8 +145,6 @@ git reset --hard origin/master
 `git branch -d <branchname> `
 
 ***Push the branch:***
->*Push to remote repository, so others can use it:*
-
 `git push origin <branchname> `
 
 ***Push all branches:***
