@@ -19,6 +19,7 @@ Some Linux Commands
 ### 2.Update & Upgrade Packages
 
 `sudo apt-get update`
+
 `sudo apt-get upgrade`
 
 ### 3.Unikey
@@ -35,12 +36,20 @@ sudo apt-get install ibus-unikey
 
 *Step 3: Configure*
 
-[Setting] -> [Region & Language] -> [Input Sources] -> [Add] -> [Vietnamese] -> [Unikey]
+`[Setting] -> [Region & Language] -> [Input Sources] -> [Add] -> [Vietnamese] -> [Unikey]`
 
 *Step 4: Restart Ubuntu*
 
 ### 4. Fonts
+
 `sudo apt-get install ttf-mscorefonts-installer`
 [Tab] -> [Enter]
 
+### 5. Gnome Teak Tool
+
+`sudo apt install gnome-tweaks`
+
+[Tweak configuring](https://itsfoss.com/gnome-tweak-tool/)
+
+### 6.Sublime Text
 
