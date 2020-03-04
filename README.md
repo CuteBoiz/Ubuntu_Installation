@@ -1,8 +1,8 @@
 # Ubuntu
 Some Linux Commands
 
-##2.I.Prequiste Programs
-###3.1.Google Chorme
+<h2>I.Prequiste Programs</h2>
+<h3>1.Google Chorme</h3>
 <u>Donwload: </u>
 'wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb'
 <u>Install: </u>
