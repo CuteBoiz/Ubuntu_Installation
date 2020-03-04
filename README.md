@@ -6,10 +6,10 @@ Some Linux Commands
 <ul>
 <li><b>Donwload:</b></li>
 
-**```
+```
 $ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-```**
- 
+```
+
 <li><b>Install:</b></li>
  
 ```
