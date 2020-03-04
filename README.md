@@ -4,15 +4,15 @@ Some Linux Commands
 ## I.Prequiste Programs
 ### 1.Google Chorme
 
->Donwload:
+*Donwload:*
 
 `wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb`
  
->Install:
+*Install:*
  
 `sudo dpkg -i --force-depends google-chrome-stable_current_amd64.deb`
 
->Uninstall:
+*Uninstall:*
 
 `sudo apt-get purge google-chrome-stable`
 
