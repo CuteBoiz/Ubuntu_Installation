@@ -55,7 +55,7 @@ $ git clone /path/to/repository
 ## II. File Execution
 <ul>
 
-<li><b>Add file </b></li>
+<li><b>Add</b></li>
 Add one or more files to staging:
 
 ```
@@ -64,7 +64,8 @@ $ git add .
 ```
 
 <li><b>Status</b></li>
->*List the files you've changed and those still need to add or commit:*
+
+List the files you've changed and those still need to add or commit:
 
 ```
 $ git status
@@ -86,7 +87,7 @@ $ git commit -a
 
 <li><b>Push</b></li>
 
-Send changes to the master branch of your remote repository
+Send changes to the master branch of your remote repository:
 
 ```
 $ git push origin master
@@ -106,7 +107,8 @@ $ git pull
 ```
 
 <li><b>Merge</b></li>
->*To merge a diffrent branch into your active branch:*
+
+To merge a diffrent branch into your active branch:
 
 ```
 $ git merge <brachname>
@@ -126,7 +128,7 @@ $ git diff
 $ git diff --base <filename>
 ```
 
-<li><b><i>Preview changes, before merging</i></b></li>
+<li><b><i>Preview changes, before merging:</i></b></li>
 
 ```
 $ git diff <sourcebranch> <targetbranch>
