@@ -13,6 +13,7 @@
 ## I. Begin
 <ul>
 <li><b> Tell Git who you are </b></li>
+
 ```
 $ git config --global user.name "CuteBoiz"
 $ git config --global user.email "CuteBoiz@example.com"
@@ -31,13 +32,14 @@ $ git init
 ```
 
 <li><b> Connect to a remote repository: </b></li>
-If you haven't connected your local repository to a remote server, add the server to be able to push to it:
+
+*If you haven't connected your local repository to a remote server, add the server to be able to push to it:*
 
 ```
 $ git remote add origin <server>
 ```
 
-List add currently configured remote repositories:
+*List add currently configured remote repositories:*
 
 ```
 $ git remote -v
