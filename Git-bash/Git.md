@@ -98,7 +98,8 @@ $ git push origin master
 <ul>
 
 <li><b>Pull </b></li>
->*Fetch and Merge changes on the remote server to your working directory:*
+
+Fetch and Merge changes on the remote server to your working directory:
 
 ```
 $ git pull
@@ -114,24 +115,24 @@ $ git merge <brachname>
 <li><b>Differences</b></li>
 <ul>
 
-<li><b>View all the merge conflicts:</b></li>
+<li><b><i>View all the merge conflicts:</i></b></li>
 
 ```
 $ git diff
 ```
-<li><b>View the conflicts against the base file:</b></li>
+<li><b><i>View the conflicts against the base file:</i></b></li>
 
 ```
 $ git diff --base <filename>
 ```
 
-<li><b>Preview changes, before merging</b></li>
+<li><b><i>Preview changes, before merging</i></b></li>
 
 ```
 $ git diff <sourcebranch> <targetbranch>
 ```
 
-<li><b>After you've manually resolved any conflicts, you mark the changed file:</b></li>
+<li><b><i>After you've manually resolved any conflicts, you mark the changed file:</i></b></li>
 
 ```
 $ git add <file name>
@@ -140,16 +141,16 @@ $ git add <file name>
 </ul>
 
 ## IV. Undo Local Changes
->*If you mess up, you can replace changes in your working tree with the last content in head:*
+If you mess up, you can replace changes in your working tree with the last content in head:
 
 ```
 $ git checkout -- <file name>
 ```
->*Changes already added to the index, as well as new files, will be kept.*
+Changes already added to the index, as well as new files, will be kept.
 </br>
 </br>
 
->*Instead, to drop all your local chagnes and commits, fetch the lastest history from the server and point your local master branch at it, do this:*
+Instead, to drop all your local chagnes and commits, fetch the lastest history from the server and point your local master branch at it, do this:
 ```
 $ git fetch origin
 $ git reset --hard origin/master
