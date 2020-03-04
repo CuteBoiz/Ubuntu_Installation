@@ -1,6 +1,6 @@
 # Git Command
 
-# I. Begin
+## I. Begin
 
 #### 1. Tell Git who you are
 ```
@@ -39,7 +39,7 @@ git remote -v
 git clone /path/to/repository
 ```
 
-# II. File Execution
+## II. File Execution
 
 #### 1. Add file
 >*Add one or more files to staging:*
@@ -78,7 +78,7 @@ git push origin master
 ```
 
 
-# III. Update The Remote Repository
+## III. Update The Remote Repository
 
 #### 1. Pull 
 >*Fetch and Merge changes on the remote server to your working directory:*
@@ -115,7 +115,7 @@ git diff <sourcebranch> <targetbranch>
 git add <file name>
 ```
 
-# IV. Undo local changes
+## IV. Undo local changes
 >*If you mess up, you can replace changes in your working tree with the last content in head:*
 
 ```
@@ -130,7 +130,7 @@ git checkout -- <file name>
 git fetch origin
 git reset --hard origin/master
 ```
-# V. Branches
+## V. Branches
 
 ***Create a branch and switch to it:***
 `git checkout -b <branchname> ` 
