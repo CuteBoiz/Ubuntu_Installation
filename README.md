@@ -8,8 +8,8 @@ Some Linux Commands
 > wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb 
 
 ***Install:***
-> sudo dpkg -i --force-depends google-chrome-stable_current_amd64.deb '
+' sudo dpkg -i --force-depends google-chrome-stable_current_amd64.deb '
 
 ***Uninstall:***
-> sudo apt-get purge google-chrome-stable '
+`sudo apt-get purge google-chrome-stable`
 
