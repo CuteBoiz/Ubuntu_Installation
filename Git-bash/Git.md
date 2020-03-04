@@ -1,6 +1,6 @@
 # Git Command
 
-# 		BEGIN PATH
+# I. BEGIN PATH
 
 ### Tell Git who you are
 ```
@@ -8,19 +8,19 @@ git config --global user.name "CuteBoiz"
 git config --global user.email "CuteBoiz@example.com"
 ```
 
-###Make git store user name and password and will never ask for it:
+#### Make git store user name and password and will never ask for it:
 
 ```
 git config --global credential.helper store
 ```
 
-### Create a new local respository
+#### Create a new local respository
 
 ```
 git init
 ```
 
-### Connect to a remote repository
+#### Connect to a remote repository
 >If you haven't connected your local repository to a remote server, add the server to be able to push to it:
 
 ```
@@ -33,15 +33,15 @@ git remote add origin <server>
 git remote -v
 ```
 
-### Check out a repository
+#### Check out a repository
 
 ```
 git clone /path/to/repository
 ```
 
-# 		FILE EXCUTION 
+# II. FILE EXCUTION 
 
-### Add file
+#### Add file
 >Add one or more files to staging:
 
 ```
@@ -49,14 +49,14 @@ git add <filename>
 git add .
 ```
 
-### Status
+#### Status
 >List the files you've changed and those still need to add or commit:
 
 ```
 git status
 ```
 
-### Commit
+#### Commit
 >Commit changes to head(but not yet to the remote repository):
 
 ```
@@ -70,7 +70,7 @@ git commit -a
 ```
 
 
-### Push
+#### Push
 >Send changes to the master branch of your remote repository
 
 ```
@@ -78,23 +78,23 @@ git push origin master
 ```
 
 
-# UPDATE FROM THE REMOTE REPOSITORY
+# III. UPDATE FROM THE REMOTE REPOSITORY
 
-### Pull
+#### Pull
 >Fetch and Merge changes on the remote server to your working directory:
 
 ```
 git pull
 ```
 
-### Merge
+#### Merge
 >To merge a diffrent branch into your active branch:
 
 ```
 git merge <brachname>
 ```
 
-### Differences
+#### Differences
 >View all the merge conflicts:
 `git diff`
 
@@ -107,7 +107,7 @@ git merge <brachname>
 >After you've manually resolved any conflicts, you mark the changed file:
 `git add <file name`
 
-# UNDO LOCAL CHANGES
+# IV. UNDO LOCAL CHANGES
 >If you mess up, you can replace changes in your working tree with the last content in head:
 
 ```
@@ -122,6 +122,38 @@ git checkout -- <file name>
 git fetch origin
 git reset --hard origin/master
 ```
-# BRANCHES
+# V. BRANCHES
+
+#### Create a branch and switch to it:
+```
+git checkout -b <branchname>
+```
+#### Switch branch 
+```
+git checkout <branchname>
+```
+#### List all the branches
+```
+git branch
+```
+#### Delete the feature branch
+```
+git branch -d <branchname>
+```
+#### Push the branch
+>Push to remote repository, so others can use it
+```
+git push origin <branchname>
+```
+#### Push all branches
+```
+git push --all origin
+```
+#### Delete a branch
+```
+git push origin :<branchname>
+```
+
+# VI. TAGS
 
 
