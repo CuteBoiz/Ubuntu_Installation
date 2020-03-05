@@ -1,7 +1,7 @@
 # Ubuntu
 Some Linux Commands
 
-# I.Prequiste Programs
+# I.Prerequiste Programs
 ## 1.Google Chorme
 <ul>
 <li><b>Donwload:</b></li>
