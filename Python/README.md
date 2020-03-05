@@ -116,3 +116,12 @@ pip install -r requirement.txt
 ```
 
 </ul>
+
+## 3. Jupyter Notebook
+
+```sh
+$ pip install jupyter notebook
+$ jupyter notebook
+```
+*Then open your web browser at: http://localhost:8888/*
+
