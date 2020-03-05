@@ -1,54 +1,38 @@
 # Git Command
 
-[I. Begin](https://github.com/CuteBoiz/Ubuntu/blob/master/Git-bash/Git.md#i-begin)
+[I. Begin](https://github.com/CuteBoiz/Ubuntu/blob/master/Git-bash/README.md#i-begin)
 
-[II. File Excution](https://github.com/CuteBoiz/Ubuntu/blob/master/Git-bash/Git.md#ii-file-execution)
+[II. File Excution](https://github.com/CuteBoiz/Ubuntu/blob/master/Git-bash/README.md#ii-file-execution)
 
-[III. Update The Remote Repository](https://github.com/CuteBoiz/Ubuntu/blob/master/Git-bash/Git.md#iii-update-the-remote-repository)
+[III. Update The Remote Repository](https://github.com/CuteBoiz/Ubuntu/blob/master/Git-bash/README.md#iii-update-the-remote-repository)
 
-[IV. Undo Local Changes](https://github.com/CuteBoiz/Ubuntu/blob/master/Git-bash/Git.md#iv-undo-local-changes)
+[IV. Undo Local Changes](https://github.com/CuteBoiz/Ubuntu/blob/master/Git-bash/README.md#iv-undo-local-changes)
 
-[V. Branches](https://github.com/CuteBoiz/Ubuntu/blob/master/Git-bash/Git.md#v-branches)
+[V. Branches](https://github.com/CuteBoiz/Ubuntu/blob/master/Git-bash/README.md#v-branches)
 
-## I. Begin
-<ul>
-<li><b>Tell Git who you are </b></li>
+## I. Authorization
 
-```
+```sh
 $ git config --global user.name "CuteBoiz"
 $ git config --global user.email "CuteBoiz@example.com"
+$ git config --global credential.helper store #Git will never ask for password again
 ```
 
-<li><b>Make git store user name and password and will never ask for it: </b></li>
+## II. Create A Repository
 
-```
-$ git config --global credential.helper store
-```
+<li><b>Initalizing a Repository in an Existing Directory </b></li>
 
-<li><b>Create a new local respository: </b></li>
-
-```
+```sh
 $ git init
+$ git remote add origin [repositoryUrl] #Connect to remote repository
+$ git fetch origin
+$ git checkout master
 ```
 
-<li><b>Connect to a remote repository: </b></li>
+<li><b>Clone a repository: </b></li>
 
-If you haven't connected your local repository to a remote server, add the server to be able to push to it:
-
-```
-$ git remote add origin <server>
-```
-
-List add currently configured remote repositories:
-
-```
-$ git remote -v
-```
-
-<li><b>Check out a repository: </b></li>
-
-```
-$ git clone /path/to/repository
+```sh
+$ git clone [repositoryUrl]
 ```
 </ul>
 
@@ -58,7 +42,7 @@ $ git clone /path/to/repository
 <li><b>Add</b></li>
 Add one or more files to staging:
 
-```
+```sh
 $ git add <filename>
 $ git add .
 ```
@@ -94,76 +78,26 @@ $ git push origin master
 ```
 </ul>
 
-## III. Update The Remote Repository
+## III. Push to Remote Repository
 
-<ul>
-
-<li><b>Pull </b></li>
-
-Fetch and Merge changes on the remote server to your working directory:
-
-```
-$ git pull
+```sh
+$ git add . ***or*** git add [fileName]
+$ git status
+$ git commit -m "Message"
+$ git push origin master 
 ```
 
-<li><b>Merge</b></li>
-
-To merge a diffrent branch into your active branch:
-
-```
-$ git merge <brachname>
-```
-
-<li><b>Differences</b></li>
-<ul>
-
-<li><b><i>View all the merge conflicts:</i></b></li>
-
-```
-$ git diff
-```
-<li><b><i>View the conflicts against the base file:</i></b></li>
-
-```
-$ git diff --base <filename>
-```
-
-<li><b><i>Preview changes, before merging:</i></b></li>
-
-```
-$ git diff <sourcebranch> <targetbranch>
-```
-
-<li><b><i>After you've manually resolved any conflicts, you mark the changed file:</i></b></li>
-
-```
-$ git add <file name>
-```
-</ul>
-</ul>
-
-## IV. Undo Local Changes
-If you mess up, you can replace changes in your working tree with the last content in head:
-
-```
-$ git checkout -- <file name>
-```
-Changes already added to the index, as well as new files, will be kept.
-</br>
-</br>
-
-Instead, to drop all your local chagnes and commits, fetch the lastest history from the server and point your local master branch at it, do this:
-```
-$ git fetch origin
-$ git reset --hard origin/master
-```
 ## V. Branches
 
-***Create a branch and switch to it:***
-`$ git checkout -b <branchname> ` 
+```sh
+$ git checkout -b <branchname> #Create a branch and switch to it
+$ git checkout <branchname> #Switch branch
+
+```
+
 
 ***Switch branch:***
-`$ git checkout <branchname> `
+` `
 
 ***List all the branches:***
 `$ git branch`
