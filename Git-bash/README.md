@@ -27,93 +27,75 @@ $ git init
 $ git remote add origin [repositoryUrl] #Connect to remote repository
 $ git fetch origin
 $ git checkout master
+$ git add .
+$ git commit -a
+$ git push origin master
 ```
 
+</ul>
+
+## II. Download Data From Repository
+<ul>
 <li><b>Clone a repository: </b></li>
 
 ```sh
-$ git clone [repositoryUrl]
+$ git clone https://github.com/[ownerName]/[reposName]
 ```
-</ul>
 
-## II. File Execution
-<ul>
+<li><b>Fetch</b></li>
 
-<li><b>Add</b></li>
-Add one or more files to staging:
+- Fetch only download new data. But does'nt intergate any of new data intoyour working files.
+- Fetch will manipulate, destroy or screw up anything
+```sh
+$ git fetch origin
+```
+
+<li><b>Pull</b></li>
 
 ```sh
-$ git add <filename>
-$ git add .
+$ git pull origin master
+$ git pull origin [branchName]
 ```
 
-<li><b>Status</b></li>
-
-List the files you've changed and those still need to add or commit:
-
-```
-$ git status
-```
-
-<li><b>Commit</b></li>
-
-Commit changes to head(but not yet to the remote repository):
-
-```
-$ git commit -m "Commit message"
-```
-
-Commit any files you're added with `git add` and also commit any files you've changed since then:
-
-```
-$ git commit -a
-```
-
-<li><b>Push</b></li>
-
-Send changes to the master branch of your remote repository:
-
-```
-$ git push origin master
-```
 </ul>
 
 ## III. Push to Remote Repository
 
 ```sh
-$ git add . ***or*** git add [fileName]
-$ git status
-$ git commit -m "Message"
+$ git add . 			#Add all files to commit
+$ git add [fileName]	#Add specific file
+
+$ git status 			
+
+$ git commit -m "Message"	#Commit changes to head
+$ git commit -a 			#Commit tracking file to head
+
 $ git push origin master 
 ```
 
-## V. Branches
+## IV. Branches
+<ul>
+<li><b>Create, Push & Delete Branches</b></li>
 
 ```sh
-$ git checkout -b <branchname> #Create a branch and switch to it
-$ git checkout <branchname> #Switch branch
-$ git branch #List all the branches
+$ git checkout -b [branchName]	#Create a branch and switch to it
+$ git checkout [branchName] 	#Switch branch
+
+$ git branch 					#List all the branches
+$ git branch -d [branchName]	#Delete the feature branch
+$ git push origin :[branchname]	#Delete a braches
+
+$ git push origin [branchName]	#Push the branch
+$ git push -all origin			#Push all branches
+```
+<li><b>Merge a branch to remote Repository</b></li>
+
+```sh
+$ git checkout master
+$ git pull https://github.com/[ownerName]/[reposName].git [branchName]
+$ git push origin master
 ```
 
-
-***Switch branch:***
-` `
-
-***List all the branches:***
-`$ git branch`
-
-***Delete the feature branch:***
-`$ git branch -d <branchname> `
-
-***Push the branch:***
-`$ git push origin <branchname> `
-
-***Push all branches:***
-`$ git push --all origin `
-
-***Delete a branch:***
-`$ git push origin :<branchname>`
-
-
+</ul>
 
 
