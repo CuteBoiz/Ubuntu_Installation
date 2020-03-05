@@ -15,7 +15,7 @@
 ```sh
 $ git config --global user.name "CuteBoiz"
 $ git config --global user.email "CuteBoiz@example.com"
-$ git config --global credential.helper store #Git will never ask for password again
+$ git config --global credential.helper store 	#Git will never ask for password again
 ```
 
 ## II. Create A Repository
@@ -24,7 +24,7 @@ $ git config --global credential.helper store #Git will never ask for password a
 
 ```sh
 $ git init
-$ git remote add origin [repositoryUrl] #Connect to remote repository
+$ git remote add origin [repositoryUrl] 	#Connect to remote repository
 $ git fetch origin
 $ git checkout master
 $ git add .
@@ -64,7 +64,7 @@ $ git pull origin [branchName]
 ## IV. Push to Remote Repository
 
 ```sh
-$ git add .		#Add all files to commit
+$ git add .	#Add all files to commit
 $ git add [fileName] #Add specific file
 
 $ git status 			
