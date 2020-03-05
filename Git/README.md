@@ -64,13 +64,13 @@ $ git pull origin [branchName]
 ## IV. Push to Remote Repository
 
 ```sh
-$ git add . 			#Add all files to commit
-$ git add [fileName]	#Add specific file
+$ git add .		#Add all files to commit
+$ git add [fileName] #Add specific file
 
 $ git status 			
 
 $ git commit -m "Message"	#Commit changes to head
-$ git commit -a 			#Commit tracking file to head
+$ git commit -a 		#Commit tracking file to head
 
 $ git push origin master 
 ```
@@ -83,12 +83,12 @@ $ git push origin master
 $ git checkout -b [branchName]	#Create a branch and switch to it
 $ git checkout [branchName] 	#Switch branch
 
-$ git branch 					#List all the branches
+$ git branch 			#List all the branches
 $ git branch -d [branchName]	#Delete the feature branch
 $ git push origin :[branchname]	#Delete a braches
 
 $ git push origin [branchName]	#Push the branch
-$ git push -all origin			#Push all branches
+$ git push -all origin		#Push all branches
 ```
 <li><b>Merge a branch to remote Repository</b></li>
 
