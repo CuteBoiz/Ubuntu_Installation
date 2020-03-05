@@ -64,8 +64,8 @@ $ git pull origin [branchName]
 ## IV. Push to Remote Repository
 
 ```sh
-$ git add .	#Add all files to commit
-$ git add [fileName] #Add specific file
+$ git add .		#Add all files to commit
+$ git add [fileName]	#Add specific file
 
 $ git status 			
 
