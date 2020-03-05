@@ -33,4 +33,41 @@ $ sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.7
 $ sudo update-alternatives --config python3
 $ 2
 ```
+<li><b>Change "python" to "python3" </b></li>
+
+```sh
+gedit ~/.bashrc
+```
+Add this to TOP of the file:
+```sh
+alias python=python3
+alias pip=pip3
+```
+
+<li><b>Problems & Solutions</b></li>
+<ul>
+<li><b><i>Problem 1:</i></b></li>
+
+```sh
+/usr/bin/install: cannot create regular file '/usr/local/bin/python3.8': Permission denied
+```
+<li><i>Solution:</i></li>
+
+```sh
+cd /usr/local/
+sudo chmod 777 bin
+```
+
+<li><b><i>Problem 2:</i></b></li>
+
+```sh
+sh: 1: cannot create build/temp.linux-x86_64-3.8/multiarch: Permission denied
+```
+<li><i>Solution:</i></li>
+
+```sh
+cd build
+sudo chmod 777 temp.linux-x86_64-3.8
+```
+</ul>
 </ul>
