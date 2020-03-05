@@ -1,14 +1,14 @@
 # Git Command
 
-[I. Begin](https://github.com/CuteBoiz/Ubuntu/blob/master/Git-bash/README.md#i-begin)
+[I. Autorization](https://github.com/CuteBoiz/Ubuntu/tree/master/Git#i-authorization)
 
-[II. File Excution](https://github.com/CuteBoiz/Ubuntu/blob/master/Git-bash/README.md#ii-file-execution)
+[II. Create A Repository](https://github.com/CuteBoiz/Ubuntu/tree/master/Git#ii-create-a-repository)
 
-[III. Update The Remote Repository](https://github.com/CuteBoiz/Ubuntu/blob/master/Git-bash/README.md#iii-update-the-remote-repository)
+[III. Download Data From Repository](https://github.com/CuteBoiz/Ubuntu/tree/master/Git#iii-download-data-from-repository)
 
-[IV. Undo Local Changes](https://github.com/CuteBoiz/Ubuntu/blob/master/Git-bash/README.md#iv-undo-local-changes)
+[IV. Push to Remote Repository](https://github.com/CuteBoiz/Ubuntu/tree/master/Git#iv-push-to-remote-repository)
 
-[V. Branches](https://github.com/CuteBoiz/Ubuntu/blob/master/Git-bash/README.md#v-branches)
+[V. Branches](https://github.com/CuteBoiz/Ubuntu/tree/master/Git#v-branches)
 
 ## I. Authorization
 
@@ -34,7 +34,7 @@ $ git push origin master
 
 </ul>
 
-## II. Download Data From Repository
+## III. Download Data From Repository
 <ul>
 <li><b>Clone a repository: </b></li>
 
@@ -44,7 +44,7 @@ $ git clone https://github.com/[ownerName]/[reposName]
 
 <li><b>Fetch</b></li>
 
-- *Fetch only download new data.
+- *Fetch only download new data.*
 - *Fetch will NEVER manipulate, destroy or screw up anything*
 ```sh
 $ git fetch origin
@@ -52,8 +52,8 @@ $ git fetch origin
 
 <li><b>Pull</b></li>
 
--*To update your current HEAD branch with the lastest changes*
--*`Git pull` tries to merge remote change with local one, so "merge conflict" can occur*
+- *To update your current HEAD branch with the lastest changes*
+- *`Git pull` tries to merge remote change with local one, so "merge conflict" can occur*
 ```sh
 $ git pull origin master
 $ git pull origin [branchName]
@@ -61,7 +61,7 @@ $ git pull origin [branchName]
 
 </ul>
 
-## III. Push to Remote Repository
+## IV. Push to Remote Repository
 
 ```sh
 $ git add . 			#Add all files to commit
@@ -75,9 +75,9 @@ $ git commit -a 			#Commit tracking file to head
 $ git push origin master 
 ```
 
-## IV. Branches
+## V. Branches
 <ul>
-<li><b>Create, Push & Delete Branches</b></li>
+<li><b>Create, push & delete branches</b></li>
 
 ```sh
 $ git checkout -b [branchName]	#Create a branch and switch to it
