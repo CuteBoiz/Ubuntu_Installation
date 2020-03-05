@@ -44,14 +44,16 @@ $ git clone https://github.com/[ownerName]/[reposName]
 
 <li><b>Fetch</b></li>
 
-- Fetch only download new data. But does'nt intergate any of new data intoyour working files.
-- Fetch will manipulate, destroy or screw up anything
+- *Fetch only download new data.
+- *Fetch will NEVER manipulate, destroy or screw up anything*
 ```sh
 $ git fetch origin
 ```
 
 <li><b>Pull</b></li>
 
+-*To update your current HEAD branch with the lastest changes*
+-*`Git pull` tries to merge remote change with local one, so "merge conflict" can occur*
 ```sh
 $ git pull origin master
 $ git pull origin [branchName]
