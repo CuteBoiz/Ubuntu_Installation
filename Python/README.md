@@ -36,7 +36,7 @@ $ 2
 <li><b>Change "python" to "python3" </b></li>
 
 ```sh
-gedit ~/.bashrc
+$ gedit ~/.bashrc
 ```
 Add this to TOP of the file:
 ```sh
@@ -70,4 +70,49 @@ cd build
 sudo chmod 777 temp.linux-x86_64-3.8
 ```
 </ul>
+</ul>
+
+## II. Virtual Environment Python
+
+<ul>
+<li><b>Install Prerequistes</b></li>
+	
+```sh
+$ sudo apt-get install build-essential libssl-dev libffi-dev python-dev
+$ sudo apt-get update
+$ sudo pip3 install --upgrade pip 
+$ sudo apt install python3-pip
+$ sudo apt install -y python3-venv
+```
+
+<li><b>Create Virtual Environment</b></li>
+
+```sh
+$ python -m env [projectName]
+```
+
+<li><b>Activate Virtual Environment</b></li>
+
+```sh
+$ source [projectName]/bin/activate
+```
+
+<li><b>Deactivate Virtual Enviroment</b></li>
+
+```sh
+$ deactivate
+```
+
+<li><b>Export Requirement </b></li>
+
+```sh
+$ pip freeze > requirement.txt
+```
+
+<li><b>Import Requirement </b></li>
+
+```sh
+pip install -r requirement.txt
+```
+
 </ul>
