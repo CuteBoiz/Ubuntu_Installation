@@ -54,8 +54,8 @@ alias pip=pip3
 <li><i>Solution:</i></li>
 
 ```sh
-cd /usr/local/
-sudo chmod 777 bin
+$ cd /usr/local/
+$ sudo chmod 777 bin
 ```
 
 <li><b><i>Problem 2:</i></b></li>
@@ -66,8 +66,8 @@ sh: 1: cannot create build/temp.linux-x86_64-3.8/multiarch: Permission denied
 <li><i>Solution:</i></li>
 
 ```sh
-cd build
-sudo chmod 777 temp.linux-x86_64-3.8
+$ cd build
+$ sudo chmod 777 temp.linux-x86_64-3.8
 ```
 </ul>
 </ul>
@@ -112,12 +112,12 @@ $ pip freeze > requirement.txt
 <li><b>Import Requirement </b></li>
 
 ```sh
-pip install -r requirement.txt
+$ pip install -r requirement.txt
 ```
 
 </ul>
 
-## 3. Jupyter Notebook
+## III. Jupyter Notebook
 
 ```sh
 $ pip install jupyter notebook
