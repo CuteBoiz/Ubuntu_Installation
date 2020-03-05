@@ -92,7 +92,7 @@ $ git push origin master
 ```sh
 $ git checkout -b <branchname> #Create a branch and switch to it
 $ git checkout <branchname> #Switch branch
-
+$ git branch #List all the branches
 ```
 
 
