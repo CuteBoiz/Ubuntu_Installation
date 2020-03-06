@@ -76,6 +76,7 @@ $ exit 				#Exit Container
 ```
 
 ## Step 5 - Managing Docker Container
+<ul>
 
 - **Check container**
 ```sh
@@ -83,14 +84,15 @@ $ sudo docker ps 	#View active containers
 $ sudo docker ps -a 	#View all containers
 $ sudo docker ps -l 	#View the lastest container you created
 ```
-- **Start a stopped container:**
+<li><b>Start a stopped container:<li><b>
 `$ sudo docker start [dockerID]/[dockerName]`
 - **Stop a running container:**
 `$ sudo docker stop [dockerID]/[dockerName]`
 - **Delete a container:**
 `$ sudo docker rm [dockerName]`
+</ul>
 
-## Step 6 - Committing Changes in a Container to a Docker Imagev 
+## Step 6 - Committing Changes in a Container to a Docker Image
 
 When you start up a Docker image, you can create, modify, and delete file just like virtual machine. The changes that you make will only apply to that container. You can start and stop it, but once you destroy it with the `docker rm`, the change will be lost for good.
 
@@ -120,7 +122,7 @@ $ sudo docker login -u [dockerUsername]
 $ sudo tag [oldName]/ubuntu-nodejs [newName]/ubuntu-nodejs
 ```
 
-<li><b> Push your own image: </b>></li>
+<li><b> Push your own image: </b></li>
 
 ```sh 
 $ sudo docker push [userName]/[dockerImgName]
