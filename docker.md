@@ -36,7 +36,7 @@ $ sudo systemctl status docker 	#Check deamon
 
 ```sh
 $ sudo docker [option] [commnad] [arguments]
-$ sudo docker 	#View all subcommands
+$ sudo docker 		#View all subcommands
 $ sudo docker [subCommand] --help 	#View options available to a specific command
 ```
 
@@ -79,8 +79,8 @@ $ sudo docker images
 ## Step 4 - Running a Docker Container
 
 ```sh
-$ sudo docker run -it ubuntu #Acces Container
-$ exit #Exit Container
+$ sudo docker run -it ubuntu 	#Acces Container
+$ exit 		#Exit Container
 ```
 
 ## Step 5: Managing Docker Container
