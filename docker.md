@@ -77,3 +77,26 @@ $ sudo docker images
 ```
 
 ## Step 4 - Running a Docker Container
+
+```sh
+$ sudo docker run -it ubuntu #Acces Container
+$ exit #Exit Container
+```
+
+## Step 5: Managing Docker Container
+
+- **Check container**
+```sh
+$ sudo docker ps 	#View active containers
+$ sudo docker ps -a 	#View all containers
+$ sudo docker ps -l 	#View the lastest container you created
+```
+- **Start a stopped container:**
+`$ sudo docker start [dockerID]/[dockerName]`
+- **Stop a running container:**
+`$ sudo docker stop [dockerID]/[dockerName]`
+- **Delete a container:**
+`$ sudo docker rm [dockerName]`
+
+## Step 6: Committing Changes in a Container to a Docker Image
+
