@@ -84,9 +84,10 @@ $ sudo docker ps 	#View active containers
 $ sudo docker ps -a 	#View all containers
 $ sudo docker ps -l 	#View the lastest container you created
 ```
-<li><b>Start a stopped container:<li><b>
+<li><b>Start a stopped container:</b>></li>>
 `$ sudo docker start [dockerID]/[dockerName]`
-- **Stop a running container:**
+
+<li><b>Stop a running container:</b></li>
 `$ sudo docker stop [dockerID]/[dockerName]`
 - **Delete a container:**
 `$ sudo docker rm [dockerName]`
