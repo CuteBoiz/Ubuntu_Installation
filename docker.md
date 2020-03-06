@@ -41,3 +41,36 @@ $ sudo docker [subCommand] --help 	#View options available to a specific command
 
 ## Step 3 - Working With Docker Images
 
+- Check whether you can access and download images from Docker Hub:
+```sh
+$ sudo docker run hello World
+
+Output:
+	Unable to find image 'hello-world:latest' locally
+	latest: Pulling from library/hello-world
+	9bb5a5d4561a: Pull complete
+	Digest: sha256:3e1764d0f546ceac4565547df2ac4907fe46f007ea229fd7ef2718514bcec35d
+	Status: Downloaded newer image for hello-world:latest
+
+	Hello from Docker!
+	This message shows that your installation appears to be working correctly.
+	...
+```
+- ***Search for images ***
+
+```sh
+$ sudo docker search ubuntu
+```
+
+- ***Download the offical `Ubuntu` image:***
+
+```sh
+$ sudo docker pull ubuntu 
+```
+
+- ***Check downloaded images***
+
+```sh
+$ sudo docker images 
+```
+## Step 4 - Running a Docker Container
