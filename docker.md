@@ -100,7 +100,7 @@ This section show you how to save the state of a container as a new Docker image
 ```sh
 $ sudo docker commit -m "Message" -a [authorName] [containerID] [repository]/[newImgName]
 
-**Example:**
+Example:
 $ sudo docker commit -m "Added Nodejs" -a "sammy" d9b100f2f636 sammy/ubuntu-nodejs
 ```
 
