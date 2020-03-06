@@ -78,7 +78,7 @@ $ exit 				#Exit Container
 ## Step 5 - Managing Docker Container
 <ul>
 
-- **Check container**
+<li><b>Check container: </b></li>
 ```sh
 $ sudo docker ps 	#View active containers
 $ sudo docker ps -a 	#View all containers
@@ -89,8 +89,11 @@ $ sudo docker ps -l 	#View the lastest container you created
 `$ sudo docker start [dockerID]/[dockerName]`
 
 <li><b>Stop a running container:</b></li>
+
 `$ sudo docker stop [dockerID]/[dockerName]`
-- **Delete a container:**
+
+<li><b>Delete a container:</b></li>
+
 `$ sudo docker rm [dockerName]`
 </ul>
 
