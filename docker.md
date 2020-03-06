@@ -72,10 +72,10 @@ Output:
 
 ```sh
 $ sudo docker run -it ubuntu 	#Acces Container
-$ exit 			#Exit Container
+$ exit 				#Exit Container
 ```
 
-## Step 5: Managing Docker Container
+## Step 5 - Managing Docker Container
 
 - **Check container**
 ```sh
@@ -90,5 +90,35 @@ $ sudo docker ps -l 	#View the lastest container you created
 - **Delete a container:**
 `$ sudo docker rm [dockerName]`
 
-## Step 6: Committing Changes in a Container to a Docker Image
+## Step 6 - Committing Changes in a Container to a Docker Imagev 
 
+When you start up a Docker image, you can create, modify, and delete file just like virtual machine. The changes that you make will only apply to that container. You can start and stop it, but once you destroy it with the `docker rm`, the change will be lost for good.
+
+
+This section show you how to save the state of a container as a new Docker image.
+
+```sh
+$ sudo docker commit -m "Message" -a [authorName] [containerID] [repository]/[newImgName]
+
+Example:
+$ sudo docker commit -m "Added Nodejs" -a "sammy" d9b100f2f636 sammy/ubuntu-nodejs
+```
+
+When you commit an image, the new image is save locally on your comupter.
+
+## Step 7 - Pushing Docker Images to a Docker Repository
+
+- To push your image, first log into [Docker Hub](https://hub.docker.com/)
+
+```sh
+$ sudo docker login -u [dockerUsername]
+```
+- **Note:** If you docker registry username is different from the local username. You will have to rename it:
+```sh
+$ sudo tag [oldName]/ubuntu-nodejs [newName]/ubuntu-nodejs
+```
+
+- Push your own image:
+```sh 
+$ sudo docker push [userName]/[dockerImgName]
+```
