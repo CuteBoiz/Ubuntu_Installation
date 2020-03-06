@@ -100,7 +100,7 @@ This section show you how to save the state of a container as a new Docker image
 ```sh
 $ sudo docker commit -m "Message" -a [authorName] [containerID] [repository]/[newImgName]
 
-Example:
+**Example:**
 $ sudo docker commit -m "Added Nodejs" -a "sammy" d9b100f2f636 sammy/ubuntu-nodejs
 ```
 
@@ -115,7 +115,7 @@ When you commit an image, the new image is save locally on your comupter.
 ```sh
 $ sudo docker login -u [dockerUsername]
 ```
- **Note:** If you docker registry username is different from the local username. You will have to rename it:
+ **Note:** If your docker registry username is different from the **local username** You will have to rename it:
 ```sh
 $ sudo tag [oldName]/ubuntu-nodejs [newName]/ubuntu-nodejs
 ```
