@@ -108,17 +108,20 @@ When you commit an image, the new image is save locally on your comupter.
 
 ## Step 7 - Pushing Docker Images to a Docker Repository
 
-- To push your image, first log into [Docker Hub](https://hub.docker.com/)
+<ul>
+
+<li><b> To push your image, first log into [Docker Hub](https://hub.docker.com/): </b></li>
 
 ```sh
 $ sudo docker login -u [dockerUsername]
 ```
-- **Note:** If you docker registry username is different from the local username. You will have to rename it:
+ **Note:** If you docker registry username is different from the local username. You will have to rename it:
 ```sh
 $ sudo tag [oldName]/ubuntu-nodejs [newName]/ubuntu-nodejs
 ```
 
-- Push your own image:
+<li><b> Push your own image: </b>></li>
+
 ```sh 
 $ sudo docker push [userName]/[dockerImgName]
 ```
