@@ -41,9 +41,8 @@ $ sudo docker [subCommand] --help 	#View options available to a specific command
 ```
 
 ## Step 3 - Working With Docker Images
-<ul>
 
-<li><b>Check whether you can access and download images from Docker Hub: </b></li>
+- **Check whether you can access and download images from Docker Hub:**
 
 ```sh
 $ sudo docker run hello World
@@ -59,23 +58,22 @@ Output:
 	This message shows that your installation appears to be working correctly.
 	...
 ```
-<li><b>Search for images</b></li>
+- **Search for images**
 
 ```sh
 $ sudo docker search ubuntu
 ```
 
-<li><b>Download the offical `Ubuntu` image:</b></li>
+- **Download the offical `Ubuntu` image:**
 
 ```sh
 $ sudo docker pull ubuntu 
 ```
 
-<li><b>Check downloaded images:</b></li>
+- **Check downloaded images**
 
 ```sh
 $ sudo docker images 
 ```
-</ul>
 
 ## Step 4 - Running a Docker Container
