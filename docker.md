@@ -36,7 +36,7 @@ $ sudo systemctl status docker 	#Check deamon
 
 ```sh
 $ sudo docker [option] [commnad] [arguments]
-$ sudo docker 		#View all subcommands
+$ sudo docker 				#View all subcommands
 $ sudo docker [subCommand] --help 	#View options available to a specific command
 ```
 
@@ -58,29 +58,21 @@ Output:
 	This message shows that your installation appears to be working correctly.
 	...
 ```
-- **Search for images**
+- **Search for images:**
+`$ sudo docker search ubuntu`
 
-```sh
-$ sudo docker search ubuntu
-```
 
 - **Download the offical `Ubuntu` image:**
+`$ sudo docker pull ubuntu`
 
-```sh
-$ sudo docker pull ubuntu 
-```
-
-- **Check downloaded images**
-
-```sh
-$ sudo docker images 
-```
+- **Check downloaded images:**
+`$ sudo docker images `
 
 ## Step 4 - Running a Docker Container
 
 ```sh
 $ sudo docker run -it ubuntu 	#Acces Container
-$ exit 		#Exit Container
+$ exit 			#Exit Container
 ```
 
 ## Step 5: Managing Docker Container
