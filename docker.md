@@ -19,12 +19,13 @@ $ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ub
 $ sudo apt update
 $ apt-cache policy docker-ce
 
-docker-ce:
-  Installed: (none)
-  Candidate: 18.03.1~ce~3-0~ubuntu
-  Version table:
-     18.03.1~ce~3-0~ubuntu 500
-        500 https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+Output:
+	docker-ce:
+ 		Installed: (none)
+  		Candidate: 18.03.1~ce~3-0~ubuntu
+  		Version table:
+     		18.03.1~ce~3-0~ubuntu 500
+        		500 https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
 
 $ sudo apt install docker-ce
 $ sudo systemctl status docker 	#Check deamon 
@@ -56,19 +57,19 @@ Output:
 	This message shows that your installation appears to be working correctly.
 	...
 ```
-- ***Search for images ***
+- **Search for images**
 
 ```sh
 $ sudo docker search ubuntu
 ```
 
-- ***Download the offical `Ubuntu` image:***
+- **Download the offical `Ubuntu` image:**
 
 ```sh
 $ sudo docker pull ubuntu 
 ```
 
-- ***Check downloaded images***
+- **Check downloaded images**
 
 ```sh
 $ sudo docker images 
