@@ -88,7 +88,7 @@ $ sudo apt install -y python3-venv
 <li><b>Create Virtual Environment</b></li>
 
 ```sh
-$ python -m env [projectName]
+$ python -m venv [projectName]
 ```
 
 <li><b>Activate Virtual Environment</b></li>
