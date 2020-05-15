@@ -1,16 +1,16 @@
 # Git Command
 
-[I. Install Git](https://github.com/CuteBoiz/Ubuntu/tree/master/Git#i-install-git)
+[I. Install Git](https://github.com/CuteBoiz/Ubuntu/tree/master/git.md#i-install-git)
 
-[II. Autorization](https://github.com/CuteBoiz/Ubuntu/tree/master/Git#ii-authorization)
+[II. Autorization](https://github.com/CuteBoiz/Ubuntu/tree/master/git.md#ii-authorization)
 
-[III. Create A Repository](https://github.com/CuteBoiz/Ubuntu/tree/master/Git#iii-create-a-repository)
+[III. Create A Repository](https://github.com/CuteBoiz/Ubuntu/tree/master/git.md#iii-create-a-repository)
 
-[IV. Download Data From Repository](https://github.com/CuteBoiz/Ubuntu/tree/master/Git#iv-download-data-from-repository)
+[IV. Download Data From Repository](https://github.com/CuteBoiz/Ubuntu/tree/master/git.md#iv-download-data-from-repository)
 
-[V. Push to Remote Repository](https://github.com/CuteBoiz/Ubuntu/tree/master/Git#v-push-to-remote-repository)
+[V. Push to Remote Repository](https://github.com/CuteBoiz/Ubuntu/tree/master/git.md#v-push-to-remote-repository)
 
-[VI. Branches](https://github.com/CuteBoiz/Ubuntu/tree/master/Git#vi-branches)
+[VI. Branches](https://github.com/CuteBoiz/Ubuntu/tree/master/git.md#vi-branches)
 
 
 ## I. Install Git

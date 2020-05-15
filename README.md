@@ -1,5 +1,7 @@
 # Ubuntu
 
+Some useful tips & turtorial 
+
 [A. C COMPLIER](https://github.com/CuteBoiz/Ubuntu/blob/master/c.md)
 
 [B. DOCKER](https://github.com/CuteBoiz/Ubuntu/blob/master/docker.md)
