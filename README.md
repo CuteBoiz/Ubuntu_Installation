@@ -1,12 +1,12 @@
 # Ubuntu
 
-[C Compiler](https://github.com/CuteBoiz/Ubuntu/blob/master/c.md)
+[A. C COMPLIER](https://github.com/CuteBoiz/Ubuntu/blob/master/c.md)
 
-[Docker](https://github.com/CuteBoiz/Ubuntu/blob/master/docker.md)
+[B. DOCKER](https://github.com/CuteBoiz/Ubuntu/blob/master/docker.md)
 
-[Git Commands](https://github.com/CuteBoiz/Ubuntu/blob/master/git.md)
+[C. GITS COMMANDS](https://github.com/CuteBoiz/Ubuntu/blob/master/git.md)
 
-[Python](https://github.com/CuteBoiz/Ubuntu/blob/master/python.md)
+[D. PYTHON](https://github.com/CuteBoiz/Ubuntu/blob/master/python.md)
 
 # I.Prerequiste Programs
 ## 1.Google Chorme

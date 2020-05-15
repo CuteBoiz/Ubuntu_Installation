@@ -1,16 +1,27 @@
 # Git Command
 
-[I. Autorization](https://github.com/CuteBoiz/Ubuntu/tree/master/Git#i-authorization)
+[I. Install Git](https://github.com/CuteBoiz/Ubuntu/tree/master/Git#i-install-git)
 
-[II. Create A Repository](https://github.com/CuteBoiz/Ubuntu/tree/master/Git#ii-create-a-repository)
+[II. Autorization](https://github.com/CuteBoiz/Ubuntu/tree/master/Git#ii-authorization)
 
-[III. Download Data From Repository](https://github.com/CuteBoiz/Ubuntu/tree/master/Git#iii-download-data-from-repository)
+[III. Create A Repository](https://github.com/CuteBoiz/Ubuntu/tree/master/Git#iii-create-a-repository)
 
-[IV. Push to Remote Repository](https://github.com/CuteBoiz/Ubuntu/tree/master/Git#iv-push-to-remote-repository)
+[IV. Download Data From Repository](https://github.com/CuteBoiz/Ubuntu/tree/master/Git#iv-download-data-from-repository)
 
-[V. Branches](https://github.com/CuteBoiz/Ubuntu/tree/master/Git#v-branches)
+[V. Push to Remote Repository](https://github.com/CuteBoiz/Ubuntu/tree/master/Git#v-push-to-remote-repository)
 
-## I. Authorization
+[VI. Branches](https://github.com/CuteBoiz/Ubuntu/tree/master/Git#vi-branches)
+
+
+## I. Install Git
+```sh
+$ sudo add-apt-repository ppa:git-core/ppa
+$ sudo apt-get update
+$ sudo apt-get install git
+```
+
+
+## II. Authorization
 
 ```sh
 $ git config --global user.name "CuteBoiz"
@@ -18,7 +29,7 @@ $ git config --global user.email "CuteBoiz@example.com"
 $ git config --global credential.helper store 	#Git will never ask for password again
 ```
 
-## II. Create A Repository
+## III. Create A Repository
 
 <li><b>Initalizing a Repository in an Existing Directory </b></li>
 
@@ -34,7 +45,7 @@ $ git push origin master
 
 </ul>
 
-## III. Download Data From Repository
+## IV. Download Data From Repository
 <ul>
 <li><b>Clone a repository: </b></li>
 
@@ -61,7 +72,7 @@ $ git pull origin [branchName]
 
 </ul>
 
-## IV. Push to Remote Repository
+## V. Push to Remote Repository
 
 ```sh
 $ git add .		#Add all files to commit
@@ -75,7 +86,7 @@ $ git commit -a 		#Commit tracking file to head
 $ git push origin master 
 ```
 
-## V. Branches
+## VI. Branches
 <ul>
 <li><b>Create, push & delete branches</b></li>
 
