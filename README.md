@@ -1,5 +1,12 @@
 # Ubuntu
-Some Linux Commands
+
+[C Compiler](https://github.com/CuteBoiz/Ubuntu/blob/master/c.md)
+
+[Docker](https://github.com/CuteBoiz/Ubuntu/blob/master/docker.md)
+
+[Git Commands](https://github.com/CuteBoiz/Ubuntu/blob/master/git.md)
+
+[Python](https://github.com/CuteBoiz/Ubuntu/blob/master/python.md)
 
 # I.Prerequiste Programs
 ## 1.Google Chorme
@@ -99,14 +106,7 @@ $ sudo apt-get install sublime-text
 ```
 </ul>
 
-## 7. Git Bash
-```sh
-$ sudo add-apt-repository ppa:git-core/ppa
-$ sudo apt-get update
-$ sudo apt-get install git
-```
-
-## 8. Clean apt cache to free up space
+## 7. Clean apt cache to free up space
 If you install lots of software and package updates often you should, from time to time, ensure your system is kept clean.
 
 ```sh
