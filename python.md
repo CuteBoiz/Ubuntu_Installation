@@ -53,12 +53,22 @@ alias pip=pip3
 ```sh
 /usr/bin/install: cannot create regular file '/usr/local/bin/python3.8': Permission denied
 ```
+
 <li><i>Solution:</i></li>
 
+You'll meet a lot of those problems. All you need to do is open a new terminal window and use root permission ```sudo -i``` and go to /usr folder. 
+
+Then use ```chmod 777``` to change the permission access for the following folder
+
+(example: /usr/local/bin/python3.8 the "bin" folder need to be change permission).
+
 ```sh
+$ sudo -i
 $ cd /usr/local/
 $ sudo chmod 777 bin
 ```
+
+Then go back to Python3.7.4 folder and type ```$ make install```
 
 <li><b><i>Problem 2:</i></b></li>
 
@@ -66,6 +76,8 @@ $ sudo chmod 777 bin
 sh: 1: cannot create build/temp.linux-x86_64-3.8/multiarch: Permission denied
 ```
 <li><i>Solution:</i></li>
+
+This folder is located at Python3.7.4 folder so you don't have to use root permission.
 
 ```sh
 $ cd build
