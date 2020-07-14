@@ -33,7 +33,9 @@ $ sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.7
 $ sudo update-alternatives --config python3
 $ 2
 ```
-<li><b>Change "python" to "python3" </b></li>
+<li><b>Change "python3" to "python" (If you want to use python3 only)</b></li>
+
+This will help you avoid confusing between python 3 and python 2.
 
 ```sh
 $ gedit ~/.bashrc
