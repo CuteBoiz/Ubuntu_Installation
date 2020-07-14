@@ -25,7 +25,7 @@ $ ./configure
 $ sudo make && make install
 $ python3.7 -V
 ```
-<li><b>Change From Current Version To Newest Version</b></li>
+<li><b>Change From Current Version To Newest Version (If you have same python3 versions)</b></li>
 
 ```sh
 $ sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 1
