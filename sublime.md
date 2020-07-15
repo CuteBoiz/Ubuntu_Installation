@@ -1,6 +1,6 @@
 ## MOST IMPORTANT PACKAGE FOR SUBLIME TEXT
 
-### Package Control
+### 1. Package Control
 
 *This is the most important package*
 
@@ -18,12 +18,12 @@
 
 ```
 
-### Emmet
+### 2. Emmet
 
 *a toolkit that can greatly improve your workflow*
 
 
-### Sublime CodeIntel
+### 3. Sublime CodeIntel
 
 *A full-featured code intelligence and smart autocomplete engine for Sublime Text.*
 
@@ -33,15 +33,15 @@
 [Preferences] -> [Package Setting] -> [Material Theme] -> [Activate]
 ```
 
-### Sidebar Enhancements
+### 4. Sidebar Enhancements
 
 *Add some usefull functions to sidebar*
 
-### Advanced Newfile
+### 5. Advanced Newfile
 
 *This tool help you create a newfile dricetly inside sidebar's folder by ":fileName"*
 
-### DocBlockr
+### 6. DocBlockr
 
 *Comment `/** + [Tab]` above a function to note all your function's variables*
 

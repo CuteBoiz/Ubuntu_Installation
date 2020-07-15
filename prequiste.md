@@ -1,17 +1,6 @@
-# Ubuntu
+#  Prerequiste Programs
 
-Some useful tips & turtorial 
-
-[A. C COMPLIER](https://github.com/CuteBoiz/Ubuntu/blob/master/c.md)
-
-[B. DOCKER](https://github.com/CuteBoiz/Ubuntu/blob/master/docker.md)
-
-[C. GITS COMMANDS](https://github.com/CuteBoiz/Ubuntu/blob/master/git.md)
-
-[D. PYTHON](https://github.com/CuteBoiz/Ubuntu/blob/master/python.md)
-
-# I.Prerequiste Programs
-## 1.Google Chorme
+## 1. Google Chorme
 <ul>
 <li><b>Donwload:</b></li>
 
@@ -32,7 +21,7 @@ $ sudo apt-get purge google-chrome-stable
 ```
 </ul>
 
-## 2.Update & Upgrade Packages
+## 2. Update & Upgrade Packages
 If you install Ubuntu 18.10 on release day you can skip this step, but everyone else needs to check for security updates and bug fixes, and install any that are listed as available.
 
 ```sh
@@ -40,7 +29,7 @@ $ sudo apt-get update
 $ sudo apt-get upgrade
 ```
 
-## 3.Unikey
+## 3. Unikey
 <ul>
 <li><b>Step 1: Install ibus-unikey</b></li>
 
@@ -79,7 +68,7 @@ $ sudo apt install gnome-tweaks
 
 [Tweak Configuring](https://itsfoss.com/gnome-tweak-tool/)
 
-## 6.Sublime Text
+## 6. Sublime Text
 
 <ul>
 <li><b>Step 1: Install GPG key</b></li>
@@ -114,5 +103,3 @@ If you install lots of software and package updates often you should, from time 
 ```sh
 $ sudo du -sh /var/cache/apt/archives
 $ sudo apt clean
-```
-
