@@ -103,3 +103,4 @@ If you install lots of software and package updates often you should, from time 
 ```sh
 $ sudo du -sh /var/cache/apt/archives
 $ sudo apt clean
+```
