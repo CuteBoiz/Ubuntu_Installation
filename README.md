@@ -1,14 +1,16 @@
-# Ubuntu
+# UBUNTU 
 
-Some useful tips & turtorial 
+## Table of Contents (Click on them)
 
-[A. C COMPLIER](https://github.com/CuteBoiz/Ubuntu/blob/master/c.md)
+[I. Prerequiste Program](https://github.com/CuteBoiz/Ubuntu/blob/master/prerequiste.md)
 
-[B. DOCKER](https://github.com/CuteBoiz/Ubuntu/blob/master/docker.md)
+[II. C COMPLIER](https://github.com/CuteBoiz/Ubuntu/blob/master/c.md)
 
-[C. GITS COMMANDS](https://github.com/CuteBoiz/Ubuntu/blob/master/git.md)
+[III. DOCKER](https://github.com/CuteBoiz/Ubuntu/blob/master/docker.md)
 
-[D. PYTHON](https://github.com/CuteBoiz/Ubuntu/blob/master/python.md)
+[IV. GITS COMMANDS](https://github.com/CuteBoiz/Ubuntu/blob/master/git.md)
 
+[V. PYTHON](https://github.com/CuteBoiz/Ubuntu/blob/master/python.md)
 
+[VI. SUBLIME TEXT](https://github.com/CuteBoiz/Ubuntu/blob/master/sublime.md)
 
