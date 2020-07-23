@@ -14,8 +14,10 @@ Extract the source: `$ tar -xvf Python-3.7.4.tgz `
 
 ```sh
 $ sudo apt-get install gcc
-$ sudo apt install zlib1g-dev 
-$ sudo apt-get install libffi-dev libreadline-gplv2-dev libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev
+$ sudo apt-get install -y build-essential git libexpat1-dev libssl-dev zlib1g-dev \
+  libncurses5-dev libbz2-dev liblzma-dev \
+  libsqlite3-dev libffi-dev tcl-dev linux-headers-generic libgdbm-dev \
+  libreadline-dev tk tk-dev
 ```
 <li><b>Install</b></li>
   
