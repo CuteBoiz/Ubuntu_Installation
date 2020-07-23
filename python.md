@@ -23,7 +23,7 @@ $ sudo apt-get install -y build-essential git libexpat1-dev libssl-dev zlib1g-de
   
 ```sh
 $ cd Python-3.7.4
-$ ./configure
+$ ./configure --enable-optimizations
 $ sudo make && make install
 $ python3.7 -V
 ```
