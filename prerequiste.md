@@ -34,7 +34,6 @@ $ sudo apt-get upgrade
 <li><b>Step 1: Install ibus-unikey</b></li>
 
 ```sh
-$ sudo add-apt-repository ppa:ubuntu-vn/ppa
 $ sudo apt-get update
 $ sudo apt-get install ibus-unikey
 ```
