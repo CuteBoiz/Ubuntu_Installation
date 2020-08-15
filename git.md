@@ -15,18 +15,18 @@
 
 ## I. Install Git
 ```sh
-$ sudo add-apt-repository ppa:git-core/ppa
-$ sudo apt-get update
-$ sudo apt-get install git
+sudo add-apt-repository ppa:git-core/ppa
+sudo apt-get update
+sudo apt-get install git
 ```
 
 
 ## II. Authorization
 
 ```sh
-$ git config --global user.name "CuteBoiz"
-$ git config --global user.email "CuteBoiz@example.com"
-$ git config --global credential.helper store 	#Git will never ask for password again
+git config --global user.name "CuteBoiz"
+git config --global user.email "CuteBoiz@example.com"
+git config --global credential.helper store 	#Git will never ask for password again
 ```
 
 ## III. Create A Repository
@@ -34,13 +34,13 @@ $ git config --global credential.helper store 	#Git will never ask for password 
 <li><b>Initalizing a Repository in an Existing Directory </b></li>
 
 ```sh
-$ git init
-$ git remote add origin [repositoryUrl] 	#Connect to remote repository
-$ git fetch origin
-$ git checkout master
-$ git add .
-$ git commit -a
-$ git push origin master
+git init
+git remote add origin [repositoryUrl] 	#Connect to remote repository
+git fetch origin
+git checkout master
+git add .
+git commit -a
+git push origin master
 ```
 
 </ul>
@@ -50,7 +50,7 @@ $ git push origin master
 <li><b>Clone a repository: </b></li>
 
 ```sh
-$ git clone https://github.com/[ownerName]/[reposName]
+git clone https://github.com/[ownerName]/[reposName]
 ```
 
 <li><b>Fetch</b></li>
@@ -58,7 +58,7 @@ $ git clone https://github.com/[ownerName]/[reposName]
 - *Fetch only download new data.*
 - *Fetch will NEVER manipulate, destroy or screw up anything*
 ```sh
-$ git fetch origin
+git fetch origin
 ```
 
 <li><b>Pull</b></li>
@@ -66,8 +66,8 @@ $ git fetch origin
 - *To update your current HEAD branch with the lastest changes*
 - *`Git pull` tries to merge remote change with local one, so "merge conflict" can occur*
 ```sh
-$ git pull origin master
-$ git pull origin [branchName]
+git pull origin master
+git pull origin [branchName]
 ```
 
 </ul>
@@ -75,15 +75,14 @@ $ git pull origin [branchName]
 ## V. Push to Remote Repository
 
 ```sh
-$ git add .		#Add all files to commit
-$ git add [fileName]	#Add specific file
+git add .		#Add all files to commit
+git add [fileName]	#Add specific file
 
-$ git status 			
+git status 			
 
-$ git commit -m "Message"	#Commit changes to head
-$ git commit -a 		#Commit tracking file to head
+git commit -m "Message"	#Commit changes to head
 
-$ git push origin master 
+git push origin master 
 ```
 
 ## VI. Branches
@@ -91,22 +90,22 @@ $ git push origin master
 <li><b>Create, push & delete branches</b></li>
 
 ```sh
-$ git checkout -b [branchName]	#Create a branch and switch to it
-$ git checkout [branchName] 	#Switch branch
+git checkout -b [branchName]	#Create a branch and switch to it
+git checkout [branchName] 	#Switch branch
 
-$ git branch 			#List all the branches
-$ git branch -d [branchName]	#Delete the feature branch
-$ git push origin :[branchname]	#Delete a braches
+git branch 			#List all the branches
+git branch -d [branchName]	#Delete the feature branch
+git push origin :[branchname]	#Delete a braches
 
-$ git push origin [branchName]	#Push the branch
-$ git push -all origin		#Push all branches
+git push origin [branchName]	#Push the branch
+git push -all origin		#Push all branches
 ```
 <li><b>Merge a branch to remote Repository</b></li>
 
 ```sh
-$ git checkout master
-$ git pull https://github.com/[ownerName]/[reposName].git [branchName]
-$ git push origin master
+git checkout master
+git pull https://github.com/[ownerName]/[reposName].git [branchName]
+git push origin master
 ```
 
 </ul>
