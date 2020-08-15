@@ -23,7 +23,7 @@ export PS1
 - **\W** : current working directory.  
 
 Example: 
-```
+```sh
 PS1 = '\u at \W $'
 export PS1  
 ```
@@ -37,7 +37,7 @@ PS1 = '\[\033[1;96m\]\u \[\033[0;37m\]at \[\033[1;34m\]\W \[\033[1;95m\]$ \[\033
 export PS1  
 ```
 
-## Reset
+### Reset
 - Color_Off = `\[\033[0m\]` 
 
 ### Regular Colors
