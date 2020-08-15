@@ -37,7 +37,7 @@ sudo apt-get install -y build-essential git libexpat1-dev libssl-dev zlib1g-dev 
 ```sh
 cd Python-3.7.4
 ./configure --enable-optimizations
-sudo make
+sudo make #This will take serveral minutes
 sudo make install
 "[Some errors will occur here. Solution is below.]"
 python3.7 -V
@@ -74,11 +74,12 @@ sudo update-alternatives --config python3
 
 - <i>Solution:</i>
 
-You'll meet a lot of those problems. All you need to do is open a new terminal window and use root permission ```sudo -i``` and go to /usr folder. 
+You'll meet a lot of those problems. Because */usr* folder is hidden so u can only access it thought root permission. 
+To access root permission: `sudo -i` and go to /usr folder `cd /usr`. 
 
-Then use ```chmod 777``` to change the permission access for the following folder
+Then use `chmod 777` to change the permission access for the following folder
 
-(example: /usr/local/bin/python3.8 the "bin" folder need to be change permission).
+(example: The error was `/usr/local/bin/python3.8` so the folder `bin`  need to be change permission).
 
 ```sh
 sudo -i
