@@ -5,12 +5,15 @@
 <ul>
 <li><b>Get Lastest Python Version </b></li>
 
-Go to: https://www.python.org/downloads/source/ to get the lastest version's source
+Go to: **https://www.python.org/downloads/source/** to get the lastest version's source
+
+
 ```sh
+Example: (the lastest version is 3.7.4)
 $ wget https://www.python.org/ftp/python/3.7.4/Python-3.7.4.tgz
 ```
-Extract the source: `$ tar -xvf Python-3.7.4.tgz `
-<li><b>Install Prerequistes</b></li>
+Extract the source: `tar -xvf Python-3.7.4.tgz `
+<li><b>Install Prerequistes (IMPORTANT)</b></li>
 
 ```sh
 $ sudo apt-get install gcc
