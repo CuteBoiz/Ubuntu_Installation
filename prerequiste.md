@@ -5,19 +5,19 @@
 <li><b>Donwload:</b></li>
 
 ```bash
-$ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 ```
 
 <li><b>Install:</b></li>
  
-```sh
-$ sudo dpkg -i --force-depends google-chrome-stable_current_amd64.deb
+```zsh
+sudo dpkg -i --force-depends google-chrome-stable_current_amd64.deb
 ```
 
 <li><b>Uninstall:</b></li>
 
-```sh
-$ sudo apt-get purge google-chrome-stable
+```zsh
+sudo apt-get purge google-chrome-stable
 ```
 </ul>
 
