@@ -1,4 +1,4 @@
-## MOST IMPORTANT PACKAGE FOR SUBLIME TEXT
+## POPULAR PACKAGE FOR SUBLIME TEXT
 
 ### 1. Package Control
 
@@ -27,21 +27,21 @@
 
 *A full-featured code intelligence and smart autocomplete engine for Sublime Text.*
 
-### Meterial Theme
+### 4. Meterial Theme
 
 ```sh
 [Preferences] -> [Package Setting] -> [Material Theme] -> [Activate]
 ```
 
-### 4. Sidebar Enhancements
+### 5. Sidebar Enhancements
 
 *Add some usefull functions to sidebar*
 
-### 5. Advanced Newfile
+### 6. Advanced Newfile
 
 *This tool help you create a newfile dricetly inside sidebar's folder by ":fileName"*
 
-### 6. DocBlockr
+### 7. DocBlockr
 
 *Comment `/** + [Tab]` above a function to note all your function's variables*
 
