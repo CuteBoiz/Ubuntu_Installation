@@ -31,7 +31,9 @@ sudo apt-get install -y build-essential git libexpat1-dev libssl-dev zlib1g-dev 
 ```sh
 cd Python-3.7.4
 ./configure --enable-optimizations
-sudo make && make install
+sudo make
+sudo make install
+"[Some errors will occur here. Solution is below.]"
 python3.7 -V
 ```
 
