@@ -31,8 +31,13 @@ Output:
 ```
 
 ```sh
-sudo apt install docker-ce
+sudo apt-get install docker-ce docker-ce-cli containerd.io
 sudo systemctl status docker
+```
+
+Verify Docker Installed:
+```sh
+sudo docker run hello-world
 ```
 
 ## Step 2 - Using Docker Command 
