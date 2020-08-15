@@ -6,7 +6,7 @@
 
 ## Prerequiste
 
-- One Ubuntu 18.04
+- Ubuntu 18.04
 - An account on Docker hub
 
 ## Step 1 - Installing Docker
