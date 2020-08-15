@@ -55,7 +55,8 @@ ibus restart
 ## 4. Fonts
 You might need to use some Microsoft fonts like: Arial, Time New Roman, ...
 ```sh
-sudo apt-get install ttf-mscorefonts-installer [Tab] -> [Enter] -> [Yes]
+sudo apt-get install ttf-mscorefonts-installer 
+[Tab] -> [Enter] -> [Yes]
 ```
 
 ## 5. GNOME Tweak Tool
