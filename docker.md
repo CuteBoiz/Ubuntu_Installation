@@ -12,7 +12,7 @@
 ## Step 1 - Installing Docker
 
 ```sh
-sudo apt update 	#Update packages
+sudo apt update
 sudo apt install apt-transport-https ca-certificates curl software-properties-common
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
@@ -32,15 +32,15 @@ Output:
 
 ```sh
 sudo apt install docker-ce
-sudo systemctl status docker 	#Check deamon 
+sudo systemctl status docker
 ```
 
 ## Step 2 - Using Docker Command 
 
 ```sh
 sudo docker [option] [commnad] [arguments]
-sudo docker 				#View all subcommands
-sudo docker [subCommand] --help 	#View options available to a specific command
+sudo docker
+sudo docker [subCommand] --help
 ```
 
 ## Step 3 - Working With Docker Images
