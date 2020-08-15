@@ -6,17 +6,22 @@
 
 ## Table of Contents (Click on them)
 
-- [PREREQUISTE PROGRAM](https://github.com/CuteBoiz/Ubuntu/blob/master/prerequiste.md)
+- [Prequiste Programs](https://github.com/CuteBoiz/Ubuntu/blob/master/prerequiste.md)
 
-- [C COMPLIER](https://github.com/CuteBoiz/Ubuntu/blob/master/c.md)
 
-- [DOCKER](https://github.com/CuteBoiz/Ubuntu/blob/master/docker.md)
+- [C Compiler](https://github.com/CuteBoiz/Ubuntu/blob/master/c.md)
 
-- [GITS COMMANDS](https://github.com/CuteBoiz/Ubuntu/blob/master/git.md)
 
-- [PYTHON](https://github.com/CuteBoiz/Ubuntu/blob/master/python.md)
+- [Git Bash](https://github.com/CuteBoiz/Ubuntu/blob/master/git.md)
 
-- [SUBLIME TEXT](https://github.com/CuteBoiz/Ubuntu/blob/master/sublime.md)
+
+- [Lastest Python 3](https://github.com/CuteBoiz/Ubuntu/blob/master/python.md)
+
+
+- [Sublime Text 3](https://github.com/CuteBoiz/Ubuntu/blob/master/sublime.md)
+
+
+- [Docker](https://github.com/CuteBoiz/Ubuntu/blob/master/docker.md)
 
 
 ***Hope you guys enjoy it!!***
