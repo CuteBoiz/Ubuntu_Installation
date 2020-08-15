@@ -6,7 +6,7 @@
 
 ## Table of Contents (Click on them)
 
-- [Prequiste Programs](https://github.com/CuteBoiz/Ubuntu/blob/master/prerequiste.md)
+- [Prerequiste Programs](https://github.com/CuteBoiz/Ubuntu/blob/master/prerequiste.md)
 
 
 - [C Compiler](https://github.com/CuteBoiz/Ubuntu/blob/master/c.md)
