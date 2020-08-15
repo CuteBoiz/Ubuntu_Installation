@@ -8,9 +8,9 @@
 
 - **Download Lastest Python Version**
 
-	Go to: *https://www.python.org/downloads/source/*  
-	Chosse the lastest python3 version.  
-	Roll down and copy the link of ***Gzipped source tarball***.  
+	- Go to: *https://www.python.org/downloads/source/*  
+	- Chosse the lastest python3 version.  
+	- Roll down and copy the link of ***Gzipped source tarball***.  
 
 ```sh
 wget "Put the copied link here"
