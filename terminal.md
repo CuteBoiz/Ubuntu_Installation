@@ -9,7 +9,7 @@ subl ~/.bashrc
 
 Add this fomula to bottom of `.bashrc` file:  
 ```sh
-PS1 = ""  
+PS1 = ''  
 export PS1  
 ```
 
@@ -24,7 +24,8 @@ export PS1
 
 Example: 
 ```
-PS1 = "\u at \W $"
+PS1 = '\u at \W $'
+export PS1  
 ```
 
 
@@ -32,11 +33,12 @@ PS1 = "\u at \W $"
 
 Example:
 ```sh
-PS1 = "\[\033[1;96m\]\u \[\033[0;37m\]at \[\033[1;34m\]\W \[\033[1;95m\]$ \[\033[0m\]
+PS1 = '\[\033[1;96m\]\u \[\033[0;37m\]at \[\033[1;34m\]\W \[\033[1;95m\]$ \[\033[0m\]'
+export PS1  
 ```
 
 ## Reset
-- Color_Off="\\[\\033[0m\\]" 
+- Color_Off = `\[\033[0m\]` 
 
 ### Regular Colors
 - Black   = `\[\033[0;30m\]`
