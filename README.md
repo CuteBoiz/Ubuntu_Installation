@@ -1,5 +1,9 @@
 # UBUNTU 
 
+```sh
+"Those turtorial will show you how to install some usefull applications for developer in Ubuntu and How to use them."
+```
+
 ## Table of Contents (Click on them)
 
 - [PREREQUISTE PROGRAM](https://github.com/CuteBoiz/Ubuntu/blob/master/prerequiste.md)
@@ -14,9 +18,7 @@
 
 - [SUBLIME TEXT](https://github.com/CuteBoiz/Ubuntu/blob/master/sublime.md)
 
-```sh
-"Those turtorial will show you how to install some usefull applications for developer in Ubuntu and How to use them."
-```
+
 ***Hope you guys enjoy it!!***
 
 *--[Tan Phat Nguyen](https://github.com/)--*
