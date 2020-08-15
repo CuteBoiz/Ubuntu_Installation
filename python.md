@@ -1,6 +1,6 @@
 # Python Command
 
-Install Lastet Python 3 Version From Source Code. 
+*Install Lastet Python 3 Version From Source Code.*
 
 
 ## I. Install Lastest Python 3 Version
@@ -13,7 +13,9 @@ Chosse the lastest python3 version.
 Roll down and copy the link of ***Gzipped source tarball***.  
 
 ```sh
-Example: (the lastest version is 3.7.4)
+wget "put the link here"
+
+#Example: (the lastest version is 3.7.4)
 wget https://www.python.org/ftp/python/3.7.4/Python-3.7.4.tgz
 ```
 Extract the source: `tar -xvf Python-3.7.4.tgz `
