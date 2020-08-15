@@ -23,6 +23,8 @@
 
 - [Docker](https://github.com/CuteBoiz/Ubuntu/blob/master/docker.md)
 
+- [Customize Terminal](https://github.com/CuteBoiz/Ubuntu/blob/master/terminal.md)
+
 
 ***Hope you guys enjoy it!!***
 
