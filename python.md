@@ -1,12 +1,16 @@
-# Python Commands
+# Python Command
 
-## I. Install Newest Python Version
+Install Lastet Python 3 Version From Source Code. 
 
 
-- **Get Lastest Python Version**
+## I. Install Lastest Python 3 Version
 
-Go to: **https://www.python.org/downloads/source/** to get the lastest version's source
 
+- **Download Lastest Python Version**
+
+Go to: **https://www.python.org/downloads/source/**  
+Chosse the lastest python3 version.  
+Roll down and copy the link of ***Gzipped source tarball***.  
 
 ```sh
 Example: (the lastest version is 3.7.4)
