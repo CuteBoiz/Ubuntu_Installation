@@ -1,7 +1,7 @@
 # UBUNTU 
 
 ```sh
-"Those turtorial will show you how to install some usefull applications for developer in Ubuntu and How to use them."
+Installation & Basic Turtorial for some Popular Application.
 ```
 
 ## Table of Contents (Click on them)
