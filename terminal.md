@@ -1,6 +1,6 @@
 # CUSTOMIZE TERMINAL
 
-![Imange](https://imgur.com/fnyt2WD)
+![Imgur](https://i.imgur.com/fnyt2WD.png)
 
 ## I. Customize Text. 
 
