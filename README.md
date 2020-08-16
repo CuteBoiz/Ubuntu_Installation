@@ -6,6 +6,8 @@
 
 ## Table of Contents (Click on them)
 
+### I. Basic.
+
 - [Prerequiste Programs](https://github.com/CuteBoiz/Ubuntu/blob/master/prerequiste.md)
 
 
@@ -25,6 +27,9 @@
 
 - [Customize Terminal](https://github.com/CuteBoiz/Ubuntu/blob/master/terminal.md)
 
+### II. Advanced.
+
+- [Tensorflow & Keras with GPU support](https://github.com/CuteBoiz/Ubuntu/blob/master/tensor.md)
 
 ***Hope you guys enjoy it!!***
 
