@@ -2,11 +2,11 @@
 
 ## Table of Content
 
-- [NVIDIA GPU Driver](https://github.com/CuteBoiz/)
-- [CUDA Toolkit](https://github.com/CuteBoiz/)
-- [cuDNN SDK](https://github.com/CuteBoiz/)
-- [TensorRT](https://github.com/CuteBoiz/)
-- [Tensorflow + Keras](https://github.com/CuteBoiz/)
+- [NVIDIA GPU Driver](https://github.com/CuteBoiz/Ubuntu/blob/master/tensor.md#i-nvidia-gpu-drivers)
+- [CUDA Toolkit](https://github.com/CuteBoiz/Ubuntu/blob/master/tensor.md#ii-cuda-toolkit)
+- [cuDNN SDK](https://github.com/CuteBoiz/Ubuntu/blob/master/tensor.md#iii-cudnn-sdk)
+- [TensorRT](https://github.com/CuteBoiz/Ubuntu/blob/master/tensor.md#iv-tensorrt)
+- [Tensorflow + Keras](https://github.com/CuteBoiz/Ubuntu/blob/master/tensor.md#v-tensorflow-with-gpu-support)
 
 
 ## I. NVIDIA GPU Drivers.
