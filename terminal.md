@@ -1,5 +1,6 @@
 # CUSTOMIZE TERMINAL
 
+![Imange](https://imgur.com/fnyt2WD)
 
 ## I. Customize Text. 
 
