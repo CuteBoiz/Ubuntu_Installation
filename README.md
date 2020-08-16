@@ -1,7 +1,7 @@
 # UBUNTU 
 
 ```sh
-Installation & Basic Turtorial for some Popular Application.
+Installation & Basic Turtorial for some Popular Applications.
 ```
 
 ## Table of Contents (Click on them)
