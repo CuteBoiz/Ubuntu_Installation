@@ -53,9 +53,10 @@ conda env create -f environment.yml
 ### 3. Updating an environment.
 
 You may need to update your environment for a variety of reasons. For example, it may be the case that:
-    - one of your core dependencies just released a new version (dependency version number update).  
-    - you need an additional package for data analysis (add a new dependency).  
-    - you have found a better package and no longer need the older package (add new dependency and remove old dependency).  
+
+- one of your core dependencies just released a new version (dependency version number update).  
+- you need an additional package for data analysis (add a new dependency).  
+- you have found a better package and no longer need the older package (add new dependency and remove old dependency).  
 
 ```sh
 conda env update --prefix ./env --file environment.yml  --prune
