@@ -154,15 +154,6 @@ jupyter notebook
 
 ## IV. Popular Packages For Programing
 
-### 1. Open CV
-
-```sh 
-sudo apt update 
-sudo apt-get install python3-opencv
-```
-
-### 2. Numpy, SciPy, Matplotlib
-
 ```sh 
 sudo apt install python3-venv python3-pip python3-tk
 pip install numpy scipy matplotlib
