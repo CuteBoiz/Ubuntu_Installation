@@ -22,6 +22,8 @@ Installation & Basic Turtorial for some Popular Applications.
 
 ### II. Advanced.
 
+- [Miniconda](https://github.com/CuteBoiz/Ubuntu/blob/master/conda.md)
+
 - [Docker](https://github.com/CuteBoiz/Ubuntu/blob/master/docker.md)
 
 - [Tensorflow & Keras with GPU support](https://github.com/CuteBoiz/Ubuntu/blob/master/tensor.md)
@@ -29,4 +31,4 @@ Installation & Basic Turtorial for some Popular Applications.
 
 ***Hope you guys enjoy it!!***
 
-*--[Tan Phat Nguyen](https://github.com/)--*
+*--[Tan Phat Nguyen](https://github.com/CuteBoiz)--*
