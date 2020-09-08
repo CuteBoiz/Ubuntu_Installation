@@ -23,21 +23,21 @@
 *a toolkit that can greatly improve your workflow*
 
 
-### 3. Sublime CodeIntel
+### 3. SublimeCodeIntel
 
 *A full-featured code intelligence and smart autocomplete engine for Sublime Text.*
 
-### 4. Meterial Theme
+### 4. Material Theme
 
 ```sh
 [Preferences] -> [Package Setting] -> [Material Theme] -> [Activate]
 ```
 
-### 5. Sidebar Enhancements
+### 5. SidebarEnhancements
 
 *Add some usefull functions to sidebar*
 
-### 6. Advanced Newfile
+### 6. AdvancedNewfile
 
 *This tool help you create a newfile dricetly inside sidebar's folder by ":fileName"*
 
