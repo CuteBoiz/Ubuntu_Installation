@@ -155,7 +155,7 @@ jupyter notebook
 ```
 *Then open your web browser at: http://localhost:8888/*
 
-## IV. Popular Packages For Programing
+## IV. Popular Packages For Programming
 
 ```sh 
 sudo apt install python3-venv python3-pip python3-tk
