@@ -61,7 +61,7 @@ Output:
 - Choose CUDA Toolkit **10.1**
 - Choose your corresponding OS.
 - Download the deb(local).
-- Follow the following install step.
+- Then follow instructions step.
 
 ## III. cuDNN SDK.
 
