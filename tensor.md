@@ -30,7 +30,7 @@ Sun Aug 16 12:34:19 2020
 If your system installed NVIDIA driver you **must** skip the NVIDIA GPU Driver Install step. Or it will **conflict**.
 
 ***Download & Install:***  
-*!!!MAKE SURE THAT YOUR SYSTEM HAVEN'T INSTALL NVIDIA DRIVER YET*
+***!!!MAKE SURE THAT YOUR SYSTEM HAVEN'T INSTALL NVIDIA DRIVER YET***
 
 - Go to [NVIDIA Download Drivers](https://www.nvidia.com/download/index.aspx?lang=en-us)
 - Choose the corresponding OS & GPU
