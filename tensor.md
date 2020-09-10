@@ -44,16 +44,24 @@ If your system installed NVIDIA driver you **must** skip the NVIDIA GPU Driver I
 ```sh 
 lspci | grep -i nvidia
 ```
+
+Output: 
+```sh
+01:00.0 VGA compatible controller: NVIDIA Corporation GM206 [GeForce GTX 950] (rev a1)
+01:00.1 Audio device: NVIDIA Corporation GM206 High Definition Audio Controller (rev a1)
+
+```
 - If you do not see any settings, update the PCI hardware `update-pciids` then return the previous command.
 
 - If your GPU is from NVIDA and listed in https://developer.nvidia.com/cuda-gpus, your GPU is CUDA-capable.
 
 ***Download the NVIDA CUDA Toolkit:*** 
 
-- Go to [NVIDIA CUDA Download Page](https://developer.nvidia.com/cuda-downloads).
+- Go to [NVIDIA CUDA Download Page](https://developer.nvidia.com/cuda-toolkit-archive).
+- Choose CUDA Toolkit **10.1**
 - Choose your corresponding OS.
 - Download the deb(local).
-- Follow the following step below.
+- Follow the following install step.
 
 ## III. cuDNN SDK.
 
