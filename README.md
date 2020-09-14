@@ -26,9 +26,6 @@ Installation & Basic Turtorial for some Popular Applications.
 
 - [Docker](https://github.com/CuteBoiz/Ubuntu/blob/master/docker.md)
 
-- [Tensorflow & Keras with GPU support](https://github.com/CuteBoiz/Ubuntu/blob/master/tensor.md)
-
-
 ***Hope you guys enjoy it!!***
 
 *--[Tan Phat Nguyen](https://github.com/CuteBoiz)--*
