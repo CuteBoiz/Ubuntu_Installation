@@ -1,4 +1,4 @@
-# UBUNTU 
+# UBUNTU Guides
 
 ```sh
 Installation & Basic Turtorial for some Popular Applications.
