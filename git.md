@@ -84,6 +84,12 @@ git commit -m "Message"	#Commit changes to head
 
 git push origin master 
 ```
+If you met
+```sh
+error: src refspec master does not match any
+error: failed to push some refs to "https:github.com/..."
+```
+Replace `git push origin master` with `git push origin main`
 
 ## VI. Branches
 <ul>
