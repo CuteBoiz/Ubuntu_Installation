@@ -2,6 +2,11 @@
 
 *Install Lastet Python 3 Version From Source Code.*
 
+## 0. Uninstall Old Python Version
+
+```sh
+sudo apt purge python3.6-minimal #remove python 3.6.x 
+```
 
 ## I. Install Lastest Python 3 Version
 
