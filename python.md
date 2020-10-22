@@ -26,6 +26,8 @@ Extract the source: `tar -xvf Python-3.7.4.tgz `
 ```sh
 sudo apt-get install gcc
 
+sudo apt-get install libopenblas-dev libhdf5-serial-dev hdf5-tools libhdf5-dev zlib1g-dev zip libjpeg8-dev liblapack-dev libblas-dev gfortran
+
 sudo apt-get install -y build-essential git libexpat1-dev libssl-dev zlib1g-dev \
   libncurses5-dev libbz2-dev liblzma-dev \
   libsqlite3-dev libffi-dev tcl-dev linux-headers-generic libgdbm-dev \
