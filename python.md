@@ -1,26 +1,19 @@
 # Python Command
 
-*Install Lastet Python 3 Version From Source Code.*
-
-## 0. Uninstall Old Python Version
-
-```sh
-sudo apt purge python3.6-minimal #remove python 3.6.x 
-```
+*Install Python 3 Version From Source Code.*
 
 ## I. Install Lastest Python 3 Version
 
-
 - **Download Lastest Python Version**
 
-	- Go to: *https://www.python.org/downloads/source/*  
-	- Chosse the lastest python3 version.  
-	- Roll down and copy the link of ***Gzipped source tarball***.  
+	- Download [Python](https://www.python.org/downloads/source/)
+	- Chosse the python3 version.  
+	- Choose coresponding ***Gzipped source tarball***.  
 
 ```sh
 wget "Put the copied link here"
 
-#Example: (the lastest version is 3.7.4)
+#Example: (If the lastest version is 3.7.4)
 wget https://www.python.org/ftp/python/3.7.4/Python-3.7.4.tgz
 ```
 Extract the source: `tar -xvf Python-3.7.4.tgz `
@@ -64,7 +57,7 @@ Add this to Bottom of the file:
 alias python=python3
 alias pip=pip3
 ```
-- **Update current Python3 version to newest version (If you have same Python 3 versions)**
+- **Update current Python3 version to lastest version (If you have same Python 3 versions)**
 
 ```sh
 sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 1
