@@ -108,7 +108,7 @@ sudo gedit /etc/default/grub
 When the files opens, do:
 - adding `#` to `GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"`
 
-- set `GRUB_CMDLINE_LINUX="` to `GRUB_CMDLINE_LINUX="text"`
+- set `GRUB_CMDLINE_LINUX=""` to `GRUB_CMDLINE_LINUX="text"`
 
 - remove `#` to `GRUB_TERMINAL="console"`
 
