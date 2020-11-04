@@ -14,7 +14,7 @@ Installation & Basic Turtorial for some Popular Applications.
 
 - [Git Bash](https://github.com/CuteBoiz/Ubuntu/blob/master/git.md)
 
-- [Lastest Python 3](https://github.com/CuteBoiz/Ubuntu/blob/master/python.md)
+- [Install Python 3 From Source](https://github.com/CuteBoiz/Ubuntu/blob/master/python.md)
 
 - [Sublime Text 3](https://github.com/CuteBoiz/Ubuntu/blob/master/sublime.md)
 
@@ -25,6 +25,10 @@ Installation & Basic Turtorial for some Popular Applications.
 - [Miniconda](https://github.com/CuteBoiz/Ubuntu/blob/master/conda.md)
 
 - [Docker](https://github.com/CuteBoiz/Ubuntu/blob/master/docker.md)
+
+- [CUDA/CUDNN/TENSORRT](https://github.com/CuteBoiz/Ubuntu/blob/master/cuda.md)
+
+- [Tensorflow From Source](https://github.com/CuteBoiz/Ubuntu/blob/master/tensorflow.md)
 
 ***Hope you guys enjoy it!!***
 
