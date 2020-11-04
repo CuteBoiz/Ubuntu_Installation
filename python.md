@@ -7,7 +7,7 @@
 - **Download Lastest Python Version**
 
 	- Download [Python](https://www.python.org/downloads/source/)
-	- Chosse the python3 version.  
+	- Choose version.  
 	- Choose coresponding ***Gzipped source tarball***.  
 
 ```sh
