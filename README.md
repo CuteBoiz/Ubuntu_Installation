@@ -26,7 +26,7 @@ Installation & Basic Turtorial for some Popular Applications.
 
 - [Docker](https://github.com/CuteBoiz/Ubuntu/blob/master/docker.md)
 
-- [CUDA/CUDNN/TENSORRT](https://github.com/CuteBoiz/Ubuntu/blob/master/cuda.md)
+- [Cuda + cuDNN + TensorRT](https://github.com/CuteBoiz/Ubuntu/blob/master/cuda.md)
 
 - [Tensorflow From Source](https://github.com/CuteBoiz/Ubuntu/blob/master/tensorflow.md)
 
