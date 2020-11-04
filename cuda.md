@@ -2,13 +2,13 @@
 
 ## Content 
 
-- [I- NVIDIA package]()
-- [II - NIVIDA GPU Driver]()
-- [III - CUDA Toolkit]()
-- [IV - cuDNN]()
-	- []()
-	- []()
-- [V -TensorRT]()
+- [I - NVIDIA package](https://github.com/CuteBoiz/UbuntuGuide/blob/master/cuda.md#i-add-nvidia-package-repositories)
+- [II - NIVIDA GPU Driver](https://github.com/CuteBoiz/UbuntuGuide/blob/master/cuda.md#ii-nvidia-gpu-drivers)
+- [III - CUDA Toolkit](https://github.com/CuteBoiz/UbuntuGuide/blob/master/cuda.md#iii-cuda-toolkit)
+- [IV - cuDNN](https://github.com/CuteBoiz/UbuntuGuide/blob/master/cuda.md#iv-cudnn)
+	- [Tar File](https://github.com/CuteBoiz/UbuntuGuide/blob/master/cuda.md#install-with-tar-file)
+	- [Deb File](https://github.com/CuteBoiz/UbuntuGuide/blob/master/cuda.md#install-with-deb-files)
+- [V -TensorRT](https://github.com/CuteBoiz/UbuntuGuide/blob/master/cuda.md#v-tensorrt)
 
 ## I. Add NVIDIA package repositories.
 
@@ -125,7 +125,7 @@ After reboot type your username and password to enter text mode.
 Go to downloaded CUDA then run:
 `sudo sh cuda_<version>_linux.run`
 
-### Step 5: Reboot into graphic mode.
+#### Step 5: Reboot into graphic mode.
 ```sh
 sudo mv /etc/default/grub.backup /etc/default/grub
 sudo update-grub
@@ -254,7 +254,7 @@ version="7.x.x.x" #replace x with your TensorRT Version
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:<TensorRT-${version}/lib>
 ```
 
-#### Step 2: Install the Python TensorRT wheel file:
+#### Step 2: Install the Python `TensorRT` wheel file:
 Choose the Python version using in your system: (mine was 3.7)
 ```sh
 cd TensorRT-${version}/python
@@ -262,7 +262,7 @@ sudo pip3 install tensorrt-*-cp37-none-linux_x86_64.whl
 
 ```
 
-#### Step 3: Install the Python UFF wheel file:
+#### Step 3: Install the Python `UFF` wheel file:
 ```sh
 cd ../TensorRT-${version}/uff
 sudo pip3 install uff-0.6.9-py2.py3-none-any.whl
