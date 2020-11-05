@@ -143,5 +143,27 @@ Not configuring the WORKSPACE for Android builds.
 ```sh
 bazel build --config=cuda --local_cpu_resources=HOST_CPUS-2 //tensorflow/tools/pip_package:build_pip_package
 ```
+Output: (After ~9 hrs with 2 cores)
+```sh
+INFO: Analyzed target //tensorflow/tools/pip_package:build_pip_package (412 packages loaded, 35919 targets configured).
+INFO: Found 1 target...
+Target //tensorflow/tools/pip_package:build_pip_package up-to-date:
+  bazel-bin/tensorflow/tools/pip_package/build_pip_package
+INFO: Elapsed time: 33225.848s, Critical Path: 275.29s
+INFO: 28738 processes: 28738 local.
+INFO: Build completed successfully, 40498 total actions
+```
+
+#### Step 4: Build the package:
+
+```sh
+./bazel-bin/tensorflow/tools/pip_package/build_pip_package --nightly_flag /tmp/tensorflow_pkg
+```
+
+#### Step 5: Install the package:
+
+```sh
+pip install /tmp/tensorflow_pkg/tensorflow-"version"-"tags".whl
+```
 
 
