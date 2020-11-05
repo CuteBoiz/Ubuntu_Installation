@@ -264,20 +264,20 @@ sudo pip3 install tensorrt-*-cp37-none-linux_x86_64.whl
 
 #### Step 3: Install the Python `UFF` wheel file:
 ```sh
-cd ../TensorRT-${version}/uff
+cd ../uff
 sudo pip3 install uff-0.6.9-py2.py3-none-any.whl
 
 ```
 
 #### Step 4: Install the Python `graphsurgeo` wheel file:
 ```sh 
-cd ../TensorRT-${version}/graphsurgeon
+cd ../graphsurgeon
 sudo pip3 install graphsurgeon-0.4.5-py2.py3-none-any.whl
 ```
 
 #### Step 5: Install the Python `onnx-graphsurgeon` wheel file:
 ```sh 
-cd ../TensorRT-${version}/onnx_graphsurgeon
+cd ../onnx_graphsurgeon
 sudo pip3 install onnx_graphsurgeon-0.2.6-py2.py3-none-any.whl
 ```
 
