@@ -29,7 +29,7 @@ sudo apt-get update
 sudo apt-get upgrade
 ```
 
-## 3. Unikey
+## 3. Unikey (Vietnamese Keyboard)
 <ul>
 <li><b>Step 1: Install ibus-unikey</b></li>
 
@@ -69,7 +69,7 @@ sudo apt install gnome-tweaks
 [Tweak Configuring](https://itsfoss.com/gnome-tweak-tool/)
 
 ## 6. Sublime Text
-
+One of best code editor for developer
 <ul>
 <li><b>Step 1: Install GPG key</b></li>
 
