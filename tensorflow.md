@@ -163,7 +163,7 @@ INFO: Build completed successfully, 40498 total actions
 #### Step 5: Install the package:
 
 ```sh
-pip install /tmp/tensorflow_pkg/tensorflow-"version"-"tags".whl
+pip install /tmp/tensorflow_pkg/tf_nightly-"version"-"tags".whl
 ```
 
 
