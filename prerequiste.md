@@ -97,10 +97,3 @@ sudo apt-get install sublime-text
 ```
 </ul>
 
-## 7. Clean apt cache to free up space
-If you install lots of software and package updates often you should, from time to time, ensure your system is kept clean.
-
-```sh
-sudo du -sh /var/cache/apt/archives
-sudo apt clean
-```
