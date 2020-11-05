@@ -43,67 +43,67 @@ cd tensorflow
 ```sh
 ./configure
 ```
-Output:
+You will see those message:
 ```sh
-You have bazel 3.0.0 installed.
-Please specify the location of python. [Default is /usr/bin/python3]: 
+You have bazel 3.1.0 installed.
+Please specify the location of python. [Default is /usr/local/bin/python3]: 
 
 
 Found possible Python library paths:
-  /usr/lib/python3/dist-packages
-  /usr/local/lib/python3.6/dist-packages
-Please input the desired Python library path to use.  Default is [/usr/lib/python3/dist-packages]
-
-Do you wish to build TensorFlow with OpenCL SYCL support? [y/N]: 
-No OpenCL SYCL support will be enabled for TensorFlow.
+  /usr/local/lib/python3.7/site-packages
+Please input the desired Python library path to use.  Default is [/usr/local/lib/python3.7/site-packages]
 
 Do you wish to build TensorFlow with ROCm support? [y/N]: 
 No ROCm support will be enabled for TensorFlow.
 
-Do you wish to build TensorFlow with CUDA support? [y/N]: Y
+Do you wish to build TensorFlow with CUDA support? [y/N]: y
 CUDA support will be enabled for TensorFlow.
 
-Do you wish to build TensorFlow with TensorRT support? [y/N]: 
-No TensorRT support will be enabled for TensorFlow.
+Do you wish to build TensorFlow with TensorRT support? [y/N]: y
+TensorRT support will be enabled for TensorFlow.
+```
+When you have message like this:
+```sh
+Could not find any NvInferVersion.h matching version '' in any subdirectory:
+        ''
+        'include'
+        'include/cuda'
+        'include/*-linux-gnu'
+        'extras/CUPTI/include'
+        'include/cuda/CUPTI'
+        'local/cuda/extras/CUPTI/include'
+of:
+        '/lib'
+        '/lib/x86_64-linux-gnu'
+        '/usr'
+        '/usr/local/cuda'
+        '/usr/local/cuda-11.0/targets/x86_64-linux/lib'
+```
+Just put the directories below the `of` separated by comma like this:
+```sh
+/lib,/lib/x86_64-linux-gnu,/usr,/usr/local/cuda,/usr/local/cuda,/usr/local/cuda-11.0/targets/x86_64-linux/lib
+```
+Then add them with your TensorRT install directory:
 
-Found CUDA 10.1 in:
-    /usr/local/cuda-10.1/targets/x86_64-linux/lib
-    /usr/local/cuda-10.1/targets/x86_64-linux/include
-Found cuDNN 7 in:
-    /usr/lib/x86_64-linux-gnu
-    /usr/include
+Mine was `/home/tanphatnguyen/TensorRT-7.2.1.6`:
+```sh
+/lib,/lib/x86_64-linux-gnu,/usr,/usr/local/cuda,/usr/local/cuda,/usr/local/cuda-11.0/targets/x86_64-linux/lib,/home/tanphatnguyen/TensorRT-7.2.1.6
+```
+Fill your CUDA, cuDNN, TensorRT version + the above directories into those:
+```sh
+Please specify the CUDA SDK version you want to use. [Leave empty to default to CUDA 10]: 11
 
 
-Please specify a list of comma-separated CUDA compute capabilities you want to build with.
-You can find the compute capability of your device at: https://developer.nvidia.com/cuda-gpus Each capability can be specified as "x.y" or "compute_xy" to include both virtual and binary GPU code, or as "sm_xy" to only include the binary code.
-Please note that each additional compute capability significantly increases your build time and binary size, and that TensorFlow only supports compute capabilities >= 3.5 [Default is: 3.5,7.0]: 6.1
+Please specify the cuDNN version you want to use. [Leave empty to default to cuDNN 7]: 8
 
 
-Do you want to use clang as CUDA compiler? [y/N]: 
-nvcc will be used as CUDA compiler.
-
-Please specify which gcc should be used by nvcc as the host compiler. [Default is /usr/bin/gcc]: 
+Please specify the TensorRT version you want to use. [Leave empty to default to TensorRT 6]: 7
 
 
-Please specify optimization flags to use during compilation when bazel option "--config=opt" is specified [Default is -march=native -Wno-sign-compare]: 
+Please specify the locally installed NCCL version you want to use. [Leave empty to use http://github.com/nvidia/nccl]: 
 
 
-Would you like to interactively configure ./WORKSPACE for Android builds? [y/N]: 
-Not configuring the WORKSPACE for Android builds.
-
-Preconfigured Bazel build configs. You can use any of the below by adding "--config=<>" to your build command. See .bazelrc for more details.
-    --config=mkl            # Build with MKL support.
-    --config=monolithic     # Config for mostly static monolithic build.
-    --config=ngraph         # Build with Intel nGraph support.
-    --config=numa           # Build with NUMA support.
-    --config=dynamic_kernels    # (Experimental) Build kernels into separate shared objects.
-    --config=v2             # Build TensorFlow 2.x instead of 1.x.
-Preconfigured Bazel build configs to DISABLE default on features:
-    --config=noaws          # Disable AWS S3 filesystem support.
-    --config=nogcp          # Disable GCP support.
-    --config=nohdfs         # Disable HDFS support.
-    --config=nonccl         # Disable NVIDIA NCCL support.
-Configuration finished
+Please specify the comma-separated list of base paths to look for CUDA libraries and headers. [Leave empty to use the default]: /lib,/lib/x86_64-linux-gnu,/usr,/usr/local/cuda,/usr/local/cuda,/usr/local/cuda-11.0/targets/x86_64-linux/lib,/home/tanphatnguyen/TensorRT-7.2.1.6
 ```
 
 #### Step 3: Build:
