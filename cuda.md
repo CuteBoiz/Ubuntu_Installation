@@ -6,8 +6,6 @@
 - [II - NIVIDA GPU Driver](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/cuda.md#ii-nvidia-gpu-drivers)
 - [III - CUDA Toolkit](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/cuda.md#iii-cuda-toolkit)
 - [IV - cuDNN](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/cuda.md#iv-cudnn)
-	- [Tar File (*Recommend*)](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/cuda.md#install-with-tar-file)
-	- [Deb File](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/cuda.md#install-with-deb-files)
 - [V - TensorRT](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/cuda.md#v-tensorrt)
 
 ## I. Add NVIDIA package repositories.
@@ -205,28 +203,6 @@ sudo cp cuda/include/cudnn*.h /usr/local/cuda/include
 sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
 
 sudo chmod a+r /usr/local/cuda/include/cudnn*.h /usr/local/cuda/lib64/libcudnn*
-```
-
-### Install with Deb Files:
-- Download 3 **.deb** files for Ubuntu.
-- Install the runtime library, for example: `sudo dpkg -i libcudnn8_x.x.x-1+cudax.x_amd64.deb`
-- Install the developer library, for example: `sudo dpkg -i libcudnn8-dev_8.x.x.x-1+cudax.x_amd64.deb`
-- Install the code samples and the cuDNN library documentation, for example: `sudo dpkg -i libcudnn8-doc_8.x.x.x-1+cudax.x_amd64.deb`
-
-Verify cuDNN Install with deb file:
-
-To verify that cuDNN is installed and is running properly, compile the `mnistCUDNN` sample located in the `/usr/src/cudnn_samples_v8` directory in the Debian file.
-
-```sh
-cp -r /usr/src/cudnn_samples_v8/ $HOME
-cd  $HOME/cudnn_samples_v8/mnistCUDNN
-make clean && make
-./mnistCUDNN
-
-```
-Output:
-```sh 
-Test passed!
 ```
 
 ## V. TensorRT.
