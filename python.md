@@ -158,7 +158,6 @@ jupyter notebook
 ## IV. Popular Packages For Programming
 
 ```sh 
-sudo apt install python3-venv python3-pip python3-tk
 pip install numpy scipy matplotlib
 pip install opencv-python
 ```
