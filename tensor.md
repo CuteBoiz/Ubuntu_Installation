@@ -1,142 +1,114 @@
 # Install Tensorflow & Keras with GPU support
 
-## Table of Content
+## I. Prerequiste
 
-- [NVIDIA GPU Driver](https://github.com/CuteBoiz/Ubuntu/blob/master/tensor.md#i-nvidia-gpu-drivers)
-- [CUDA Toolkit](https://github.com/CuteBoiz/Ubuntu/blob/master/tensor.md#ii-cuda-toolkit)
-- [cuDNN SDK](https://github.com/CuteBoiz/Ubuntu/blob/master/tensor.md#iii-cudnn-sdk)
-- [TensorRT](https://github.com/CuteBoiz/Ubuntu/blob/master/tensor.md#iv-tensorrt)
-- [Tensorflow + Keras](https://github.com/CuteBoiz/Ubuntu/blob/master/tensor.md#v-tensorflow-with-gpu-support)
+### 1. CUDA + cuDNN + TensorRT
 
 
-## I. NVIDIA GPU Drivers.
+### 2. Bazel
 
-***Check NVIDIA Driver Installed:***
-Use `nvidia-smi` to check NVIDIA driver. If your system installed NVIDIA driver, it will look similar to this:
+#### Step 1: Add Bazel distribution URI as a package source:
 ```sh
-Sun Aug 16 12:34:19 2020       
-+-----------------------------------------------------------------------------+
-| NVIDIA-SMI 450.51.06    Driver Version: 450.51.06    CUDA Version: 11.0     |
-|-------------------------------+----------------------+----------------------+
-| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
-| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
-|                               |                      |               MIG M. |
-|===============================+======================+======================|
-|   0  GeForce GTX 950     On   | 00000000:01:00.0  On |                  N/A |
-| 35%   38C    P8    11W /  75W |    330MiB /  1999MiB |      0%      Default |
-|                               |                      |                  N/A |
-+-------------------------------+----------------------+----------------------+
-```                                                                             
-If your system installed NVIDIA driver you **must** skip the NVIDIA GPU Driver Install step. Or it will **conflict**.
-
-***Download & Install:***  
-***!!!MAKE SURE THAT YOUR SYSTEM HAVEN'T INSTALL NVIDIA DRIVER YET***
-
-- Go to [NVIDIA Download Drivers](https://www.nvidia.com/download/index.aspx?lang=en-us)
-- Choose the corresponding OS & GPU
-- **Download**
-- run file `./NVIDIA-Linux-x86_64-4xx.xx.run`
-
-## II. CUDA Toolkit.
-
-***Verify the system has a CUDA-capable GPU.***  
-
-```sh 
-lspci | grep -i nvidia
+sudo apt install curl gnupg
+curl -fsSL https://bazel.build/bazel-release.pub.gpg | gpg --dearmor > bazel.gpg
+sudo mv bazel.gpg /etc/apt/trusted.gpg.d/
+echo "deb [arch=amd64] https://storage.googleapis.com/bazel-apt stable jdk1.8" | sudo tee /etc/apt/sources.list.d/bazel.list
 ```
 
-Output: 
-```sh
-01:00.0 VGA compatible controller: NVIDIA Corporation GM206 [GeForce GTX 950] (rev a1)
-01:00.1 Audio device: NVIDIA Corporation GM206 High Definition Audio Controller (rev a1)
+#### Step 2: Install and update Bazel:
 
+```sh
+sudo apt update && sudo apt install bazel
+sudo apt update && sudo apt full-upgrade
+sudo apt install bazel-3.1.0
 ```
-- If you do not see any settings, update the PCI hardware `update-pciids` then return the previous command.
-
-- If your GPU is from NVIDA and listed in https://developer.nvidia.com/cuda-gpus, your GPU is CUDA-capable.
-
-***Download the NVIDA CUDA Toolkit:*** 
-
-- Go to [NVIDIA CUDA Download Page](https://developer.nvidia.com/cuda-toolkit-archive).
-- Choose CUDA Toolkit **10.1**
-- Choose your corresponding OS.
-- Download the deb(local).
-- Then follow instructions step.
-
-## III. cuDNN SDK.
-
-***Download:***
-
-- Go to [NVIDIA cuDNN home page](https://developer.nvidia.com/cudnn)
-- Click **Download**
-- Complete short survey and click **Submit**
-- Accept the Terms and Conditions.
-- Download 3 **.deb** files for Ubuntu.
-
-
-***Install:***
-
-- Install the runtime library, for example: `sudo dpkg -i libcudnn8_x.x.x-1+cudax.x_amd64.deb`
-- Install the developer library, for example: `sudo dpkg -i libcudnn8-dev_8.x.x.x-1+cudax.x_amd64.deb`
-- Install the code samples and the cuDNN library documentation, for example: `sudo dpkg -i libcudnn8-doc_8.x.x.x-1+cudax.x_amd64.deb`
-
-***Verify cuDNN Install:***
-
-To verify that cuDNN is installed and is running properly, compile the `mnistCUDNN` sample located in the `/usr/src/cudnn_samples_v8` directory in the Debian file.
-
+#### Step 3: Install a JDK (Optional)
 ```sh
-cp -r /usr/src/cudnn_samples_v8/ $HOME
-cd  $HOME/cudnn_samples_v8/mnistCUDNN
-make clean && make
-./mnistCUDNN
+sudo apt install openjdk-11-jdk
+```
 
+## II. Install
+
+#### Step 1: Dowload:
+```sh
+pip install -U --user pip six 'numpy<1.19.0' wheel setuptools mock 'future>=0.17.1' 'gast==0.3.3' typing_extensions
+pip install -U --user keras_applications --no-deps
+pip install -U --user keras_preprocessing --no-deps
+
+git clone https://github.com/tensorflow/tensorflow.git
+cd tensorflow
+```
+
+#### Step 2: Configure:
+```sh
+./configure
 ```
 Output:
-```sh 
-Test passed!
-```
-
-## IV. TensorRT.
-
-***Download:***
-- Go to: [TensorRT Page](https://developer.nvidia.com/tensorrt).
-- Click Download Now.
-- Select the version of TensorRT that you are interested in.
-- Select the check-box to agree to the license terms.
-- Download **.deb** file 
-
-***Install:*** 
-
-Install TensorRT from the Debian local repo package:
 ```sh
-os="ubuntuxx04"
-tag="cudax.x-trt7.x.x.x-ga-yyyymmdd"
-sudo dpkg -i nv-tensorrt-repo-${os}-${tag}_1-1_amd64.deb
-sudo apt-key add /var/nv-tensorrt-repo-${tag}/7fa2af80.pub
+You have bazel 3.0.0 installed.
+Please specify the location of python. [Default is /usr/bin/python3]: 
 
-sudo apt-get update
-sudo apt-get install tensorrt cuda-nvrtc-x-y
+
+Found possible Python library paths:
+  /usr/lib/python3/dist-packages
+  /usr/local/lib/python3.6/dist-packages
+Please input the desired Python library path to use.  Default is [/usr/lib/python3/dist-packages]
+
+Do you wish to build TensorFlow with OpenCL SYCL support? [y/N]: 
+No OpenCL SYCL support will be enabled for TensorFlow.
+
+Do you wish to build TensorFlow with ROCm support? [y/N]: 
+No ROCm support will be enabled for TensorFlow.
+
+Do you wish to build TensorFlow with CUDA support? [y/N]: Y
+CUDA support will be enabled for TensorFlow.
+
+Do you wish to build TensorFlow with TensorRT support? [y/N]: 
+No TensorRT support will be enabled for TensorFlow.
+
+Found CUDA 10.1 in:
+    /usr/local/cuda-10.1/targets/x86_64-linux/lib
+    /usr/local/cuda-10.1/targets/x86_64-linux/include
+Found cuDNN 7 in:
+    /usr/lib/x86_64-linux-gnu
+    /usr/include
+
+
+Please specify a list of comma-separated CUDA compute capabilities you want to build with.
+You can find the compute capability of your device at: https://developer.nvidia.com/cuda-gpus Each capability can be specified as "x.y" or "compute_xy" to include both virtual and binary GPU code, or as "sm_xy" to only include the binary code.
+Please note that each additional compute capability significantly increases your build time and binary size, and that TensorFlow only supports compute capabilities >= 3.5 [Default is: 3.5,7.0]: 6.1
+
+
+Do you want to use clang as CUDA compiler? [y/N]: 
+nvcc will be used as CUDA compiler.
+
+Please specify which gcc should be used by nvcc as the host compiler. [Default is /usr/bin/gcc]: 
+
+
+Please specify optimization flags to use during compilation when bazel option "--config=opt" is specified [Default is -march=native -Wno-sign-compare]: 
+
+
+Would you like to interactively configure ./WORKSPACE for Android builds? [y/N]: 
+Not configuring the WORKSPACE for Android builds.
+
+Preconfigured Bazel build configs. You can use any of the below by adding "--config=<>" to your build command. See .bazelrc for more details.
+    --config=mkl            # Build with MKL support.
+    --config=monolithic     # Config for mostly static monolithic build.
+    --config=ngraph         # Build with Intel nGraph support.
+    --config=numa           # Build with NUMA support.
+    --config=dynamic_kernels    # (Experimental) Build kernels into separate shared objects.
+    --config=v2             # Build TensorFlow 2.x instead of 1.x.
+Preconfigured Bazel build configs to DISABLE default on features:
+    --config=noaws          # Disable AWS S3 filesystem support.
+    --config=nogcp          # Disable GCP support.
+    --config=nohdfs         # Disable HDFS support.
+    --config=nonccl         # Disable NVIDIA NCCL support.
+Configuration finished
 ```
-Where `x-y` for `cuda-nvrtc` is either `10-2` or `11-0`.
 
-```
-sudo apt-get install python3-libnvinfer-dev
-sudo apt-get install uff-converter-tf
-```
-
-## V. Tensorflow with GPU support. 
-
+#### Step 3: Build:
 ```sh
-pip install tensorflow-gpu
-pip install keras
+bazel build --config=cuda --local_cpu_resources=HOST_CPUS-2 //tensorflow/tools/pip_package:build_pip_package
 ```
-
-
-
-
-
-
-
-
 
 
