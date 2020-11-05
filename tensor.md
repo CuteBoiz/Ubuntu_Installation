@@ -1,9 +1,10 @@
-# Install Tensorflow & Keras with GPU support
+# Install Tensorflow-GPU support With Unsupport CUDA Version
 
 ## I. Prerequiste
 
 ### 1. CUDA + cuDNN + TensorRT
 
+Follow [This](https://github.com/CuteBoiz/UbuntuGuide/blob/master/cuda.md)
 
 ### 2. Bazel
 
@@ -118,7 +119,7 @@ Found TensorRT 7 in:
     /home/tanphatnguyen/TensorRT-7.2.1.6/include
 ```
 
-**Keep Configure: **
+**Keep Configure:**
 ```sh
 Please specify a list of comma-separated CUDA compute capabilities you want to build with.
 You can find the compute capability of your device at: https://developer.nvidia.com/cuda-gpus. Each capability can be specified as "x.y" or "compute_xy" to include both virtual and binary GPU code, or as "sm_xy" to only include the binary code.
