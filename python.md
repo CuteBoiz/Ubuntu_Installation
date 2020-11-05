@@ -109,7 +109,7 @@ sudo chmod 777 temp.linux-x86_64-3.8
 - **Install Prerequistes**
 	
 ```sh
-sudo apt-get install build-essential libssl-dev libffi-dev python-dev
+sudo apt-get install build-essential libssl-dev libffi-dev
 sudo apt-get update
 sudo pip3 install --upgrade pip 
 sudo apt install python3-pip
