@@ -1,4 +1,4 @@
-# UBUNTU Guides
+# Thing To Do After Install Ubuntu
 
 ```sh
 Installation & Basic Turtorial for some Popular Applications.
@@ -8,7 +8,7 @@ Installation & Basic Turtorial for some Popular Applications.
 
 ### I. Basic.
 
-- [Prerequiste Programs](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/prerequiste.md)
+- [Popular Programs](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/prerequiste.md)
 
 - [C Compiler](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/c.md)
 
@@ -28,7 +28,7 @@ Installation & Basic Turtorial for some Popular Applications.
 
 - [Cuda + cuDNN + TensorRT](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/cuda.md)
 
-- [Tensorflow From Source](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/tensorflow.md)
+- [ Install Tensorflow-GPU With Unsupport CUDA Version](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/tensorflow.md)
 
 ### III. Clean Cache
 
