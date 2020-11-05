@@ -8,27 +8,27 @@ Installation & Basic Turtorial for some Popular Applications.
 
 ### I. Basic.
 
-- [Prerequiste Programs](https://github.com/CuteBoiz/Ubuntu/blob/master/prerequiste.md)
+- [Prerequiste Programs](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/prerequiste.md)
 
-- [C Compiler](https://github.com/CuteBoiz/Ubuntu/blob/master/c.md)
+- [C Compiler](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/c.md)
 
-- [Git Bash](https://github.com/CuteBoiz/Ubuntu/blob/master/git.md)
+- [Git Bash](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/git.md)
 
-- [Install Python 3 From Source](https://github.com/CuteBoiz/Ubuntu/blob/master/python.md)
+- [Install Python 3 From Source](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/python.md)
 
-- [Sublime Text 3](https://github.com/CuteBoiz/Ubuntu/blob/master/sublime.md)
+- [Sublime Text 3](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/sublime.md)
 
-- [Customize Terminal](https://github.com/CuteBoiz/Ubuntu/blob/master/terminal.md)
+- [Customize Terminal](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/terminal.md)
 
 ### II. Advanced.
 
-- [Miniconda](https://github.com/CuteBoiz/Ubuntu/blob/master/conda.md)
+- [Miniconda](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/conda.md)
 
-- [Docker](https://github.com/CuteBoiz/Ubuntu/blob/master/docker.md)
+- [Docker](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/docker.md)
 
-- [Cuda + cuDNN + TensorRT](https://github.com/CuteBoiz/Ubuntu/blob/master/cuda.md)
+- [Cuda + cuDNN + TensorRT](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/cuda.md)
 
-- [Tensorflow From Source](https://github.com/CuteBoiz/Ubuntu/blob/master/tensorflow.md)
+- [Tensorflow From Source](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/tensorflow.md)
 
 ### III. Clean Cache
 

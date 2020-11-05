@@ -2,13 +2,13 @@
 
 ## Content 
 
-- [I - NVIDIA package](https://github.com/CuteBoiz/UbuntuGuide/blob/master/cuda.md#i-add-nvidia-package-repositories)
-- [II - NIVIDA GPU Driver](https://github.com/CuteBoiz/UbuntuGuide/blob/master/cuda.md#ii-nvidia-gpu-drivers)
-- [III - CUDA Toolkit](https://github.com/CuteBoiz/UbuntuGuide/blob/master/cuda.md#iii-cuda-toolkit)
-- [IV - cuDNN](https://github.com/CuteBoiz/UbuntuGuide/blob/master/cuda.md#iv-cudnn)
-	- [Tar File (*Recommend*)](https://github.com/CuteBoiz/UbuntuGuide/blob/master/cuda.md#install-with-tar-file)
-	- [Deb File](https://github.com/CuteBoiz/UbuntuGuide/blob/master/cuda.md#install-with-deb-files)
-- [V - TensorRT](https://github.com/CuteBoiz/UbuntuGuide/blob/master/cuda.md#v-tensorrt)
+- [I - NVIDIA package](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/cuda.md#i-add-nvidia-package-repositories)
+- [II - NIVIDA GPU Driver](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/cuda.md#ii-nvidia-gpu-drivers)
+- [III - CUDA Toolkit](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/cuda.md#iii-cuda-toolkit)
+- [IV - cuDNN](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/cuda.md#iv-cudnn)
+	- [Tar File (*Recommend*)](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/cuda.md#install-with-tar-file)
+	- [Deb File](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/cuda.md#install-with-deb-files)
+- [V - TensorRT](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/cuda.md#v-tensorrt)
 
 ## I. Add NVIDIA package repositories.
 
