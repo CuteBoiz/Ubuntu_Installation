@@ -9,8 +9,6 @@
 	- [Tar File (*Recommend*)](https://github.com/CuteBoiz/UbuntuGuide/blob/master/cuda.md#install-with-tar-file)
 	- [Deb File](https://github.com/CuteBoiz/UbuntuGuide/blob/master/cuda.md#install-with-deb-files)
 - [V - TensorRT](https://github.com/CuteBoiz/UbuntuGuide/blob/master/cuda.md#v-tensorrt)
-	- [Deb File (*Recommend*)]()
-	- [Tar File]()
 
 ## I. Add NVIDIA package repositories.
 
@@ -232,13 +230,6 @@ Test passed!
 ```
 
 ## V. TensorRT.
-
-### Prerequisted:
-```sh
-sudo apt-get install python3-libnvinfer-dev
-sudo apt install libnvinfer-plugin-dev
-
-```
 
 ### Download:
 - Go to: [TensorRT Page](https://developer.nvidia.com/tensorrt).
