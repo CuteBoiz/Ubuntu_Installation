@@ -161,3 +161,8 @@ jupyter notebook
 pip install numpy scipy matplotlib
 pip install opencv-python
 ```
+bcolz:
+```sh
+export DISABLE_BCOLZ_AVX2=true
+pip install bcolz
+```
