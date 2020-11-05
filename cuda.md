@@ -6,9 +6,11 @@
 - [II - NIVIDA GPU Driver](https://github.com/CuteBoiz/UbuntuGuide/blob/master/cuda.md#ii-nvidia-gpu-drivers)
 - [III - CUDA Toolkit](https://github.com/CuteBoiz/UbuntuGuide/blob/master/cuda.md#iii-cuda-toolkit)
 - [IV - cuDNN](https://github.com/CuteBoiz/UbuntuGuide/blob/master/cuda.md#iv-cudnn)
-	- [Tar File](https://github.com/CuteBoiz/UbuntuGuide/blob/master/cuda.md#install-with-tar-file)
+	- [Tar File (*Recommend*)](https://github.com/CuteBoiz/UbuntuGuide/blob/master/cuda.md#install-with-tar-file)
 	- [Deb File](https://github.com/CuteBoiz/UbuntuGuide/blob/master/cuda.md#install-with-deb-files)
-- [V -TensorRT](https://github.com/CuteBoiz/UbuntuGuide/blob/master/cuda.md#v-tensorrt)
+- [V - TensorRT](https://github.com/CuteBoiz/UbuntuGuide/blob/master/cuda.md#v-tensorrt)
+	- [Deb File (*Recommend*)]()
+	- [Tar File]()
 
 ## I. Add NVIDIA package repositories.
 
@@ -243,9 +245,12 @@ sudo apt install libnvinfer-plugin-dev
 - Click Download Now.
 - Select the version of TensorRT that you are interested in.
 - Select the check-box to agree to the license terms.
-- Download TAR package with corresponding CUDA ToolkitVersion.
+- Download Deb or TAR package with corresponding CUDA ToolkitVersion.
 
-### Install:
+### Install with Deb File:
+
+
+### Install with Tar File:
 
 #### Step 1: Unzip:
 ```sh 
