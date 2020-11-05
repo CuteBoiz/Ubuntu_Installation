@@ -30,6 +30,13 @@ Installation & Basic Turtorial for some Popular Applications.
 
 - [Tensorflow From Source](https://github.com/CuteBoiz/Ubuntu/blob/master/tensorflow.md)
 
+### III. Clean Cache
+
+```sh
+sudo du -sh /var/cache/apt/archives
+sudo apt clean
+```
+
 ***Hope you guys enjoy it!!***
 
 *--[Tan Phat Nguyen](https://github.com/CuteBoiz)--*
