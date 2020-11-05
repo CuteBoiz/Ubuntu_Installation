@@ -10,13 +10,13 @@ Installation & Basic Turtorial for some Popular Applications.
 
 - [Popular Programs](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/prerequiste.md)
 
-- [C Compiler](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/c.md)
+- [C/C++ Compiler](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/c.md)
 
 - [Git Bash](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/git.md)
 
 - [Install Python 3 From Source](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/python.md)
 
-- [Sublime Text 3](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/sublime.md)
+- [Sublime Text 3 Packages](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/sublime.md)
 
 - [Customize Terminal](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/terminal.md)
 
