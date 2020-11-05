@@ -43,7 +43,7 @@ cd tensorflow
 ```sh
 ./configure
 ```
-You will see those message:
+**You will receive those message:**
 ```sh
 You have bazel 3.1.0 installed.
 Please specify the location of python. [Default is /usr/local/bin/python3]: 
@@ -62,7 +62,7 @@ CUDA support will be enabled for TensorFlow.
 Do you wish to build TensorFlow with TensorRT support? [y/N]: y
 TensorRT support will be enabled for TensorFlow.
 ```
-When you have message like this:
+**When you receive message:**
 ```sh
 Could not find any NvInferVersion.h matching version '' in any subdirectory:
         ''
@@ -79,17 +79,17 @@ of:
         '/usr/local/cuda'
         '/usr/local/cuda-11.0/targets/x86_64-linux/lib'
 ```
-Just put the directories below the `of` separated by comma like this:
+**Just put the directories below the `of` separated by comma like this:**
 ```sh
 /lib,/lib/x86_64-linux-gnu,/usr,/usr/local/cuda,/usr/local/cuda,/usr/local/cuda-11.0/targets/x86_64-linux/lib
 ```
-Then add them with your TensorRT install directory:
+**Then add them with your TensorRT install directory:**
 
 Mine was `/home/tanphatnguyen/TensorRT-7.2.1.6`:
 ```sh
 /lib,/lib/x86_64-linux-gnu,/usr,/usr/local/cuda,/usr/local/cuda,/usr/local/cuda-11.0/targets/x86_64-linux/lib,/home/tanphatnguyen/TensorRT-7.2.1.6
 ```
-Fill your CUDA, cuDNN, TensorRT version + the above directories into those:
+**Fill your CUDA, cuDNN, TensorRT version + the above directories into those:**
 ```sh
 Please specify the CUDA SDK version you want to use. [Leave empty to default to CUDA 10]: 11
 
@@ -104,6 +104,38 @@ Please specify the locally installed NCCL version you want to use. [Leave empty 
 
 
 Please specify the comma-separated list of base paths to look for CUDA libraries and headers. [Leave empty to use the default]: /lib,/lib/x86_64-linux-gnu,/usr,/usr/local/cuda,/usr/local/cuda,/usr/local/cuda-11.0/targets/x86_64-linux/lib,/home/tanphatnguyen/TensorRT-7.2.1.6
+```
+**Success Message:**
+```sh
+Found CUDA 11.0 in:
+    /usr/local/cuda-11.0/targets/x86_64-linux/lib
+    /usr/local/cuda-11.0/targets/x86_64-linux/include
+Found cuDNN 8 in:
+    /usr/local/cuda-11.0/targets/x86_64-linux/lib
+    /usr/local/cuda-11.0/targets/x86_64-linux/include
+Found TensorRT 7 in:
+    /home/tanphatnguyen/TensorRT-7.2.1.6/targets/x86_64-linux-gnu/lib
+    /home/tanphatnguyen/TensorRT-7.2.1.6/include
+```
+
+**Keep Configure: **
+```sh
+Please specify a list of comma-separated CUDA compute capabilities you want to build with.
+You can find the compute capability of your device at: https://developer.nvidia.com/cuda-gpus. Each capability can be specified as "x.y" or "compute_xy" to include both virtual and binary GPU code, or as "sm_xy" to only include the binary code.
+Please note that each additional compute capability significantly increases your build time and binary size, and that TensorFlow only supports compute capabilities >= 3.5 [Default is: 5.2]: 
+
+
+Do you want to use clang as CUDA compiler? [y/N]: 
+nvcc will be used as CUDA compiler.
+
+Please specify which gcc should be used by nvcc as the host compiler. [Default is /usr/bin/gcc]: 
+
+
+Please specify optimization flags to use during compilation when bazel option "--config=opt" is specified [Default is -march=native -Wno-sign-compare]: 
+
+
+Would you like to interactively configure ./WORKSPACE for Android builds? [y/N]: 
+Not configuring the WORKSPACE for Android builds.
 ```
 
 #### Step 3: Build:
