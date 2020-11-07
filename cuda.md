@@ -74,42 +74,42 @@ sudo apt-get update
 
 	- ***Step 2: Disable the Nouveau drivers.***
 
-		- The Nouveau drivers are loaded if the following command prints anything: `lsmod | grep nouveau`
+		The Nouveau drivers are loaded if the following command prints anything: `lsmod | grep nouveau`
 
-		- Create a file at `/etc/modprobe.d/blacklist-nouveau.conf` with content:
+		Create a file at `/etc/modprobe.d/blacklist-nouveau.conf` with content:
 			```sh
 			blacklist nouveau
 			options nouveau modeset=0
 			```
 
-		- Regenerate the kernel initramfs: `sudo update-initramfs -u`
+		Regenerate the kernel initramfs: `sudo update-initramfs -u`
 
 	- ***Step 3: Reboot into text mode.***
 
-		- You must reboot into text mode to install CUDA 
+		You must reboot into text mode to install CUDA 
 			```
 			sudo cp -n /etc/default/grub /etc/default/grub.backup
 			sudo gedit /etc/default/grub
 			```
-		- When the files opens, do:
+		When the files opens, do:
 			- adding `#` to `GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"`
 
 			- set `GRUB_CMDLINE_LINUX=""` to `GRUB_CMDLINE_LINUX="text"`
 
 			- remove `#` to `GRUB_TERMINAL="console"`
 
-		- Save the file and apply change:
+		Save the file and apply change:
 			```sh
 			sudo update-grub
 			sudo systemctl set-default multi-user.target
 			```
-		- After reboot type your `username` and `password` to enter text mode.
+		After reboot type your `username` and `password` to enter text mode.
 
 	- ***Step 4: Install.***
 
-		- Go to downloaded CUDA then run: `sudo sh cuda_<version>_linux.run`
+		Go to downloaded CUDA then run: `sudo sh cuda_<version>_linux.run`
 
-		- ***Deselect NVIDIA Driver.***  Wait for the installing complete then perfrom the below step to back to graphic mode
+		***Deselect NVIDIA Driver.***  Wait for the installing complete then perfrom the below step to back to graphic mode
 
 	- ***Step 5: Reboot into graphic mode.***
 		```sh
@@ -121,7 +121,7 @@ sudo apt-get update
 
 	- ***Step 6: Device Node Verification.***
 
-		- Add those code to `~/.bashrc` by `gedit ~/.bashrc` 
+		Add those code to `~/.bashrc` by `gedit ~/.bashrc` 
 
 			```sh 
 			#!/bin/bash
@@ -159,7 +159,7 @@ sudo apt-get update
 
 	- ***Step 7: Add to $PATH.***
 
-		- Add those code to `~/.bashrc` by `gedit ~/.bashrc` 
+		Add those code to `~/.bashrc` by `gedit ~/.bashrc` 
 		```sh
 		for CUDA_BIN_DIR in `find /usr/local/cuda-*/bin   -maxdepth 0`; do export PATH="$PATH:$CUDA_BIN_DIR"; done;
 		for CUDA_LIB_DIR in `find /usr/local/cuda-*/lib64 -maxdepth 0`; do export LD_LIBRARY_PATH="${LD_LIBRARY_PATH:+${LD_LIBRARY_PATH}:}$CUDA_LIB_DIR"; done;
@@ -213,14 +213,14 @@ sudo apt-get update
 	export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:<TensorRT-${version}/lib>
 	```
 
-  - ***Step 2: Install the Python TensorRT wheel file.***
+  - ***Step 2: Install the Python `TensorRT` wheel file.***
 	Choose the Python version using in your system: (mine was 3.7)
 	```sh
 	cd TensorRT-${version}/python
 	sudo pip3 install tensorrt-*-cp37-none-linux_x86_64.whl
 	```
 
-  - ***Step 3: Install the Python UFF wheel file.***
+  - ***Step 3: Install the Python `UFF` wheel file.***
 	```sh
 	cd ../uff
 	sudo pip3 install uff-0.6.9-py2.py3-none-any.whl
