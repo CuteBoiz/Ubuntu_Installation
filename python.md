@@ -18,7 +18,7 @@ wget https://www.python.org/ftp/python/3.7.4/Python-3.7.4.tgz
 ```
 Extract the source: `tar -xvf Python-3.7.4.tgz`
 
-<p><i>Note:</i> You should extract to home directory because you must keep this folder</p>
+<u><i>Note:</i></u> You should extract to home directory because you must keep this folder
 
 - **Install Prerequistes (IMPORTANT)**
 
