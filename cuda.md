@@ -171,9 +171,9 @@ sudo apt-get update
 		```
 
   - ***Step 8: Verify Installation.***
-```sh 
-cat /proc/driver/nvidia/version
-```
+	```sh 
+	cat /proc/driver/nvidia/version
+	```
 
 ## IV. cuDNN.
 
