@@ -74,42 +74,43 @@ sudo apt-get update
 
 	- ***Step 2: Disable the Nouveau drivers.***
 
-		The Nouveau drivers are loaded if the following command prints anything: `lsmod | grep nouveau`
+		- The Nouveau drivers are loaded if the following command prints anything: `lsmod | grep nouveau`
 
-		Create a file at `/etc/modprobe.d/blacklist-nouveau.conf` with content:
-			```sh
-			blacklist nouveau
-			options nouveau modeset=0
-			```
+		- Create a file at `/etc/modprobe.d/blacklist-nouveau.conf` with content:
 
-		Regenerate the kernel initramfs: `sudo update-initramfs -u`
+		```sh
+		blacklist nouveau
+		options nouveau modeset=0
+		```
+
+		- Regenerate the kernel initramfs: `sudo update-initramfs -u`
 
 	- ***Step 3: Reboot into text mode.***
 
-		You must reboot into text mode to install CUDA 
-			```
-			sudo cp -n /etc/default/grub /etc/default/grub.backup
-			sudo gedit /etc/default/grub
-			```
-		When the files opens, do:
+		- You must reboot into text mode to install CUDA 
+		```
+		sudo cp -n /etc/default/grub /etc/default/grub.backup
+		sudo gedit /etc/default/grub
+		```
+		- When the files opens, do:
 			- adding `#` to `GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"`
 
 			- set `GRUB_CMDLINE_LINUX=""` to `GRUB_CMDLINE_LINUX="text"`
 
 			- remove `#` to `GRUB_TERMINAL="console"`
 
-		Save the file and apply change:
+		- Save the file and apply change:
 			```sh
 			sudo update-grub
 			sudo systemctl set-default multi-user.target
 			```
-		After reboot type your `username` and `password` to enter text mode.
+		- After reboot type your `username` and `password` to enter text mode.
 
 	- ***Step 4: Install.***
 
-		Go to downloaded CUDA then run: `sudo sh cuda_<version>_linux.run`
+		- Go to downloaded CUDA then run: `sudo sh cuda_<version>_linux.run`
 
-		***Deselect NVIDIA Driver.***  Wait for the installing complete then perfrom the below step to back to graphic mode
+		- ***Deselect NVIDIA Driver.***  Wait for the installing complete then perfrom the below step to back to graphic mode
 
 	- ***Step 5: Reboot into graphic mode.***
 		```sh
@@ -121,45 +122,45 @@ sudo apt-get update
 
 	- ***Step 6: Device Node Verification.***
 
-		Add those code to `~/.bashrc` by `gedit ~/.bashrc` 
+		- Add those code to `~/.bashrc` by `gedit ~/.bashrc` 
 
-			```sh 
-			#!/bin/bash
+		```sh 
+		#!/bin/bash
 
-			/sbin/modprobe nvidia
+		/sbin/modprobe nvidia
 
-			if [ "$?" -eq 0 ]; then
-			  # Count the number of NVIDIA controllers found.
-			  NVDEVS=`lspci | grep -i NVIDIA`
-			  N3D=`echo "$NVDEVS" | grep "3D controller" | wc -l`
-			  NVGA=`echo "$NVDEVS" | grep "VGA compatible controller" | wc -l`
+		if [ "$?" -eq 0 ]; then
+		  # Count the number of NVIDIA controllers found.
+		  NVDEVS=`lspci | grep -i NVIDIA`
+		  N3D=`echo "$NVDEVS" | grep "3D controller" | wc -l`
+		  NVGA=`echo "$NVDEVS" | grep "VGA compatible controller" | wc -l`
 
-			  N=`expr $N3D + $NVGA - 1`
-			  for i in `seq 0 $N`; do
-			    mknod -m 666 /dev/nvidia$i c 195 $i
-			  done
+		  N=`expr $N3D + $NVGA - 1`
+		  for i in `seq 0 $N`; do
+		    mknod -m 666 /dev/nvidia$i c 195 $i
+		  done
 
-			  mknod -m 666 /dev/nvidiactl c 195 255
+		  mknod -m 666 /dev/nvidiactl c 195 255
 
-			else
-			  exit 1
-			fi
+		else
+		  exit 1
+		fi
 
-			/sbin/modprobe nvidia-uvm
+		/sbin/modprobe nvidia-uvm
 
-			if [ "$?" -eq 0 ]; then
-			  # Find out the major device number used by the nvidia-uvm driver
-			  D=`grep nvidia-uvm /proc/devices | awk '{print $1}'`
+		if [ "$?" -eq 0 ]; then
+		  # Find out the major device number used by the nvidia-uvm driver
+		  D=`grep nvidia-uvm /proc/devices | awk '{print $1}'`
 
-			  mknod -m 666 /dev/nvidia-uvm c $D 0
-			else
-			  exit 1
-			fi
-			```
+		  mknod -m 666 /dev/nvidia-uvm c $D 0
+		else
+		  exit 1
+		fi
+		```
 
 	- ***Step 7: Add to $PATH.***
 
-		Add those code to `~/.bashrc` by `gedit ~/.bashrc` 
+		- Add those code to `~/.bashrc` by `gedit ~/.bashrc` 
 		```sh
 		for CUDA_BIN_DIR in `find /usr/local/cuda-*/bin   -maxdepth 0`; do export PATH="$PATH:$CUDA_BIN_DIR"; done;
 		for CUDA_LIB_DIR in `find /usr/local/cuda-*/lib64 -maxdepth 0`; do export LD_LIBRARY_PATH="${LD_LIBRARY_PATH:+${LD_LIBRARY_PATH}:}$CUDA_LIB_DIR"; done;
