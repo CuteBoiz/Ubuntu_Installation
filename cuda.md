@@ -22,7 +22,7 @@ sudo apt-get update
 
 ## II. NVIDIA GPU Drivers.
 
-### Check NVIDIA Driver Installed:
+- **Step 1: Check NVIDIA Driver Installed:**
 Use `nvidia-smi` to check NVIDIA driver. If your system installed NVIDIA driver, it looked similar to this:
 ```sh
 Sun Aug 16 12:34:19 2020       
@@ -40,21 +40,22 @@ Sun Aug 16 12:34:19 2020
 ```                                                                             
 If your system installed NVIDIA driver you **must** skip the NVIDIA GPU Driver Install step. Or it will **conflict**.
 
-### Download & Install: 
+-  **Step 2: Download & Install:** 
 `!!!MAKE SURE THAT YOUR SYSTEM HAVEN'T INSTALL NVIDIA DRIVER YET`
 
-- Go to [NVIDIA Download Drivers](https://www.nvidia.com/download/index.aspx?lang=en-us)
-- Choose the corresponding OS & GPU
+  - Go to [NVIDIA Download Drivers](https://www.nvidia.com/download/index.aspx?lang=en-us)
+  - Choose the corresponding OS & GPU
 
-- run file `./NVIDIA-Linux-x86_64-4xx.xx.run`
+  - run `./NVIDIA-Linux-x86_64-4xx.xx.run`
 
+  - reboot
 
 ## III. CUDA Toolkit.
 
-### Download CUDA Toolkit:
+- **Download CUDA Toolkit:**
 
--  Go to [NVIDIA CUDA Download Page](https://developer.nvidia.com/cuda-toolkit-archive)
-- [Linux] -> [x86_64] -> [Ubuntu] -> [x0.04] -> [runfile(local)]
+  -  Go to [NVIDIA CUDA Download Page](https://developer.nvidia.com/cuda-toolkit-archive)
+  - [Linux] -> [x86_64] -> [Ubuntu] -> [x0.04] -> [runfile(local)]
 
 They will give you a intruction like this:
 ```sh
@@ -63,15 +64,16 @@ $ sudo sh cuda_11.1.1_455.32.00_linux.run
 ```
 ***Note:*** Make sure that you have the correct NVIDIA Driver version with this: cuda_11.1.1_`4xx`.xx.00_linux.run
 
-### Install:
+- **Install:**
 
-#### Step 1: Verify the System has the Correct Kernel Headers and Development Packages Installed.
+  - ***Step 1: Verify the System has the Correct Kernel Headers and Development Packages Installed.***
+  
 ```sh
 uname -r
 sudo apt-get install linux-headers-$(uname -r)
 ```
 
-#### Step 2: Disable the Nouveau drivers.
+ - ***Step 2: Disable the Nouveau drivers.***
 
 The Nouveau drivers are loaded if the following command prints anything:
 `lsmod | grep nouveau`
@@ -87,7 +89,7 @@ Regenerate the kernel initramfs:
 
 `sudo update-initramfs -u`
 
-#### Step 3: Reboot into text mode.
+  - ***Step 3: Reboot into text mode.***
 
 You must reboot into text mode to install CUDA 
 ```
@@ -108,14 +110,14 @@ sudo systemctl set-default multi-user.target
 ```
 After reboot type your `username` and `password` to enter text mode.
 
-#### Step 4: Install.
+  - ***Step 4: Install.***
 
 Go to downloaded CUDA then run:
 `sudo sh cuda_<version>_linux.run`
 
 ***Deselect NVIDIA Driver.***  Wait for the installing complete then perfrom the below step to back to graphic mode
 
-#### Step 5: Reboot into graphic mode.
+  - ***Step 5: Reboot into graphic mode.***
 ```sh
 sudo mv /etc/default/grub.backup /etc/default/grub
 sudo update-grub
@@ -123,7 +125,7 @@ sudo systemctl set-default graphical.target
 sudo reboot
 ```
 
-#### Step 6: Device Node Verification.
+  - ***Step 6: Device Node Verification.***
 
 Add those code to `~/.bashrc` by `gedit ~/.bashrc` 
 ```sh 
@@ -160,7 +162,7 @@ else
 fi
 ```
 
-#### Step 7: Add to $PATH.
+  - ***Step 7: Add to $PATH.***
 Add those code to `~/.bashrc` by `gedit ~/.bashrc` 
 ```sh
 for CUDA_BIN_DIR in `find /usr/local/cuda-*/bin   -maxdepth 0`; do export PATH="$PATH:$CUDA_BIN_DIR"; done;
@@ -172,23 +174,23 @@ export LD_LIBRARY_PATH=`echo $LD_LIBRARY_PATH | tr ':' '\n' | awk '!x[$0]++' | t
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/extras/CUPTI/lib64
 ```
 
-#### Step 8: Verify Installation.
+  - ***Step 8: Verify Installation.***
 ```sh 
 cat /proc/driver/nvidia/version
 ```
 
 ## IV. cuDNN.
 
-### Download :
+- **Download:**
 
-- Go to [NVIDIA cuDNN home page](https://developer.nvidia.com/cudnn)
-- Click **Download**
-- Complete short survey and click **Submit**
-- Accept the Terms and Conditions.
-- **Choose the corresponding version with your CUDA Toolkit Version(Important)**
-- Download the ***cuDNN Library for Linux (x86_64)***
+  - Go to [NVIDIA cuDNN home page](https://developer.nvidia.com/cudnn)
+  - Click **Download**
+  - Complete short survey and click **Submit**
+  - Accept the Terms and Conditions.
+  - **Choose the corresponding version with your CUDA Toolkit Version(Important)**
+  - Download the ***cuDNN Library for Linux (x86_64)***
 
-### Install with Tar File:
+- ***Install:***
 ```sh 
 tar -xzvf cudnn-x.x-linux-x64-v8.x.x.x.tgz
 sudo cp cuda/include/cudnn*.h /usr/local/cuda/include
@@ -199,23 +201,23 @@ sudo chmod a+r /usr/local/cuda/include/cudnn*.h /usr/local/cuda/lib64/libcudnn*
 
 ## V. TensorRT.
 
-### Download:
-- Go to: [TensorRT Page](https://developer.nvidia.com/tensorrt).
-- Click Download Now.
-- Select the version of TensorRT that you are interested in.
-- Select the check-box to agree to the license terms.
-- Download ***TAR*** package with corresponding CUDA ToolkitVersion.
+- **Download:**
+  - Go to: [TensorRT Page](https://developer.nvidia.com/tensorrt).
+  - Click Download Now.
+  - Select the version of TensorRT that you are interested in.
+  - Select the check-box to agree to the license terms.
+  - Download ***TAR*** package with corresponding CUDA ToolkitVersion.
 
-### Install with Tar File:
+- **Install with Tar File:**
 
-#### Step 1: Unzip:
+  - ***Step 1: Unzip.***
 ```sh 
 tar xzvf TensorRT-7.x.x.x......
 version="7.x.x.x" #replace x with your TensorRT Version
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:<TensorRT-${version}/lib>
 ```
 
-#### Step 2: Install the Python `TensorRT` wheel file:
+  - ***Step 2: Install the Python TensorRT wheel file.***
 Choose the Python version using in your system: (mine was 3.7)
 ```sh
 cd TensorRT-${version}/python
@@ -223,20 +225,20 @@ sudo pip3 install tensorrt-*-cp37-none-linux_x86_64.whl
 
 ```
 
-#### Step 3: Install the Python `UFF` wheel file:
+  - ***Step 3: Install the Python UFF wheel file.***
 ```sh
 cd ../uff
 sudo pip3 install uff-0.6.9-py2.py3-none-any.whl
 
 ```
 
-#### Step 4: Install the Python `graphsurgeo` wheel file:
+  - ***Step 4: Install the Python `graphsurgeo` wheel file.***
 ```sh 
 cd ../graphsurgeon
 sudo pip3 install graphsurgeon-0.4.5-py2.py3-none-any.whl
 ```
 
-#### Step 5: Install the Python `onnx-graphsurgeon` wheel file:
+  - ***Step 5: Install the Python `onnx-graphsurgeon` wheel file.***
 ```sh 
 cd ../onnx_graphsurgeon
 sudo pip3 install onnx_graphsurgeon-0.2.6-py2.py3-none-any.whl
