@@ -23,22 +23,22 @@ sudo apt-get update
 ## II. NVIDIA GPU Drivers.
 
 - **Step 1: Check NVIDIA Driver Installed:**
-Use `nvidia-smi` to check NVIDIA driver. If your system installed NVIDIA driver, it looked similar to this:
-```sh
-Sun Aug 16 12:34:19 2020       
-+-----------------------------------------------------------------------------+
-| NVIDIA-SMI 450.51.06    Driver Version: 450.51.06    CUDA Version: 11.0     |
-|-------------------------------+----------------------+----------------------+
-| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
-| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
-|                               |                      |               MIG M. |
-|===============================+======================+======================|
-|   0  GeForce GTX 950     On   | 00000000:01:00.0  On |                  N/A |
-| 35%   38C    P8    11W /  75W |    330MiB /  1999MiB |      0%      Default |
-|                               |                      |                  N/A |
-+-------------------------------+----------------------+----------------------+
-```                                                                             
-If your system installed NVIDIA driver you **must** skip the NVIDIA GPU Driver Install step. Or it will **conflict**.
+	Use `nvidia-smi` to check NVIDIA driver. If your system installed NVIDIA driver, it looked similar to this:
+	```sh
+	Sun Aug 16 12:34:19 2020       
+	+-----------------------------------------------------------------------------+
+	| NVIDIA-SMI 450.51.06    Driver Version: 450.51.06    CUDA Version: 11.0     |
+	|-------------------------------+----------------------+----------------------+
+	| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+	| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+	|                               |                      |               MIG M. |
+	|===============================+======================+======================|
+	|   0  GeForce GTX 950     On   | 00000000:01:00.0  On |                  N/A |
+	| 35%   38C    P8    11W /  75W |    330MiB /  1999MiB |      0%      Default |
+	|                               |                      |                  N/A |
+	+-------------------------------+----------------------+----------------------+
+	```                                                                             
+	If your system installed NVIDIA driver you **must** skip the NVIDIA GPU Driver Install step. Or it will **conflict**.
 
 -  **Step 2: Download & Install:** 
 `!!!MAKE SURE THAT YOUR SYSTEM HAVEN'T INSTALL NVIDIA DRIVER YET`
@@ -57,12 +57,12 @@ If your system installed NVIDIA driver you **must** skip the NVIDIA GPU Driver I
   -  Go to [NVIDIA CUDA Download Page](https://developer.nvidia.com/cuda-toolkit-archive)
   - [Linux] -> [x86_64] -> [Ubuntu] -> [x0.04] -> [runfile(local)]
 
-They will give you a intruction like this:
-```sh
-$ wget https://developer.download.nvidia.com/compute/cuda/11.1.1/local_installers/cuda_11.1.1_455.32.00_linux.run
-$ sudo sh cuda_11.1.1_455.32.00_linux.run
-```
-***Note:*** Make sure that you have the correct NVIDIA Driver version with this: cuda_11.1.1_`4xx`.xx.00_linux.run
+	They will give you a intruction like this:
+	```sh
+	$ wget https://developer.download.nvidia.com/compute/cuda/11.1.1/local_installers/cuda_11.1.1_455.32.00_linux.run
+	$ sudo sh cuda_11.1.1_455.32.00_linux.run
+	```
+	***Note:*** Make sure that you have the correct NVIDIA Driver version with this: cuda_11.1.1_`4xx`.xx.00_linux.run
 
 - **Install:**
 
@@ -159,16 +159,16 @@ $ sudo sh cuda_11.1.1_455.32.00_linux.run
 
 	- ***Step 7: Add to $PATH.***
 
-Add those code to `~/.bashrc` by `gedit ~/.bashrc` 
-```sh
-for CUDA_BIN_DIR in `find /usr/local/cuda-*/bin   -maxdepth 0`; do export PATH="$PATH:$CUDA_BIN_DIR"; done;
-for CUDA_LIB_DIR in `find /usr/local/cuda-*/lib64 -maxdepth 0`; do export LD_LIBRARY_PATH="${LD_LIBRARY_PATH:+${LD_LIBRARY_PATH}:}$CUDA_LIB_DIR"; done;
+		- Add those code to `~/.bashrc` by `gedit ~/.bashrc` 
+		```sh
+		for CUDA_BIN_DIR in `find /usr/local/cuda-*/bin   -maxdepth 0`; do export PATH="$PATH:$CUDA_BIN_DIR"; done;
+		for CUDA_LIB_DIR in `find /usr/local/cuda-*/lib64 -maxdepth 0`; do export LD_LIBRARY_PATH="${LD_LIBRARY_PATH:+${LD_LIBRARY_PATH}:}$CUDA_LIB_DIR"; done;
 
-export            PATH=`echo $PATH            | tr ':' '\n' | awk '!x[$0]++' | tr '\n' ':' | sed 's/:$//g'` # Deduplicate $PATH
-export LD_LIBRARY_PATH=`echo $LD_LIBRARY_PATH | tr ':' '\n' | awk '!x[$0]++' | tr '\n' ':' | sed 's/:$//g'` # Deduplicate $LD_LIBRARY_PATH
+		export            PATH=`echo $PATH            | tr ':' '\n' | awk '!x[$0]++' | tr '\n' ':' | sed 's/:$//g'` # Deduplicate $PATH
+		export LD_LIBRARY_PATH=`echo $LD_LIBRARY_PATH | tr ':' '\n' | awk '!x[$0]++' | tr '\n' ':' | sed 's/:$//g'` # Deduplicate $LD_LIBRARY_PATH
 
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/extras/CUPTI/lib64
-```
+		export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/extras/CUPTI/lib64
+		```
 
   - ***Step 8: Verify Installation.***
 ```sh 
@@ -187,13 +187,13 @@ cat /proc/driver/nvidia/version
   	- Download the ***cuDNN Library for Linux (x86_64)***
 
 - ***Install:***
-```sh 
-tar -xzvf cudnn-x.x-linux-x64-v8.x.x.x.tgz
-sudo cp cuda/include/cudnn*.h /usr/local/cuda/include
-sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
 
-sudo chmod a+r /usr/local/cuda/include/cudnn*.h /usr/local/cuda/lib64/libcudnn*
-```
+	```sh 
+	tar -xzvf cudnn-x.x-linux-x64-v8.x.x.x.tgz
+	sudo cp cuda/include/cudnn*.h /usr/local/cuda/include
+	sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
+	sudo chmod a+r /usr/local/cuda/include/cudnn*.h /usr/local/cuda/lib64/libcudnn*
+	```
 
 ## V. TensorRT.
 
@@ -207,37 +207,35 @@ sudo chmod a+r /usr/local/cuda/include/cudnn*.h /usr/local/cuda/lib64/libcudnn*
 - **Install with Tar File:**
 
   - ***Step 1: Unzip.***
-```sh 
-tar xzvf TensorRT-7.x.x.x......
-version="7.x.x.x" #replace x with your TensorRT Version
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:<TensorRT-${version}/lib>
-```
+	```sh 
+	tar xzvf TensorRT-7.x.x.x......
+	version="7.x.x.x" #replace x with your TensorRT Version
+	export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:<TensorRT-${version}/lib>
+	```
 
   - ***Step 2: Install the Python TensorRT wheel file.***
-Choose the Python version using in your system: (mine was 3.7)
-```sh
-cd TensorRT-${version}/python
-sudo pip3 install tensorrt-*-cp37-none-linux_x86_64.whl
-
-```
+	Choose the Python version using in your system: (mine was 3.7)
+	```sh
+	cd TensorRT-${version}/python
+	sudo pip3 install tensorrt-*-cp37-none-linux_x86_64.whl
+	```
 
   - ***Step 3: Install the Python UFF wheel file.***
-```sh
-cd ../uff
-sudo pip3 install uff-0.6.9-py2.py3-none-any.whl
-
-```
+	```sh
+	cd ../uff
+	sudo pip3 install uff-0.6.9-py2.py3-none-any.whl
+	```
 
   - ***Step 4: Install the Python `graphsurgeo` wheel file.***
-```sh 
-cd ../graphsurgeon
-sudo pip3 install graphsurgeon-0.4.5-py2.py3-none-any.whl
-```
+	```sh 
+	cd ../graphsurgeon
+	sudo pip3 install graphsurgeon-0.4.5-py2.py3-none-any.whl
+	```
 
   - ***Step 5: Install the Python `onnx-graphsurgeon` wheel file.***
-```sh 
-cd ../onnx_graphsurgeon
-sudo pip3 install onnx_graphsurgeon-0.2.6-py2.py3-none-any.whl
-```
+	```sh 
+	cd ../onnx_graphsurgeon
+	sudo pip3 install onnx_graphsurgeon-0.2.6-py2.py3-none-any.whl
+	```
 
 
