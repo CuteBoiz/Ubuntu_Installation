@@ -43,12 +43,12 @@ If your system installed NVIDIA driver you **must** skip the NVIDIA GPU Driver I
 -  **Step 2: Download & Install:** 
 `!!!MAKE SURE THAT YOUR SYSTEM HAVEN'T INSTALL NVIDIA DRIVER YET`
 
-  - Go to [NVIDIA Download Drivers](https://www.nvidia.com/download/index.aspx?lang=en-us)
-  - Choose the corresponding OS & GPU
+	- Go to [NVIDIA Download Drivers](https://www.nvidia.com/download/index.aspx?lang=en-us)
+	- Choose the corresponding OS & GPU
 
-  - run `./NVIDIA-Linux-x86_64-4xx.xx.run`
+	- run `./NVIDIA-Linux-x86_64-4xx.xx.run`
 
-  - reboot
+	- reboot
 
 ## III. CUDA Toolkit.
 
@@ -66,103 +66,99 @@ $ sudo sh cuda_11.1.1_455.32.00_linux.run
 
 - **Install:**
 
-  - ***Step 1: Verify the System has the Correct Kernel Headers and Development Packages Installed.***
-  
-```sh
-uname -r
-sudo apt-get install linux-headers-$(uname -r)
-```
+	- ***Step 1: Verify the System has the Correct Kernel Headers and Development Packages Installed.***
+		```sh
+		uname -r
+		sudo apt-get install linux-headers-$(uname -r)
+		```
 
- - ***Step 2: Disable the Nouveau drivers.***
+	- ***Step 2: Disable the Nouveau drivers.***
 
-The Nouveau drivers are loaded if the following command prints anything:
-`lsmod | grep nouveau`
+		- The Nouveau drivers are loaded if the following command prints anything: `lsmod | grep nouveau`
 
-Create a file at `/etc/modprobe.d/blacklist-nouveau.conf` with content:
+		- Create a file at `/etc/modprobe.d/blacklist-nouveau.conf` with content:
+			```sh
+			blacklist nouveau
+			options nouveau modeset=0
+			```
 
-```sh
-blacklist nouveau
-options nouveau modeset=0
-```
+		- Regenerate the kernel initramfs: `sudo update-initramfs -u`
 
-Regenerate the kernel initramfs:
+	- ***Step 3: Reboot into text mode.***
 
-`sudo update-initramfs -u`
+		- You must reboot into text mode to install CUDA 
+			```
+			sudo cp -n /etc/default/grub /etc/default/grub.backup
+			sudo gedit /etc/default/grub
+			```
+		- When the files opens, do:
+			- adding `#` to `GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"`
 
-  - ***Step 3: Reboot into text mode.***
+			- set `GRUB_CMDLINE_LINUX=""` to `GRUB_CMDLINE_LINUX="text"`
 
-You must reboot into text mode to install CUDA 
-```
-sudo cp -n /etc/default/grub /etc/default/grub.backup
-sudo gedit /etc/default/grub
-```
-When the files opens, do:
-- adding `#` to `GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"`
+			- remove `#` to `GRUB_TERMINAL="console"`
 
-- set `GRUB_CMDLINE_LINUX=""` to `GRUB_CMDLINE_LINUX="text"`
+		- Save the file and apply change:
+			```sh
+			sudo update-grub
+			sudo systemctl set-default multi-user.target
+			```
+		- After reboot type your `username` and `password` to enter text mode.
 
-- remove `#` to `GRUB_TERMINAL="console"`
+	- ***Step 4: Install.***
 
-Save the file and apply change:
-```sh
-sudo update-grub
-sudo systemctl set-default multi-user.target
-```
-After reboot type your `username` and `password` to enter text mode.
+		- Go to downloaded CUDA then run: `sudo sh cuda_<version>_linux.run`
 
-  - ***Step 4: Install.***
+		- ***Deselect NVIDIA Driver.***  Wait for the installing complete then perfrom the below step to back to graphic mode
 
-Go to downloaded CUDA then run:
-`sudo sh cuda_<version>_linux.run`
+	- ***Step 5: Reboot into graphic mode.***
+		```sh
+		sudo mv /etc/default/grub.backup /etc/default/grub
+		sudo update-grub
+		sudo systemctl set-default graphical.target
+		sudo reboot
+		```
 
-***Deselect NVIDIA Driver.***  Wait for the installing complete then perfrom the below step to back to graphic mode
+	- ***Step 6: Device Node Verification.***
 
-  - ***Step 5: Reboot into graphic mode.***
-```sh
-sudo mv /etc/default/grub.backup /etc/default/grub
-sudo update-grub
-sudo systemctl set-default graphical.target
-sudo reboot
-```
+		- Add those code to `~/.bashrc` by `gedit ~/.bashrc` 
 
-  - ***Step 6: Device Node Verification.***
+			```sh 
+			#!/bin/bash
 
-Add those code to `~/.bashrc` by `gedit ~/.bashrc` 
-```sh 
-#!/bin/bash
+			/sbin/modprobe nvidia
 
-/sbin/modprobe nvidia
+			if [ "$?" -eq 0 ]; then
+			  # Count the number of NVIDIA controllers found.
+			  NVDEVS=`lspci | grep -i NVIDIA`
+			  N3D=`echo "$NVDEVS" | grep "3D controller" | wc -l`
+			  NVGA=`echo "$NVDEVS" | grep "VGA compatible controller" | wc -l`
 
-if [ "$?" -eq 0 ]; then
-  # Count the number of NVIDIA controllers found.
-  NVDEVS=`lspci | grep -i NVIDIA`
-  N3D=`echo "$NVDEVS" | grep "3D controller" | wc -l`
-  NVGA=`echo "$NVDEVS" | grep "VGA compatible controller" | wc -l`
+			  N=`expr $N3D + $NVGA - 1`
+			  for i in `seq 0 $N`; do
+			    mknod -m 666 /dev/nvidia$i c 195 $i
+			  done
 
-  N=`expr $N3D + $NVGA - 1`
-  for i in `seq 0 $N`; do
-    mknod -m 666 /dev/nvidia$i c 195 $i
-  done
+			  mknod -m 666 /dev/nvidiactl c 195 255
 
-  mknod -m 666 /dev/nvidiactl c 195 255
+			else
+			  exit 1
+			fi
 
-else
-  exit 1
-fi
+			/sbin/modprobe nvidia-uvm
 
-/sbin/modprobe nvidia-uvm
+			if [ "$?" -eq 0 ]; then
+			  # Find out the major device number used by the nvidia-uvm driver
+			  D=`grep nvidia-uvm /proc/devices | awk '{print $1}'`
 
-if [ "$?" -eq 0 ]; then
-  # Find out the major device number used by the nvidia-uvm driver
-  D=`grep nvidia-uvm /proc/devices | awk '{print $1}'`
+			  mknod -m 666 /dev/nvidia-uvm c $D 0
+			else
+			  exit 1
+			fi
+			```
 
-  mknod -m 666 /dev/nvidia-uvm c $D 0
-else
-  exit 1
-fi
-```
+	- ***Step 7: Add to $PATH.***
 
-  - ***Step 7: Add to $PATH.***
 Add those code to `~/.bashrc` by `gedit ~/.bashrc` 
 ```sh
 for CUDA_BIN_DIR in `find /usr/local/cuda-*/bin   -maxdepth 0`; do export PATH="$PATH:$CUDA_BIN_DIR"; done;
@@ -183,12 +179,12 @@ cat /proc/driver/nvidia/version
 
 - **Download:**
 
-  - Go to [NVIDIA cuDNN home page](https://developer.nvidia.com/cudnn)
-  - Click **Download**
-  - Complete short survey and click **Submit**
-  - Accept the Terms and Conditions.
-  - **Choose the corresponding version with your CUDA Toolkit Version(Important)**
-  - Download the ***cuDNN Library for Linux (x86_64)***
+	- Go to [NVIDIA cuDNN home page](https://developer.nvidia.com/cudnn)
+  	- Click **Download**
+  	- Complete short survey and click **Submit**
+  	- Accept the Terms and Conditions.
+  	- **Choose the corresponding version with your CUDA Toolkit Version(Important)**
+  	- Download the ***cuDNN Library for Linux (x86_64)***
 
 - ***Install:***
 ```sh 
@@ -202,11 +198,11 @@ sudo chmod a+r /usr/local/cuda/include/cudnn*.h /usr/local/cuda/lib64/libcudnn*
 ## V. TensorRT.
 
 - **Download:**
-  - Go to: [TensorRT Page](https://developer.nvidia.com/tensorrt).
-  - Click Download Now.
-  - Select the version of TensorRT that you are interested in.
-  - Select the check-box to agree to the license terms.
-  - Download ***TAR*** package with corresponding CUDA ToolkitVersion.
+  	- Go to: [TensorRT Page](https://developer.nvidia.com/tensorrt).
+  	- Click Download Now.
+  	- Select the version of TensorRT that you are interested in.
+  	- Select the check-box to agree to the license terms.
+  	- Download ***TAR*** package with corresponding CUDA ToolkitVersion.
 
 - **Install with Tar File:**
 
