@@ -1,4 +1,4 @@
-# Install CUDA + CUDNN + TENSORRT for deeplearning 
+# Install CUDA + cuDNN + TensorRT for deeplearning 
 
 ## Content 
 
@@ -23,7 +23,7 @@ sudo apt-get update
 ## II. NVIDIA GPU Drivers.
 
 ### Check NVIDIA Driver Installed:
-Use `nvidia-smi` to check NVIDIA driver. If your system installed NVIDIA driver, it will look similar to this:
+Use `nvidia-smi` to check NVIDIA driver. If your system installed NVIDIA driver, it looked similar to this:
 ```sh
 Sun Aug 16 12:34:19 2020       
 +-----------------------------------------------------------------------------+
@@ -51,26 +51,17 @@ If your system installed NVIDIA driver you **must** skip the NVIDIA GPU Driver I
 
 ## III. CUDA Toolkit.
 
-### Verify the system has a CUDA-capable GPU:
-
-```sh 
-lspci | grep -i nvidia
-```
-
-Output: 
-```sh
-01:00.0 VGA compatible controller: NVIDIA Corporation GM206 [GeForce GTX 950] (rev a1)
-01:00.1 Audio device: NVIDIA Corporation GM206 High Definition Audio Controller (rev a1)
-
-```
-- If you do not see any settings, update the PCI hardware `update-pciids` then return the previous command.
-
-- If your GPU is from NVIDA and listed in https://developer.nvidia.com/cuda-gpus, your GPU is CUDA-capable.
-
 ### Download CUDA Toolkit:
 
 -  Go to [NVIDIA CUDA Download Page](https://developer.nvidia.com/cuda-toolkit-archive)
 - [Linux] -> [x86_64] -> [Ubuntu] -> [x0.04] -> [runfile(local)]
+
+They will give you a intruction like this:
+```sh
+$ wget https://developer.download.nvidia.com/compute/cuda/11.1.1/local_installers/cuda_11.1.1_455.32.00_linux.run
+$ sudo sh cuda_11.1.1_455.32.00_linux.run
+```
+***Note:*** Make sure that you have the correct NVIDIA Driver version with this: cuda_11.1.1_`4xx`.xx.00_linux.run
 
 ### Install:
 
@@ -115,19 +106,21 @@ Save the file and apply change:
 sudo update-grub
 sudo systemctl set-default multi-user.target
 ```
-
-After reboot type your username and password to enter text mode.
+After reboot type your `username` and `password` to enter text mode.
 
 #### Step 4: Install.
 
 Go to downloaded CUDA then run:
 `sudo sh cuda_<version>_linux.run`
 
+***Deselect NVIDIA Driver.***  Wait for the installing complete then perfrom the below step to back to graphic mode
+
 #### Step 5: Reboot into graphic mode.
 ```sh
 sudo mv /etc/default/grub.backup /etc/default/grub
 sudo update-grub
 sudo systemctl set-default graphical.target
+sudo reboot
 ```
 
 #### Step 6: Device Node Verification.
@@ -192,11 +185,10 @@ cat /proc/driver/nvidia/version
 - Click **Download**
 - Complete short survey and click **Submit**
 - Accept the Terms and Conditions.
-- **Choose the corresponding version with your CUDA Toolkit Version**
-
-### Install with Tar File:
+- **Choose the corresponding version with your CUDA Toolkit Version(Important)**
 - Download the ***cuDNN Library for Linux (x86_64)***
 
+### Install with Tar File:
 ```sh 
 tar -xzvf cudnn-x.x-linux-x64-v8.x.x.x.tgz
 sudo cp cuda/include/cudnn*.h /usr/local/cuda/include
@@ -212,10 +204,7 @@ sudo chmod a+r /usr/local/cuda/include/cudnn*.h /usr/local/cuda/lib64/libcudnn*
 - Click Download Now.
 - Select the version of TensorRT that you are interested in.
 - Select the check-box to agree to the license terms.
-- Download Deb or TAR package with corresponding CUDA ToolkitVersion.
-
-### Install with Deb File:
-
+- Download ***TAR*** package with corresponding CUDA ToolkitVersion.
 
 ### Install with Tar File:
 
