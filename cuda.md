@@ -46,7 +46,7 @@ sudo apt-get update
 	- Go to [NVIDIA Download Drivers](https://www.nvidia.com/download/index.aspx?lang=en-us)
 	- Choose the corresponding OS & GPU
 
-	- run `./NVIDIA-Linux-x86_64-4xx.xx.run`
+	- run `sudo sh NVIDIA-Linux-x86_64-4xx.xx.run`
 
 	- reboot
 
@@ -57,11 +57,8 @@ sudo apt-get update
   -  Go to [NVIDIA CUDA Download Page](https://developer.nvidia.com/cuda-toolkit-archive)
   - [Linux] -> [x86_64] -> [Ubuntu] -> [x0.04] -> [runfile(local)]
 
-	They will give you a intruction like this:
-	```sh
-	$ wget https://developer.download.nvidia.com/compute/cuda/11.1.1/local_installers/cuda_11.1.1_455.32.00_linux.run
-	$ sudo sh cuda_11.1.1_455.32.00_linux.run
-	```
+	Just Download the **runfile(local)** (Don't install):
+
 	***Note:*** Make sure that you have the correct NVIDIA Driver version with this: cuda_11.1.1_`4xx`.xx.00_linux.run
 
 - **Install:**
