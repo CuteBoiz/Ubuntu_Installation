@@ -38,17 +38,21 @@ sudo apt-get update
 	|                               |                      |                  N/A |
 	+-------------------------------+----------------------+----------------------+
 	```                                                                             
-	If your system installed NVIDIA driver you **must** skip the NVIDIA GPU Driver Install step. Or it will **conflict**.
+	If your system installed NVIDIA driver you **MUST** skip the NVIDIA GPU Driver Install step. Or it will **conflict**.
 
 -  **Step 2: Download & Install:** 
 `!!!MAKE SURE THAT YOUR SYSTEM HAVEN'T INSTALL NVIDIA DRIVER YET`
 
 	- Go to [NVIDIA Download Drivers](https://www.nvidia.com/download/index.aspx?lang=en-us)
 	- Choose the corresponding OS & GPU
-
 	- run `sudo sh NVIDIA-Linux-x86_64-4xx.xx.run`
-
 	- reboot
+	
+OR:
+```sh
+sudo apt-get install --no-install-recommends nvidia-driver-450
+reboot
+```
 
 ## III. CUDA Toolkit.
 
