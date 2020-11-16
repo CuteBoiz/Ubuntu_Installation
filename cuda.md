@@ -49,10 +49,10 @@ sudo apt-get update
 	- reboot
 	
 	OR:
-		```sh
-		sudo apt-get install --no-install-recommends nvidia-driver-450
-		reboot
-		```
+	```sh
+	sudo apt-get install --no-install-recommends nvidia-driver-450
+	reboot
+	```
 
 ## III. CUDA Toolkit.
 
