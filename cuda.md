@@ -107,7 +107,20 @@ sudo apt-get update
 
 		- Go to downloaded CUDA then run: `sudo sh cuda_<version>_linux.run`
 
-		- ***Deselect NVIDIA Driver.***  Wait for the installing complete then perfrom the below step to back to graphic mode
+		- ***Deselect NVIDIA Driver.***  Then wait for the installing complete then perfrom the below step to back to graphic mode
+		
+		```sh
+		CUDA Installer
+		- [] Driver
+			[] 450.51.06
+		-[x] CUDA
+			[x]CUDA Toolkit
+			[x]
+			[x]
+			[x]
+		Install
+		Cancel
+		```
 
 	- ***Step 5: Reboot into graphic mode.***
 		```sh
