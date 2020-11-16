@@ -232,7 +232,7 @@ sudo apt-get update
   - ***Step 2: Install the Python `TensorRT` wheel file.***
 	Choose the Python version using in your system: (mine was 3.7)
 	```sh
-	cd TensorRT-${version}/python
+	cd python 
 	sudo pip3 install tensorrt-*-cp37-none-linux_x86_64.whl
 	```
 
