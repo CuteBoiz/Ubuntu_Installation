@@ -224,8 +224,9 @@ sudo apt-get update
   - ***Step 1: Unzip.***
 	```sh 
 	tar xzvf TensorRT-7.x.x.x......
-	version="7.x.x.x" #replace x with your TensorRT Version
-	export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:<TensorRT-${version}/lib>
+	cd TensorRT-7.x.x.x...
+	pwd #Then copy the path and paste it below
+	export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:<TensorRT-PATH-coppied>
 	```
 
   - ***Step 2: Install the Python `TensorRT` wheel file.***
