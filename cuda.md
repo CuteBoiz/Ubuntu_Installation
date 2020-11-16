@@ -242,7 +242,7 @@ sudo apt-get update
 	sudo pip3 install uff-0.6.9-py2.py3-none-any.whl
 	```
 
-  - ***Step 4: Install the Python `graphsurgeo` wheel file.***
+  - ***Step 4: Install the Python `graphsurgeon` wheel file.***
 	```sh 
 	cd ../graphsurgeon
 	sudo pip3 install graphsurgeon-0.4.5-py2.py3-none-any.whl
