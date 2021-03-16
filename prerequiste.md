@@ -55,7 +55,7 @@ ibus restart
 ## 4. Fonts
 You might need to use some Microsoft fonts like: Arial, Time New Roman, ...
 ```sh
-sudo apt-get install ttf-mscorefonts-installer 
+sudo apt-get -y install ttf-mscorefonts-installer 
 [Tab] -> [Enter] -> [Yes]
 ```
 
@@ -63,7 +63,7 @@ sudo apt-get install ttf-mscorefonts-installer
 GNOME Extensions are a great way to add more functionality to the Ubuntu desktop without having to install apps or touch hidden settings.
 
 ```sh
-sudo apt install gnome-tweaks
+sudo apt -y install gnome-tweaks
 ```
 
 [Tweak Configuring](https://itsfoss.com/gnome-tweak-tool/)
@@ -93,7 +93,7 @@ echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sou
 
 ```sh
 sudo apt-get update
-sudo apt-get install sublime-text
+sudo apt-get -y install sublime-text
 ```
 </ul>
 
