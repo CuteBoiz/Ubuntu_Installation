@@ -139,6 +139,7 @@ sudo apt-get update
 		- Add those code to `~/.bashrc` by `gedit ~/.bashrc` 
 
 		```sh 
+		
 		#!/bin/bash
 
 		/sbin/modprobe nvidia
@@ -170,12 +171,14 @@ sudo apt-get update
 		else
 		  exit 1
 		fi
+		
 		```
 
 	- ***Step 7: Add to $PATH.***
 
 		- Add those code to `~/.bashrc` by `gedit ~/.bashrc` 
 		```sh
+		
 		for CUDA_BIN_DIR in `find /usr/local/cuda-*/bin   -maxdepth 0`; do export PATH="$PATH:$CUDA_BIN_DIR"; done;
 		for CUDA_LIB_DIR in `find /usr/local/cuda-*/lib64 -maxdepth 0`; do export LD_LIBRARY_PATH="${LD_LIBRARY_PATH:+${LD_LIBRARY_PATH}:}$CUDA_LIB_DIR"; done;
 
@@ -183,6 +186,7 @@ sudo apt-get update
 		export LD_LIBRARY_PATH=`echo $LD_LIBRARY_PATH | tr ':' '\n' | awk '!x[$0]++' | tr '\n' ':' | sed 's/:$//g'` # Deduplicate $LD_LIBRARY_PATH
 
 		export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/extras/CUPTI/lib64
+		
 		```
 
   - ***Step 8: Verify Installation.***
