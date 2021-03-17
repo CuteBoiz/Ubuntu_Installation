@@ -112,7 +112,7 @@ pip install -r requirement.txt
 ## III. Jupyter Notebook
 
 ```sh
-pip install -y jupyter notebook
+pip install jupyter notebook
 jupyter notebook
 ```
 *Then open your web browser at: http://localhost:8888/*
@@ -120,8 +120,8 @@ jupyter notebook
 ## IV. Popular Packages For Programming
 
 ```sh 
-pip install -y numpy scipy matplotlib
-pip install -y opencv-python
+pip install numpy scipy matplotlib
+pip install opencv-python
 
 export DISABLE_BCOLZ_AVX2=true
 pip install bcolz
