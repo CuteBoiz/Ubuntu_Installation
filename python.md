@@ -74,7 +74,7 @@ sudo update-alternatives --config python3
 	
 ```sh
 sudo pip3 install --upgrade pip 
-sudo apt install python3-pip
+sudo apt install -y python3-pip
 sudo apt install -y python3-venv
 ```
 
@@ -112,7 +112,7 @@ pip install -r requirement.txt
 ## III. Jupyter Notebook
 
 ```sh
-pip install jupyter notebook
+pip install -y jupyter notebook
 jupyter notebook
 ```
 *Then open your web browser at: http://localhost:8888/*
@@ -120,8 +120,8 @@ jupyter notebook
 ## IV. Popular Packages For Programming
 
 ```sh 
-pip install numpy scipy matplotlib
-pip install opencv-python
+pip install -y numpy scipy matplotlib
+pip install -y opencv-python
 
 export DISABLE_BCOLZ_AVX2=true
 pip install bcolz
