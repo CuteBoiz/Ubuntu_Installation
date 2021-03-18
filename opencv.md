@@ -10,6 +10,11 @@ sudo apt install -y build-essential cmake git pkg-config libgtk-3-dev \
     libtbb2 libtbb-dev libdc1394-22-dev
 ```
 
+**GStreamer(optional)**
+```sh 
+sudo apt-get install libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav gstreamer1.0-doc gstreamer1.0-tools gstreamer1.0-x gstreamer1.0-alsa gstreamer1.0-gl gstreamer1.0-gtk3 gstreamer1.0-qt5 gstreamer1.0-pulseaudio
+```
+
 ## II. Clone the OpenCV’s and OpenCV contrib repositories:
 
 ```sh 
@@ -18,8 +23,14 @@ git clone https://github.com/opencv/opencv.git
 git clone https://github.com/opencv/opencv_contrib.git
 ```
 
-Use `git checkout <opencv-version>` to change OpenCV version.
+**Change OpenCV version.**
 
+```sh
+cd ~/opencv_build/opencv
+git checkout <opencv-version>
+cd ~/opencv_build/opencv_contrib
+git checkout <opencv-version>
+```
 
 ## III. Build
 
@@ -38,13 +49,13 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
     -D BUILD_EXAMPLES=ON ..
 ```
 
-Use `nproc` to check number of processes then minus it by 2 then start make with:
+**Use `nproc` to check number of processes then minus it by 2 then start make with:**
 
 ```sh
 make -j8
 sudo make install
 ```
-`8` stand for number of precesses
+`8` stand for number of processes
 
 ## IV. Verify
 
