@@ -24,6 +24,8 @@ Installation & Basic Turtorial for some Popular Applications.
 
 - [Miniconda](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/conda.md)
 
+- [OpenCV From Source](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/opencv.md)
+
 - [Docker](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/docker.md)
 
 - [Cuda + cuDNN + TensorRT](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/cuda.md)
