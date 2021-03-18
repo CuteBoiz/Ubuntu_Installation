@@ -1,6 +1,6 @@
-##Install OpenCV Fro Source
+# Install OpenCV From Source
 
-### I. Install the required dependencies:
+## I. Install the required dependencies:
 
 ```sh 
 sudo apt install -y build-essential cmake git pkg-config libgtk-3-dev \
@@ -10,7 +10,7 @@ sudo apt install -y build-essential cmake git pkg-config libgtk-3-dev \
     libtbb2 libtbb-dev libdc1394-22-dev
 ```
 
-### II. Clone the OpenCV’s and OpenCV contrib repositories:
+## II. Clone the OpenCV’s and OpenCV contrib repositories:
 
 ```sh 
 mkdir ~/opencv_build && cd ~/opencv_build
@@ -21,7 +21,7 @@ git clone https://github.com/opencv/opencv_contrib.git
 Use `git checkout <opencv-version>` to change OpenCV version.
 
 
-### III. Build
+## III. Build
 
 ```sh
 cd ~/opencv_build/opencv
@@ -46,7 +46,7 @@ sudo make install
 ```
 `8` stand for number of precesses
 
-### IV. Verify
+## IV. Verify
 
 ```sh 
 python3 -c "import cv2; print(cv2.__version__)"
