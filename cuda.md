@@ -213,6 +213,11 @@ sudo apt-get update
 	sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
 	sudo chmod a+r /usr/local/cuda/include/cudnn*.h /usr/local/cuda/lib64/libcudnn*
 	```
+- ***Verify:***
+
+```sh
+nvcc --version
+```
 
 ## V. TensorRT.
 
@@ -257,5 +262,10 @@ sudo apt-get update
 	cd ../onnx_graphsurgeon
 	sudo pip3 install onnx_graphsurgeon-0.2.6-py2.py3-none-any.whl
 	```
-
-
+- ***Add to $PATH***
+- 
+```sh
+gedit ~/.bashrc
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tanphatnguyen/TensorRT-7.x.x.x/lib
+#Change installed folder and "x" to your TensorRT version
+```
