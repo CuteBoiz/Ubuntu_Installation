@@ -24,11 +24,11 @@ Installation & Basic Turtorial for some Popular Applications.
 
 - [Miniconda](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/conda.md)
 
+- [Cuda + cuDNN + TensorRT](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/cuda.md)
+
 - [OpenCV From Source](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/opencv.md)
 
 - [Docker](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/docker.md)
-
-- [Cuda + cuDNN + TensorRT](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/cuda.md)
 
 - [ Install Tensorflow-GPU With Unsupport CUDA Version](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/tensorflow.md)
 
