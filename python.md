@@ -66,6 +66,7 @@ sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.7 2
 sudo update-alternatives --config python3
 2
 ```
+*[Cannot find python ERROR Handle](https://askubuntu.com/questions/1070610/having-troubles-updating-to-python-3-6-on-ubuntu-16-04)*
 
 ## II. Virtual Environment Python
 
@@ -77,6 +78,8 @@ sudo pip3 install --upgrade pip
 sudo apt install -y python3-pip
 sudo apt install -y python3-venv
 ```
+
+*[Cannot use pip install ERROR Handle](https://stackoverflow.com/questions/44967202/pip-is-showing-error-lsb-release-a-returned-non-zero-exit-status-1)*
 
 - **Create Virtual Environment**
 
