@@ -50,7 +50,7 @@ sudo apt-get update
 	
 	OR:
 	```sh
-	sudo apt-get install --no-install-recommends nvidia-driver-450
+	sudo apt-get install --no-install-recommends nvidia-driver-4x0
 	reboot
 	```
 
@@ -58,133 +58,57 @@ sudo apt-get update
 
 - **Download CUDA Toolkit:**
 
-  -  Go to [NVIDIA CUDA Download Page](https://developer.nvidia.com/cuda-toolkit-archive)
-  - [Linux] -> [x86_64] -> [Ubuntu] -> [x0.04] -> [runfile(local)]
+  - Go to [NVIDIA CUDA Download Page](https://developer.nvidia.com/cuda-toolkit-archive)
+  - Choose Version
+  - [Linux] -> [x86_64] -> [Ubuntu] -> [xx.04] -> [deb(local)]
+  - Follow the instruction
+  - Reboot
+  - Add those script to `~/.bashrc`
 
-	Just Download the **runfile(local)** (Don't install):
-
-	***Note:*** Make sure that you have the correct NVIDIA Driver version with this: cuda_11.1.1_`4xx`.xx.00_linux.run
-
-- **Install:**
-
-	- ***Step 1: Verify the System has the Correct Kernel Headers and Development Packages Installed.***
-		```sh
-		uname -r
-		sudo apt-get install linux-headers-$(uname -r)
-		```
-
-	- ***Step 2: Disable the Nouveau drivers.***
-
-		- The Nouveau drivers are loaded if the following command prints anything: `lsmod | grep nouveau`
-
-		- Create a file at `/etc/modprobe.d/blacklist-nouveau.conf` with content:
-
-		```sh
-		blacklist nouveau
-		options nouveau modeset=0
-		```
-
-		- Regenerate the kernel initramfs: `sudo update-initramfs -u`
-
-	- ***Step 3: Reboot into text mode.***
-
-		- You must reboot into text mode to install CUDA 
-		```
-		sudo cp -n /etc/default/grub /etc/default/grub.backup
-		sudo gedit /etc/default/grub
-		```
-		- When the files opens, do:
-			- adding `#` to `GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"`
-
-			- set `GRUB_CMDLINE_LINUX=""` to `GRUB_CMDLINE_LINUX="text"`
-
-			- remove `#` to `GRUB_TERMINAL="console"`
-
-		- Save the file and apply change:
-			```sh
-			sudo update-grub
-			sudo systemctl set-default multi-user.target
-			```
-		- After reboot type your `username` and `password` to enter text mode.
-
-	- ***Step 4: Install.***
-
-		- Go to downloaded CUDA then run: `sudo sh cuda_<version>_linux.run`
-
-		- ***Deselect NVIDIA Driver.***  Then wait for the installing complete then perfrom the below step to back to graphic mode
-		
-		```sh
-		CUDA Installer
-		- [] Driver
-			[] 450.51.06
-		-[x] CUDA
-			[x]CUDA Toolkit
-			[x]
-			[x]
-			[x]
-		Install
-		Cancel
-		```
-
-	- ***Step 5: Reboot into graphic mode.***
-		```sh
-		sudo mv /etc/default/grub.backup /etc/default/grub
-		sudo update-grub
-		sudo systemctl set-default graphical.target
-		sudo reboot
-		```
-
-	- ***Step 6: Device Node Verification.***
-
-		- Add those code to `~/.bashrc` by `gedit ~/.bashrc` 
-
-		```sh 
-		
-		#!/bin/bash
-
-		/sbin/modprobe nvidia
-
-		if [ "$?" -eq 0 ]; then
-		  # Count the number of NVIDIA controllers found.
-		  NVDEVS=`lspci | grep -i NVIDIA`
-		  N3D=`echo "$NVDEVS" | grep "3D controller" | wc -l`
-		  NVGA=`echo "$NVDEVS" | grep "VGA compatible controller" | wc -l`
-
-		  N=`expr $N3D + $NVGA - 1`
-		  for i in `seq 0 $N`; do
-		    mknod -m 666 /dev/nvidia$i c 195 $i
-		  done
-
-		  mknod -m 666 /dev/nvidiactl c 195 255
-
-		else
-		  exit 1
-		fi
-
-		/sbin/modprobe nvidia-uvm
-
-		if [ "$?" -eq 0 ]; then
-		  # Find out the major device number used by the nvidia-uvm driver
-		  D=`grep nvidia-uvm /proc/devices | awk '{print $1}'`
-
-		  mknod -m 666 /dev/nvidia-uvm c $D 0
-		else
-		  exit 1
-		fi		
-		
-		for CUDA_BIN_DIR in `find /usr/local/cuda-*/bin   -maxdepth 0`; do export PATH="$PATH:$CUDA_BIN_DIR"; done;
-		for CUDA_LIB_DIR in `find /usr/local/cuda-*/lib64 -maxdepth 0`; do export LD_LIBRARY_PATH="${LD_LIBRARY_PATH:+${LD_LIBRARY_PATH}:}$CUDA_LIB_DIR"; done;
-
-		export            PATH=`echo $PATH            | tr ':' '\n' | awk '!x[$0]++' | tr '\n' ':' | sed 's/:$//g'` # Deduplicate $PATH
-		export LD_LIBRARY_PATH=`echo $LD_LIBRARY_PATH | tr ':' '\n' | awk '!x[$0]++' | tr '\n' ':' | sed 's/:$//g'` # Deduplicate $LD_LIBRARY_PATH
-
-		export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/extras/CUPTI/lib64
-		
-		```
-		
-  - ***Step 7: Verify Installation.***
 	```sh 
-	cat /proc/driver/nvidia/version
+	/sbin/modprobe nvidia
+
+	if [ "$?" -eq 0 ]; then
+	  # Count the number of NVIDIA controllers found.
+	  NVDEVS=`lspci | grep -i NVIDIA`
+	  N3D=`echo "$NVDEVS" | grep "3D controller" | wc -l`
+	  NVGA=`echo "$NVDEVS" | grep "VGA compatible controller" | wc -l`
+
+	  N=`expr $N3D + $NVGA - 1`
+	  for i in `seq 0 $N`; do
+	    mknod -m 666 /dev/nvidia$i c 195 $i
+	  done
+
+	  mknod -m 666 /dev/nvidiactl c 195 255
+
+	else
+	  exit 1
+	fi
+
+	/sbin/modprobe nvidia-uvm
+
+	if [ "$?" -eq 0 ]; then
+	  # Find out the major device number used by the nvidia-uvm driver
+	  D=`grep nvidia-uvm /proc/devices | awk '{print $1}'`
+
+	  mknod -m 666 /dev/nvidia-uvm c $D 0
+	else
+	  exit 1
+	fi		
+
+	for CUDA_BIN_DIR in `find /usr/local/cuda-*/bin   -maxdepth 0`; do export PATH="$PATH:$CUDA_BIN_DIR"; done;
+	for CUDA_LIB_DIR in `find /usr/local/cuda-*/lib64 -maxdepth 0`; do export LD_LIBRARY_PATH="${LD_LIBRARY_PATH:+${LD_LIBRARY_PATH}:}$CUDA_LIB_DIR"; done;
+
+	export            PATH=`echo $PATH            | tr ':' '\n' | awk '!x[$0]++' | tr '\n' ':' | sed 's/:$//g'` # Deduplicate $PATH
+	export LD_LIBRARY_PATH=`echo $LD_LIBRARY_PATH | tr ':' '\n' | awk '!x[$0]++' | tr '\n' ':' | sed 's/:$//g'` # Deduplicate $LD_LIBRARY_PATH
+
+	export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/extras/CUPTI/lib64
+
+	```
+		
+  - Verify Installation.
+	```sh 
+	nvcc -V
 	```
 
 ## IV. cuDNN.
@@ -206,11 +130,6 @@ sudo apt-get update
 	sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
 	sudo chmod a+r /usr/local/cuda/include/cudnn*.h /usr/local/cuda/lib64/libcudnn*
 	```
-- ***Verify:***
-
-```sh
-nvcc --version
-```
 
 ## V. TensorRT.
 
@@ -255,10 +174,9 @@ nvcc --version
 	cd ../onnx_graphsurgeon
 	sudo pip3 install onnx_graphsurgeon-0.2.6-py2.py3-none-any.whl
 	```
-- ***Add to $PATH***
-- 
-```sh
-gedit ~/.bashrc
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tanphatnguyen/TensorRT-7.x.x.x/lib
-#Change installed folder and "x" to your TensorRT version
-```
+  - ***Step 6: Add $PATH***
+	```sh
+	gedit ~/.bashrc
+	export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tanphatnguyen/TensorRT-7.x.x.x/lib
+	#Change installed folder and "x" to your TensorRT version
+	```
