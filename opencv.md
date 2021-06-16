@@ -1,4 +1,4 @@
-# Install OpenCV From Source
+# Install OpenCV From Source With CUDA Support
 
 ## I. Install the required dependencies:
 
@@ -39,6 +39,7 @@ cd ~/opencv_build/opencv
 mkdir build && cd build
 ```
 
+***Note:*** *You should install CUDA and cuDNN first*
 ```sh 
 cmake -D CMAKE_BUILD_TYPE=RELEASE \
     -D CMAKE_INSTALL_PREFIX=/usr/local \
@@ -55,13 +56,28 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
 **Use `nproc` to check number of processes then minus it by 2 then start make with:**
 
 ```sh
-make -j8
+sudo make -j"Number of processes - 2"
 sudo make install
 ```
 `8` stand for number of processes
 
-## IV. Verify
+## IV. Use
 
+1. Using with python
 ```sh 
 python3 -c "import cv2; print(cv2.__version__)"
 ```
+
+2. Using with C++
+Add below script to **CMakeLists.txt**
+```sh
+find_package(OpenCV REQUIRED)
+...
+target_link_libraries( main ${OpenCV_LIBS})
+```
+
+```c++
+#include <opencv2/imgproc/imgproc.hpp>
+#include <opencv2/highgui/highgui.hpp>
+```
+
