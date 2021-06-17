@@ -180,3 +180,26 @@ sudo apt-get update
 	export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tanphatnguyen/TensorRT-7.x.x.x/lib
 	#Change installed folder and "x" to your TensorRT version
 	```
+- **Use:**
+ - ***Python**
+ ```sh
+ python3 -c "import tensorrt as trt; print(trt.__version__)"
+ ```
+ - ***C++***
+
+Add those script to **CMakeLists** flie:
+ ```sh
+ #Cuda
+include_directories(/usr/local/cuda/include)
+link_directories(/usr/local/cuda/lib64)
+
+#TensorRT
+include_directories(path/to/TensorRT-7.x.x.x/include) #X is your TensorRT version
+link_directories(path/to/TensorRT-7.x.x.x/lib)
+ ```
+ 
+ ```sh
+ #include <NvInferRuntime.h>
+#include <NvInfer.h>
+#include <NvOnnxParser.h>
+ ```
