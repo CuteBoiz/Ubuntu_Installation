@@ -60,7 +60,7 @@ sudo apt-get update
 
   - Go to [NVIDIA CUDA Download Page](https://developer.nvidia.com/cuda-toolkit-archive)
   - Choose Version
-  - [Linux] -> [x86_64] -> [Ubuntu] -> [xx.04] -> [deb(local)]
+  - [Linux] -> [x86_64] -> [Ubuntu] -> [xx.04] -> [runfile(local)]
   - Follow the instruction
   - Reboot
   - Add those script to `~/.bashrc`
@@ -181,25 +181,25 @@ sudo apt-get update
 	#Change installed folder and "x" to your TensorRT version
 	```
 - **Use:**
- - ***Python**
- ```sh
- python3 -c "import tensorrt as trt; print(trt.__version__)"
- ```
- - ***C++***
+  - ***Python***
+	 ```sh
+	 python3 -c "import tensorrt as trt; print(trt.__version__)"
+	 ```
+  - ***C++***
 
-Add those script to **CMakeLists** flie:
- ```sh
- #Cuda
-include_directories(/usr/local/cuda/include)
-link_directories(/usr/local/cuda/lib64)
+	Add those script to **CMakeLists** flie:
+	```sh
+	#Cuda
+	include_directories(/usr/local/cuda/include)
+	link_directories(/usr/local/cuda/lib64)
 
-#TensorRT
-include_directories(path/to/TensorRT-7.x.x.x/include) #X is your TensorRT version
-link_directories(path/to/TensorRT-7.x.x.x/lib)
- ```
+	#TensorRT
+	include_directories(path/to/TensorRT-7.x.x.x/include) #X is your TensorRT version
+	link_directories(path/to/TensorRT-7.x.x.x/lib)
+	```
  
- ```sh
- #include <NvInferRuntime.h>
-#include <NvInfer.h>
-#include <NvOnnxParser.h>
- ```
+	```sh
+	#include <NvInferRuntime.h>
+	#include <NvInfer.h>
+	#include <NvOnnxParser.h>
+	```
