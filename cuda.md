@@ -3,7 +3,7 @@
 ## Content 
 
 - [I - NVIDIA package](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/cuda.md#i-add-nvidia-package-repositories)
-- [II - NIVIDA GPU Driver](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/cuda.md#ii-nvidia-gpu-drivers)
+- [II - Download CUDA Toolkit and Preprequisted.](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/cuda.md#ii-download-cuda-toolkit-and-preprequisted)
 - [III - CUDA Toolkit](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/cuda.md#iii-cuda-toolkit)
 - [IV - cuDNN](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/cuda.md#iv-cudnn)
 - [V - TensorRT](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/cuda.md#v-tensorrt)
@@ -20,10 +20,24 @@ sudo apt install ./nvidia-machine-learning-repo-ubuntu1804_1.0.0-1_amd64.deb
 sudo apt-get update
 ```
 
-## II. NVIDIA GPU Drivers.
+## II. Download CUDA Toolkit and Preprequisted.
 
-- **Step 1: Check NVIDIA Driver Installed:**
-	Use `nvidia-smi` to check NVIDIA driver. If your system installed NVIDIA driver, it looked similar to this:
+### 1. Download Cuda ToolKit.
+
+- Go to [NVIDIA CUDA Download Page](https://developer.nvidia.com/cuda-toolkit-archive)
+- Choose Version
+- [Linux] -> [x86_64] -> [Ubuntu] -> [xx.04] -> [runfile(local)]
+- You'll see the filename similar to: `cuda_11.1.0_455.23.05_linux.run` which `455` stand for NVIDIA Driver version.
+
+### 2. Install NVIDIA Driver:
+
+```sh
+sudo apt-get install --no-install-recommends nvidia-driver-4xx 
+# xx stand for the coresponding NVIDIA Driver in cuda toolkit installer's filename.
+reboot
+```
+
+  - Use `nvidia-smi` to check NVIDIA driver installed.
 	```sh
 	Sun Aug 16 12:34:19 2020       
 	+-----------------------------------------------------------------------------+
@@ -38,32 +52,44 @@ sudo apt-get update
 	|                               |                      |                  N/A |
 	+-------------------------------+----------------------+----------------------+
 	```                                                                             
-	If your system installed NVIDIA driver you **MUST** skip the NVIDIA GPU Driver Install step. Or it will **conflict**.
 
--  **Step 2: Download & Install:** 
-`!!!MAKE SURE THAT YOUR SYSTEM HAVEN'T INSTALL NVIDIA DRIVER YET`
+### 3. GCC:
 
-	- Go to [NVIDIA Download Drivers](https://www.nvidia.com/download/index.aspx?lang=en-us)
-	- Choose the corresponding OS & GPU
-	- run `sudo sh NVIDIA-Linux-x86_64-4xx.xx.run`
-	- reboot
-	
-	OR:
-	```sh
-	sudo apt-get install --no-install-recommends nvidia-driver-4x0
-	reboot
-	```
+Check below table to get the coressponding gcc version with your CUDA Driver.
+
+|	CUDA Version	|	max supported GCC version	|
+|	:-------:	|	:------------------:		|
+| 11.1, 11.2, 11.3	|	10				|
+|	11.0		|	9				|
+|	10.1, 10.2	|	8				|
+|	9.2, 10.0	|	7				|
+|	9.0, 9.1	|	6				|
+|	8		|	5.3				|
+|	7		|	4.9				|
+|	5.5, 6		|	4.8				|
+|	4.2, 5		|	4.6				|
+|	4.1		|	4.5				|
+|	4.0		|	4.4				|
+
+
+```sh
+MAX_GCC_VERSION=x #x stand for the supported GCC version
+sudo apt install gcc-$MAX_GCC_VERSION g++-$MAX_GCC_VERSION
+```
+
+Add symlinks if you **installed** CUDA with unsupported gcc version:
+```sh
+sudo ln -s /usr/bin/gcc-$MAX_GCC_VERSION /usr/local/cuda/bin/gcc 
+sudo ln -s /usr/bin/g++-$MAX_GCC_VERSION /usr/local/cuda/bin/g++
+```
 
 ## III. CUDA Toolkit.
-
-- **Download CUDA Toolkit:**
-
-  - Go to [NVIDIA CUDA Download Page](https://developer.nvidia.com/cuda-toolkit-archive)
-  - Choose Version
-  - [Linux] -> [x86_64] -> [Ubuntu] -> [xx.04] -> [runfile(local)]
-  - Follow the instruction
-  - Reboot
-  - Add those script to `~/.bashrc`
+ 
+- **Install CUDA Toolkit:**
+  - Go to downloaded folder
+  - `sudo sh cuda_xx.x.x_4xx.xx.xx_linux.run`
+  - `reboot`
+  - Add below scripts to `~/.bashrc`
 
 	```sh 
 	/sbin/modprobe nvidia
@@ -107,6 +133,8 @@ sudo apt-get update
 	```
 		
   - Verify Installation.
+  
+  Open new terminal and check:
 	```sh 
 	nvcc -V
 	```
