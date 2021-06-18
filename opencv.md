@@ -63,7 +63,7 @@ sudo make install
 
 **Export Path:**
 
-Add bolow script to ~/.bashrc
+Add below script to ~/.bashrc
 ```sh
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/path/to/opencv_build/opencv/build/lib
 ```
