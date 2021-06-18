@@ -60,8 +60,13 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
 sudo make -j"Number of processes - 2"
 sudo make install
 ```
-`8` stand for number of processes
 
+**Export Path:**
+
+Add bolow script to ~/.bashrc
+```sh
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/path/to/opencv_build/opencv/build/lib
+```
 ## IV. Use
 
 1. Using with python
@@ -80,5 +85,5 @@ target_link_libraries( main ${OpenCV_LIBS})
 ```c++
 #include <opencv2/imgproc/imgproc.hpp>
 #include <opencv2/highgui/highgui.hpp>
+...
 ```
-
