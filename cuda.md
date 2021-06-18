@@ -88,6 +88,19 @@ sudo ln -s /usr/bin/g++-$MAX_GCC_VERSION /usr/local/cuda/bin/g++
 - **Install CUDA Toolkit:**
   - Go to downloaded folder
   - `sudo sh cuda_xx.x.x_4xx.xx.xx_linux.run`
+  - Uncheck NVIDIA Driver:
+  	```sh
+	CUDA Installer
+	 - [] Driver
+		[] 450.51.06
+	 -[x] CUDA
+		[x]CUDA Toolkit
+		[x]
+		[x]
+		[x]
+	 Install
+	 Cancel
+	```
   - `reboot`
   - Add below scripts to `~/.bashrc`
 
