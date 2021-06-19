@@ -1,4 +1,4 @@
-# Install CUDA + cuDNN + TensorRT for deeplearning 
+# Install CUDA + cuDNN + TensorRT for Deep Learning Model Inference 
 
 ## Content 
 
