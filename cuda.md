@@ -222,11 +222,11 @@ sudo ln -s /usr/bin/g++-$MAX_GCC_VERSION /usr/local/cuda/bin/g++
 	#Change installed folder and "x" to your TensorRT version
 	```
 - **Use:**
-  - ***Python***
+  - ***Python:*** [TensorRT Parser Python](https://github.com/CuteBoiz/TensorRT_Parser_Python)
 	 ```sh
 	 python3 -c "import tensorrt as trt; print(trt.__version__)"
 	 ```
-  - ***C++***
+  - ***C++:***  [TensorRT Parser C++](https://github.com/CuteBoiz/TensorRT_Parser_Cpp)
 
 	Add those script to **CMakeLists** flie:
 	```sh
