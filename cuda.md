@@ -226,6 +226,8 @@ sudo ln -s /usr/bin/g++-$MAX_GCC_VERSION /usr/local/cuda/bin/g++
 	 ```sh
 	 python3 -c "import tensorrt as trt; print(trt.__version__)"
 	 ```
+	 ***Note:*** TensorRT have not support Python on Windows yet. 
+	 
   - ***C++:***  [TensorRT Parser C++](https://github.com/CuteBoiz/TensorRT_Parser_Cpp)
 
 	Add those script to **CMakeLists** flie:
