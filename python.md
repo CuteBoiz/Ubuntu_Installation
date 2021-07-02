@@ -9,7 +9,7 @@
 	- Go to [Python download page](https://www.python.org/downloads/source/)
 	- Choose version. (If you use with TensorRT use the version 3.6.x or 3.7.x)
 	- Download `Gzipped source tarball`.
-	- Extact downloaded file in `/home/` this place will be your Python installed Path.
+	- Extract downloaded file in `/home/` this place will be your Python installed Path.
 
 - **Install Prerequistes (IMPORTANT)**
 	```sh
