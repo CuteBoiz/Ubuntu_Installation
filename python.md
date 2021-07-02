@@ -65,24 +65,18 @@
 	2
 	python3 #verify
 	```
-	
-*[Cannot find python ERROR Handle](https://askubuntu.com/questions/1070610/having-troubles-updating-to-python-3-6-on-ubuntu-16-04)*
+	*[Cannot find python ERROR Handle](https://askubuntu.com/questions/1070610/having-troubles-updating-to-python-3-6-on-ubuntu-16-04)*
 
 - **Upgrade pip.**
 	```sh
 	sudo python3 -m pip install --upgrade pip
 	```
+	*[Cannot use pip install ERROR Handle](https://stackoverflow.com/questions/44967202/pip-is-showing-error-lsb-release-a-returned-non-zero-exit-status-1)*
 
 ## II. Virtual Environment Python
 
-- **Install Prerequistes**
-	```sh
-	sudo pip3 install --upgrade pip 
-	sudo apt install -y python3-pip
-	sudo apt install -y python3-venv
-	```
+- **Install:** `sudo apt install -y python3-venv`
 
-*[Cannot use pip install ERROR Handle](https://stackoverflow.com/questions/44967202/pip-is-showing-error-lsb-release-a-returned-non-zero-exit-status-1)*
 
 - **Create Virtual Environment:** `python -m venv [projectName]`
 
