@@ -12,7 +12,11 @@ sudo apt install -y build-essential cmake git pkg-config libgtk-3-dev \
 
 **GStreamer(optional)**
 ```sh 
-sudo apt-get install libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav gstreamer1.0-doc gstreamer1.0-tools gstreamer1.0-x gstreamer1.0-alsa gstreamer1.0-gl gstreamer1.0-gtk3 gstreamer1.0-qt5 gstreamer1.0-pulseaudio
+sudo apt-get install -y libgstreamer1.0-0 gstreamer1.0-plugins-base \
+    gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly \
+    gstreamer1.0-libav gstreamer1.0-doc gstreamer1.0-tools gstreamer1.0-x \
+    gstreamer1.0-alsa gstreamer1.0-gl gstreamer1.0-gtk3 \
+    gstreamer1.0-qt5 gstreamer1.0-pulseaudio
 ```
 
 ## II. Clone the OpenCV’s and OpenCV contrib repositories:
@@ -63,9 +67,9 @@ sudo make install
 
 **Export Path:**
 
-Add below script to ~/.bashrc
+Add below script to ~/.bashrc by: `gedit ~/.bashrc`
 ```sh
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/path/to/opencv_build/opencv/build/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/opencv_build/opencv/build/lib
 ```
 ## IV. Use
 
