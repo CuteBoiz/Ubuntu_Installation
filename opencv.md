@@ -27,7 +27,7 @@ git clone https://github.com/opencv/opencv.git
 git clone https://github.com/opencv/opencv_contrib.git
 ```
 
-**Change OpenCV version.**
+**Change OpenCV version.(OPTIONAL)**
 
 ```sh
 cd ~/opencv_build/opencv
