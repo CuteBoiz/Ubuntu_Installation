@@ -44,7 +44,7 @@
 	alias python=python3
 	alias pip=pip3
 	```
-- **Verify**
+- **Verify (Open new terminal or use `exec bash`)**
 	```sh
 	$ python
 	```
@@ -55,7 +55,7 @@
 	Type "help", "copyright", "credits" or "license" for more information.
 	>>> 
 	```
-	If it not match with your installed version. Go to below step.
+	**Note:** If it not match with your installed version. Go to below step.
 
 - **Update current Python3 version to installed version (If you have same Python 3 versions)**
 	```sh
@@ -63,9 +63,15 @@
 	sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.7 2
 	sudo update-alternatives --config python3
 	2
+	python3 #verify
 	```
 	
 *[Cannot find python ERROR Handle](https://askubuntu.com/questions/1070610/having-troubles-updating-to-python-3-6-on-ubuntu-16-04)*
+
+- **Upgrade pip.**
+	```sh
+	sudo python3 -m pip install --upgrade pip
+	```
 
 ## II. Virtual Environment Python
 
