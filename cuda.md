@@ -23,18 +23,16 @@ sudo apt-get update
 ## II. Download CUDA Toolkit and Preprequisted.
 
 ### 1. Download Cuda ToolKit.
-
 - Go to [NVIDIA CUDA Download Page](https://developer.nvidia.com/cuda-toolkit-archive)
 - Choose Version
 - [Linux] -> [x86_64] -> [Ubuntu] -> [xx.04] -> [runfile(local)]
 - You'll see the filename similar to: `cuda_11.1.0_455.23.05_linux.run` which `455` stand for NVIDIA Driver version.
 
 ### 2. Install NVIDIA Driver:
-
 ```sh
 sudo apt-get install --no-install-recommends nvidia-driver-4xx 
 # xx stand for the coresponding NVIDIA Driver in cuda toolkit installer's filename.
-reboot
+sudo reboot
 ```
 
   - Use `nvidia-smi` to check NVIDIA driver installed.
@@ -57,19 +55,56 @@ reboot
 
 Check below table to get the coressponding gcc version with your CUDA Driver.
 
-|	CUDA Version	|	max supported GCC version	|
-|	:-------:	|	:------------------:		|
-| 11.1, 11.2, 11.3	|	10				|
-|	11.0		|	9				|
-|	10.1, 10.2	|	8				|
-|	9.2, 10.0	|	7				|
-|	9.0, 9.1	|	6				|
-|	8		|	5.3				|
-|	7		|	4.9				|
-|	5.5, 6		|	4.8				|
-|	4.2, 5		|	4.6				|
-|	4.1		|	4.5				|
-|	4.0		|	4.4				|
+<table align="center" style="width:100%">
+  <tr align="center">
+    <th>CUDA Version</th>
+    <th>max supported GCC version</th>
+  </tr>
+  <tr align="center">
+	<td>11.1, 11.2, 11.3</td>
+    	<td>10</td>
+  </tr>
+  <tr align="center">
+	<td>11.0</td>
+	<td>9</td>
+  </tr>
+  <tr align="center">
+	<td>10.1, 10.2</td>
+	<td>8</td>
+  </tr>
+  <tr align="center">
+	<td>9.2, 10.0</td>
+	<td>7</td>
+  </tr>
+  <tr align="center">
+	<td>9.0, 9.1</td>
+	<td>6</td>
+  </tr>
+  <tr align="center">
+	<td>8.0</td>
+	<td>5.3</td>
+  </tr>
+  <tr align="center">
+	<td>7.0</td>
+	<td>4.9</td>
+  </tr>
+  <tr align="center">
+	<td>5.5, 6.0</td>
+	<td>4.8</td>
+  </tr>
+  <tr align="center">
+	<td>4.2, 5.0</td>
+	<td>4.6</td>
+  </tr>
+  <tr align="center">
+	<td>4.1</td>
+	<td>4.5</td>
+  </tr>
+  <tr align="center">
+	<td>4.0</td>
+	<td>4.4</td>
+  </tr>	
+</table>
 
 
 ```sh
@@ -77,7 +112,7 @@ MAX_GCC_VERSION=x #x stand for the supported GCC version
 sudo apt install gcc-$MAX_GCC_VERSION g++-$MAX_GCC_VERSION
 ```
 
-Add symlinks if you **installed** CUDA with unsupported gcc version:
+**If you installed Cuda with unsupported GCC version: ** Add symlinks.
 ```sh
 sudo ln -s /usr/bin/gcc-$MAX_GCC_VERSION /usr/local/cuda/bin/gcc 
 sudo ln -s /usr/bin/g++-$MAX_GCC_VERSION /usr/local/cuda/bin/g++
@@ -90,18 +125,37 @@ sudo ln -s /usr/bin/g++-$MAX_GCC_VERSION /usr/local/cuda/bin/g++
   - `sudo sh cuda_xx.x.x_4xx.xx.xx_linux.run`
   - Uncheck NVIDIA Driver:
   	```sh
-	CUDA Installer
-	 - [] Driver
-		[] 450.51.06
-	 -[x] CUDA
-		[x]CUDA Toolkit
-		[x]
-		[x]
-		[x]
-	 Install
-	 Cancel
+	| CUDA Installer                                                               │
+	│ - [ ] Driver                                                                 │
+	│      [ ] 450.51.06                                                           │
+	│ + [X] CUDA Toolkit 11.0                                                      │
+	│   [X] CUDA Samples 11.0                                                      │
+	│   [X] CUDA Demo Suite 11.0                                                   │
+	│   [X] CUDA Documentation 11.0                                                │
+	│   Options                                                                    │
+	│   Install 								       |
 	```
-  - `reboot`
+- **Result:**
+	```sh
+	= Summary =
+	===========
+
+	Driver:   Not Selected
+	Toolkit:  Installed in /usr/local/cuda-11.0/
+	Samples:  Installed in /home/phatnt/, but missing recommended libraries
+
+	Please make sure that
+	 -   PATH includes /usr/local/cuda-11.0/bin
+	 -   LD_LIBRARY_PATH includes /usr/local/cuda-11.0/lib64, or, add /usr/local/cuda-11.0/lib64 to /etc/ld.so.conf and run ldconfig as root
+
+	To uninstall the CUDA Toolkit, run cuda-uninstaller in /usr/local/cuda-11.0/bin
+	***WARNING: Incomplete installation! This installation did not install the CUDA Driver. A driver of version at least .00 is required for CUDA 11.0 functionality to work.
+	To install the driver using this installer, run the following command, replacing <CudaInstaller> with the name of this run file:
+	    sudo <CudaInstaller>.run --silent --driver
+
+	Logfile is /var/log/cuda-installer.log
+	```
+  - `sudo reboot`
   - Add below scripts to `~/.bashrc`
 
 	```sh 
@@ -146,9 +200,8 @@ sudo ln -s /usr/bin/g++-$MAX_GCC_VERSION /usr/local/cuda/bin/g++
 	```
 		
   - Verify Installation.
-  
-  Open new terminal and check:
 	```sh 
+	exec bash
 	nvcc -V
 	```
 
@@ -164,7 +217,6 @@ sudo ln -s /usr/bin/g++-$MAX_GCC_VERSION /usr/local/cuda/bin/g++
   	- Download the ***cuDNN Library for Linux (x86_64)***
 
 - ***Install:***
-
 	```sh 
 	tar -xzvf cudnn-x.x-linux-x64-v8.x.x.x.tgz
 	sudo cp cuda/include/cudnn*.h /usr/local/cuda/include
@@ -180,15 +232,13 @@ sudo ln -s /usr/bin/g++-$MAX_GCC_VERSION /usr/local/cuda/bin/g++
   	- Select the version of TensorRT that you are interested in.
   	- Select the check-box to agree to the license terms.
   	- Download ***TAR*** package with corresponding CUDA ToolkitVersion.
+  	- Extract downloaded file into `/home/username/` folder. This will be installed folder.
 
 - **Install with Tar File:**
 
-  - ***Step 1: Unzip.***
-	```sh 
-	tar xzvf TensorRT-7.x.x.x......
+  - ***Step 1: Go to installed folder.***
+  	```sh
 	cd TensorRT-7.x.x.x...
-	pwd #Then copy the path and paste it below
-	export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:<TensorRT-PATH-coppied>
 	```
 
   - ***Step 2: Install the Python `TensorRT` wheel file.***
@@ -215,13 +265,13 @@ sudo ln -s /usr/bin/g++-$MAX_GCC_VERSION /usr/local/cuda/bin/g++
 	cd ../onnx_graphsurgeon
 	sudo pip3 install onnx_graphsurgeon-0.2.6-py2.py3-none-any.whl
 	```
-  - ***Step 6: Add $PATH***
+  - ***Step 6: Add below srcipt to ~/.bashrc:*** `gedit ~/.bashrc`
+ 
+  	**Change username and "x" to your TensorRT version:**
 	```sh
-	gedit ~/.bashrc
-	export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tanphatnguyen/TensorRT-7.x.x.x/lib
-	#Change installed folder and "x" to your TensorRT version
+	export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/username/TensorRT-7.x.x.x/lib
 	```
-- **Use:**
+- **Verify:**
   - ***Python:*** [TensorRT Parser Python](https://github.com/CuteBoiz/TensorRT_Parser_Python)
 	 ```sh
 	 python3 -c "import tensorrt as trt; print(trt.__version__)"
