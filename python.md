@@ -6,126 +6,98 @@
 
 - **Download Lastest Python Version**
 
-	- Download [Python](https://www.python.org/downloads/source/)
-	- Choose version.  
-	- Copy the link of ***Gzipped source tarball***.  
-
-```sh
-wget "Put the copied link here"
-
-#Example: (If the lastest version is 3.7.4)
-wget https://www.python.org/ftp/python/3.7.4/Python-3.7.4.tgz
-```
-Extract the source: `tar -xvf Python-3.7.4.tgz`
-
-<u><i>Note:</i></u> You should extract to home directory because you must keep this folder
+	- Go to [Python download page](https://www.python.org/downloads/source/)
+	- Choose version. (If you use with TensorRT use the version 3.6.x or 3.7.x)
+	- Download `Gzipped source tarball`.
+	- Extact downloaded file in `/home/` this place will be your Python installed Path.
 
 - **Install Prerequistes (IMPORTANT)**
+	```sh
+	sudo apt-get install gcc
 
-```sh
-sudo apt-get install gcc
+	sudo apt-get install -y libopenblas-dev libhdf5-serial-dev hdf5-tools libhdf5-dev \
+	  zlib1g-dev zip libjpeg8-dev liblapack-dev libblas-dev gfortran
 
-sudo apt-get install -y libopenblas-dev libhdf5-serial-dev hdf5-tools libhdf5-dev zlib1g-dev zip libjpeg8-dev liblapack-dev libblas-dev gfortran
+	sudo apt-get install -y build-essential git libexpat1-dev libssl-dev zlib1g-dev \
+	  libncurses5-dev libbz2-dev liblzma-dev \
+	  libsqlite3-dev libffi-dev tcl-dev linux-headers-generic libgdbm-dev \
+	  libreadline-dev tk tk-dev libgtk2.0-dev pkg-config
 
-sudo apt-get install -y build-essential git libexpat1-dev libssl-dev zlib1g-dev \
-  libncurses5-dev libbz2-dev liblzma-dev \
-  libsqlite3-dev libffi-dev tcl-dev linux-headers-generic libgdbm-dev \
-  libreadline-dev tk tk-dev libgtk2.0-dev pkg-config
-  
-sudo apt-get install libopencv-*
+	sudo apt-get install libopencv-*
 
-```
+	```
 
 - **Install**
-  
-```sh
-cd Python-3.7.4
-./configure --enable-optimizations
-sudo make 		#This will take serveral minutes
-sudo make install
-python3.7 -V
-```
+	```sh
+	cd Python-3.7.4
+	./configure --enable-optimizations
+	sudo make
+	sudo make install
+	python3.7 -V
+	```
 
-- **TYPE "python" instead of "python3"**
+- **TYPE "python" instead of "python3".**
 
-This will help you avoid confusing between **python3** and **python**.
+	- This will help you avoid confusing between **python3** and **python2**.
+	- Add below srcipts to bottom of the file: `gedit ~/.bashrc`
+	```sh
+	alias python=python3
+	alias pip=pip3
+	```
+- **Verify**
+	```sh
+	$ python
+	```
+	You will see something similar to this:
+	```sh
+	Python 3.8.10 (default, Jun  2 2021, 10:49:15) 
+	[GCC 9.4.0] on linux
+	Type "help", "copyright", "credits" or "license" for more information.
+	>>> 
+	```
+	If it not match with your installed version. Go to below step.
 
-```sh
-gedit ~/.bashrc
-```
-Add this to bottom of the file:
-```sh
-alias python=python3
-alias pip=pip3
-```
-- **Update current Python3 version to lastest version (If you have same Python 3 versions)**
-
-```sh
-sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 1
-sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.7 2
-sudo update-alternatives --config python3
-2
-```
+- **Update current Python3 version to installed version (If you have same Python 3 versions)**
+	```sh
+	sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 1
+	sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.7 2
+	sudo update-alternatives --config python3
+	2
+	```
+	
 *[Cannot find python ERROR Handle](https://askubuntu.com/questions/1070610/having-troubles-updating-to-python-3-6-on-ubuntu-16-04)*
 
 ## II. Virtual Environment Python
 
-
 - **Install Prerequistes**
-	
-```sh
-sudo pip3 install --upgrade pip 
-sudo apt install -y python3-pip
-sudo apt install -y python3-venv
-```
+	```sh
+	sudo pip3 install --upgrade pip 
+	sudo apt install -y python3-pip
+	sudo apt install -y python3-venv
+	```
 
 *[Cannot use pip install ERROR Handle](https://stackoverflow.com/questions/44967202/pip-is-showing-error-lsb-release-a-returned-non-zero-exit-status-1)*
 
-- **Create Virtual Environment**
+- **Create Virtual Environment:** `python -m venv [projectName]`
 
-```sh
-python -m venv [projectName]
-```
+- **Activate Virtual Environment:** `source [projectName]/bin/activate`
 
-- **Activate Virtual Environment**
+- **Deactivate Virtual Enviroment:** `deactivate`
 
-```sh
-source [projectName]/bin/activate
-```
+- **Export Requirement:** `pip freeze > requirement.txt`
 
-- **Deactivate Virtual Enviroment**
+- **Import Requirement:** `pip install -r requirement.txt`
 
-```sh
-deactivate
-```
-
-- **Export Requirement**
-
-```sh
-pip freeze > requirement.txt
-```
-
-- **Import Requirement**
-
-```sh
-pip install -r requirement.txt
-```
-
-
-## III. Jupyter Notebook
-
-```sh
-pip install jupyter notebook
-jupyter notebook
-```
-*Then open your web browser at: http://localhost:8888/*
-
-## IV. Popular Packages For Programming
-
+## III. Popular Packages For Programming.
 ```sh 
 pip install numpy scipy matplotlib
 pip install opencv-python
 
 export DISABLE_BCOLZ_AVX2=true
 pip install bcolz
+
+pip install jupyter notebook
+jupyter notebook #Then open your web browser at: http://localhost:8888/
 ```
+
+
