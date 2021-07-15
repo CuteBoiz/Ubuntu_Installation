@@ -30,15 +30,15 @@ Installation & Basic Turtorial for some Popular Applications.
 
 - [Docker](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/docker.md)
 
-- [ Install Tensorflow-GPU With Unsupport CUDA Version](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/tensorflow.md)
+- [Tensorflow From Source](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/tensorflow.md)
 
-### III. Clean Cache
+### III. Server.
+
+- [Server management with SSH](https://github.com/CuteBoiz/Sever_Management)
+
+### IV. Clean Cache
 
 ```sh
 sudo du -sh /var/cache/apt/archives
 sudo apt clean
 ```
-
-***Hope you guys enjoy it!!***
-
-*--[Tan Phat Nguyen](https://github.com/CuteBoiz)--*
