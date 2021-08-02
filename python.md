@@ -55,9 +55,9 @@
 	Type "help", "copyright", "credits" or "license" for more information.
 	>>> 
 	```
-	**Note:** If it does not match with your installed one. Go to below step.
+	**Note:** *If the version ***does not*** match with your installed one. Use below step.*
 
-- Update current Python3 version to installed version **(If you have multiple Python 3 versions)**
+- Change Python3 version **(If you have multiple Python 3 versions)**
 	```sh
 	sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 1
 	sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.7 2
@@ -65,6 +65,7 @@
 	2
 	python3 #verify
 	```
+	**Note:** *The python you installed might be on different directory.*
 	*[Cannot find python ERROR Handle](https://askubuntu.com/questions/1070610/having-troubles-updating-to-python-3-6-on-ubuntu-16-04)*
 
 
@@ -86,7 +87,6 @@
 ## III. Popular Packages For Programming.
 ```sh 
 pip install numpy scipy matplotlib
-pip install opencv-python
 
 export DISABLE_BCOLZ_AVX2=true
 pip install bcolz
