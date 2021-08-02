@@ -45,4 +45,9 @@
 
 *Comment `/** + [Tab]` above a function to note all your function's variables*
 
+### 8. A File Icon
+
+Sublime Text File-Specific Icons for Improved Visual Grepping
+
+
 
