@@ -5,7 +5,6 @@
 ## I. Install Lastest Python 3 Version
 
 - **Download Lastest Python Version**
-
 	- Go to [Python download page](https://www.python.org/downloads/source/)
 	- Choose version. (If you use with TensorRT use the version 3.6.x or 3.7.x)
 	- Download `Gzipped source tarball`.
@@ -24,7 +23,6 @@
 	  libreadline-dev tk tk-dev libgtk2.0-dev pkg-config
 
 	sudo apt-get install libopencv-*
-
 	```
 
 - **Install**
@@ -34,19 +32,21 @@
 	sudo make
 	sudo make install
 	python3.7 -V
+	sudo python3 -m pip install --upgrade pip
 	```
 
 - **TYPE "python" instead of "python3".**
-
 	- This will help you avoid confusing between **python3** and **python2**.
 	- Add below srcipts to bottom of the file: `gedit ~/.bashrc`
 	```sh
 	alias python=python3
 	alias pip=pip3
 	```
-- **Verify (Open new terminal or use `exec bash`)**
+	
+- **Verify:**
 	```sh
-	$ python
+	exec bash
+	python
 	```
 	You will see something similar to this:
 	```sh
@@ -55,9 +55,9 @@
 	Type "help", "copyright", "credits" or "license" for more information.
 	>>> 
 	```
-	**Note:** If it not match with your installed version. Go to below step.
+	**Note:** If it does not match with your installed one. Go to below step.
 
-- **Update current Python3 version to installed version (If you have same Python 3 versions)**
+- Update current Python3 version to installed version **(If you have multiple Python 3 versions)**
 	```sh
 	sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 1
 	sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.7 2
@@ -67,16 +67,11 @@
 	```
 	*[Cannot find python ERROR Handle](https://askubuntu.com/questions/1070610/having-troubles-updating-to-python-3-6-on-ubuntu-16-04)*
 
-- **Upgrade pip.**
-	```sh
-	sudo python3 -m pip install --upgrade pip
-	```
-	*[Cannot use pip install ERROR Handle](https://stackoverflow.com/questions/44967202/pip-is-showing-error-lsb-release-a-returned-non-zero-exit-status-1)*
+
 
 ## II. Virtual Environment Python
 
 - **Install:** `sudo apt install -y python3-venv`
-
 
 - **Create Virtual Environment:** `python -m venv [projectName]`
 
