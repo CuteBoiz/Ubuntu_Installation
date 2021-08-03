@@ -111,7 +111,9 @@ sudo reboot
  
 - **Install CUDA Toolkit:**
   - Go to downloaded CUDA folder.
-  - `sudo sh cuda_xx.x.x_4xx.xx.xx_linux.run`
+  - `sudo sh cuda_xx.x.x_4xx.xx.xx_linux.run`.
+  - `continue`.
+  - `accept`
   - Uncheck NVIDIA Driver:
   	```sh
 	| CUDA Installer                                                               │
@@ -237,25 +239,25 @@ sudo reboot
 	Choose the Python version using in your system: (mine was 3.7)
 	```sh
 	cd python 
-	sudo pip3 install tensorrt-*-cp37-none-linux_x86_64.whl
+	pip install tensorrt-*-cp37-none-linux_x86_64.whl
 	```
 
   - ***Step 3: Install the Python `UFF` wheel file.***
 	```sh
 	cd ../uff
-	sudo pip3 install uff-0.6.9-py2.py3-none-any.whl
+	pip install uff-*-py2.py3-none-any.whl
 	```
 
   - ***Step 4: Install the Python `graphsurgeon` wheel file.***
 	```sh 
 	cd ../graphsurgeon
-	sudo pip3 install graphsurgeon-0.4.5-py2.py3-none-any.whl
+	pip install graphsurgeon-*-py2.py3-none-any.whl
 	```
 
   - ***Step 5: Install the Python `onnx-graphsurgeon` wheel file.***
 	```sh 
 	cd ../onnx_graphsurgeon
-	sudo pip3 install onnx_graphsurgeon-0.2.6-py2.py3-none-any.whl
+	pip install onnx_graphsurgeon-*-py2.py3-none-any.whl
 	```
   - ***Step 6: Add below srcipt to ~/.bashrc:*** `gedit ~/.bashrc`
  
