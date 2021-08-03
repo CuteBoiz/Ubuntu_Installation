@@ -2,40 +2,28 @@
 
 ## Content 
 
-- [I - NVIDIA package](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/cuda.md#i-add-nvidia-package-repositories)
-- [II - Download CUDA Toolkit and Preprequisted.](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/cuda.md#ii-download-cuda-toolkit-and-preprequisted)
-- [III - CUDA Toolkit](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/cuda.md#iii-cuda-toolkit)
-- [IV - cuDNN](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/cuda.md#iv-cudnn)
-- [V - TensorRT](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/cuda.md#v-tensorrt)
+- [I - Download CUDA Toolkit and Preprequisted.](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/cuda.md#i-download-cuda-toolkit-and-preprequisted)
+- [II - CUDA Toolkit](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/cuda.md#ii-cuda-toolkit)
+- [III - cuDNN](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/cuda.md#iii-cudnn)
+- [IV - TensorRT](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/cuda.md#iv-tensorrt)
 
-## I. Add NVIDIA package repositories.
-
-```sh
-wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-repo-ubuntu1804_10.1.243-1_amd64.deb
-sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub
-sudo dpkg -i cuda-repo-ubuntu1804_10.1.243-1_amd64.deb
-sudo apt-get update
-wget http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804/x86_64/nvidia-machine-learning-repo-ubuntu1804_1.0.0-1_amd64.deb
-sudo apt install ./nvidia-machine-learning-repo-ubuntu1804_1.0.0-1_amd64.deb
-sudo apt-get update
-```
-
-## II. Download CUDA Toolkit and Preprequisted.
+## I. Download CUDA Toolkit and Preprequisted.
 
 ### 1. Download Cuda ToolKit.
 - Go to [NVIDIA CUDA Download Page](https://developer.nvidia.com/cuda-toolkit-archive)
 - Choose Version
-- [Linux] -> [x86_64] -> [Ubuntu] -> [xx.04] -> [runfile(local)]
-- You'll see the filename similar to: `cuda_11.1.0_455.23.05_linux.run` which `455` stand for NVIDIA Driver version.
+- `[Linux] -> [x86_64] -> [Ubuntu] -> [xx.04] -> [runfile(local)]`
+- Just download the CUDA by the following `wget` command. ***DON'T INSTALL!***
 
 ### 2. Install NVIDIA Driver:
+
+The downloaded Cuda file similar to: `cuda_11.1.0_455.23.05_linux.run` which `455` stand for NVIDIA Driver version. Install that version:
 ```sh
 sudo apt-get install --no-install-recommends nvidia-driver-4xx 
-# xx stand for the coresponding NVIDIA Driver in cuda toolkit installer's filename.
 sudo reboot
 ```
 
-  - Use `nvidia-smi` to check NVIDIA driver installed.
+  - Use `nvidia-smi` to check NVIDIA driver installed.(Don't care about the CUDA Version or Driver Version show)
 	```sh
 	Sun Aug 16 12:34:19 2020       
 	+-----------------------------------------------------------------------------+
@@ -52,8 +40,9 @@ sudo reboot
 	```                                                                             
 
 ### 3. GCC:
+- Check GCC Version: `gcc --version`
 
-Check below table to get the coressponding gcc version with your CUDA Driver.
+- Check below table to get the coressponding gcc version with your CUDA Driver.
 
 <table align="center" style="width:100%">
   <tr align="center">
@@ -106,22 +95,22 @@ Check below table to get the coressponding gcc version with your CUDA Driver.
   </tr>	
 </table>
 
+- Re-install gcc if you have unsupported gcc Version:
+	```sh
+	MAX_GCC_VERSION=x #x stand for the supported GCC version
+	sudo apt install gcc-$MAX_GCC_VERSION g++-$MAX_GCC_VERSION
+	```
 
-```sh
-MAX_GCC_VERSION=x #x stand for the supported GCC version
-sudo apt install gcc-$MAX_GCC_VERSION g++-$MAX_GCC_VERSION
-```
+- **If you installed Cuda with unsupported GCC version:** Add symlinks.
+	```sh
+	sudo ln -s /usr/bin/gcc-$MAX_GCC_VERSION /usr/local/cuda/bin/gcc 
+	sudo ln -s /usr/bin/g++-$MAX_GCC_VERSION /usr/local/cuda/bin/g++
+	```
 
-**If you installed Cuda with unsupported GCC version: ** Add symlinks.
-```sh
-sudo ln -s /usr/bin/gcc-$MAX_GCC_VERSION /usr/local/cuda/bin/gcc 
-sudo ln -s /usr/bin/g++-$MAX_GCC_VERSION /usr/local/cuda/bin/g++
-```
-
-## III. CUDA Toolkit.
+## II. CUDA Toolkit.
  
 - **Install CUDA Toolkit:**
-  - Go to downloaded folder
+  - Go to downloaded CUDA folder.
   - `sudo sh cuda_xx.x.x_4xx.xx.xx_linux.run`
   - Uncheck NVIDIA Driver:
   	```sh
@@ -205,16 +194,17 @@ sudo ln -s /usr/bin/g++-$MAX_GCC_VERSION /usr/local/cuda/bin/g++
 	nvcc -V
 	```
 
-## IV. cuDNN.
+## III. cuDNN.
 
 - **Download:**
 
 	- Go to [NVIDIA cuDNN home page](https://developer.nvidia.com/cudnn)
-  	- Click **Download**
-  	- Complete short survey and click **Submit**
-  	- Accept the Terms and Conditions.
-  	- **Choose the corresponding version with your CUDA Toolkit Version(Important)**
-  	- Download the ***cuDNN Library for Linux (x86_64)***
+  	- Click `Download cuDNN`.
+  	- Login then `Submit` short survey if first time download.
+  	- Check `Accept the Terms and Conditions`.
+  	- Click `Archived cuDNN Releases`.
+  	- **Choose the corresponding version with your CUDA Toolkit Version.**
+  	- Download the `cuDNN Library for Linux (x86_64)`.
 
 - ***Install:***
 	```sh 
@@ -224,15 +214,17 @@ sudo ln -s /usr/bin/g++-$MAX_GCC_VERSION /usr/local/cuda/bin/g++
 	sudo chmod a+r /usr/local/cuda/include/cudnn*.h /usr/local/cuda/lib64/libcudnn*
 	```
 
-## V. TensorRT.
+## IV. TensorRT.
 
 - **Download:**
   	- Go to: [TensorRT Page](https://developer.nvidia.com/tensorrt).
-  	- Click Download Now.
-  	- Select the version of TensorRT that you are interested in.
-  	- Select the check-box to agree to the license terms.
-  	- Download ***TAR*** package with corresponding CUDA ToolkitVersion.
-  	- Extract downloaded file into `/home/username/` folder. This will be installed folder.
+  	- Click `Get Started`.
+  	- Click `Download Now`.
+  	- Login then `Submit` short survey if first time download.
+  	- Select the version of TensorRT that you're interested in.
+  	- Check `I Agree To the Terms of the NVIDIA TensorRT License Agreement`.
+  	- Download `TAR Package` with corresponding CUDA ToolkitVersion.
+  	- Extract downloaded file to `/home/username/` folder. This place will become installed folder.
 
 - **Install with Tar File:**
 
