@@ -57,11 +57,9 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
     -D ENABLE_FAST_MATH=1 \
     -D CUDA_FAST_MATH=1 ..
 ```
-
-**Use `nproc` to check number of processes then minus it by 2 then start make with:**
-
+Make & make install:
 ```sh
-sudo make -j"Number of processes - 2"
+sudo make -j$(($(nproc) - 1))
 sudo make install
 ```
 
