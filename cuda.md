@@ -101,10 +101,31 @@ sudo reboot
 	sudo apt install gcc-$MAX_GCC_VERSION g++-$MAX_GCC_VERSION
 	```
 
-- **If you installed Cuda with unsupported GCC version:** Add symlinks.
-	```sh
-	sudo ln -s /usr/bin/gcc-$MAX_GCC_VERSION /usr/local/cuda/bin/gcc 
-	sudo ln -s /usr/bin/g++-$MAX_GCC_VERSION /usr/local/cuda/bin/g++
+- Change Gcc current version (Example: change from `9.0` to `8.0`):
+	- Remove Alternative:
+	```
+	sudo update-alternatives --remove-all gcc 
+	sudo update-alternatives --remove-all g++
+	```
+	- Set priority:
+	```
+	sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9.0 10
+	sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8.0 20
+
+	sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-9.0 10
+	sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-8.0 20
+
+	sudo update-alternatives --install /usr/bin/cc cc /usr/bin/gcc 30
+	sudo update-alternatives --set cc /usr/bin/gcc
+
+	sudo update-alternatives --install /usr/bin/c++ c++ /usr/bin/g++ 30
+	sudo update-alternatives --set c++ /usr/bin/g++
+	```
+	
+	- Update Alternatives:
+	```
+	sudo update-alternatives --config gcc
+	sudo update-alternatives --config g++
 	```
 
 ## II. CUDA Toolkit.
@@ -268,25 +289,27 @@ sudo reboot
 - **Verify:**
   - ***Python:*** [TensorRT Parser Python](https://github.com/CuteBoiz/TensorRT_Parser_Python)
 	 ```sh
+	 exec bash #Reload terminal
 	 python3 -c "import tensorrt as trt; print(trt.__version__)"
 	 ```
 	 ***Note:*** Python had not support TensorRT on Windows yet. 
 	 
   - ***C++:***  [TensorRT Parser C++](https://github.com/CuteBoiz/TensorRT_Parser_Cpp)
 
-	Add those script to **CMakeLists** flie:
-	```sh
-	#Cuda
-	include_directories(/usr/local/cuda/include)
-	link_directories(/usr/local/cuda/lib64)
+	- Add those script to **CMakeLists** flie:
+		```sh
+		#Cuda
+		include_directories(/usr/local/cuda/include)
+		link_directories(/usr/local/cuda/lib64)
 
-	#TensorRT
-	include_directories(path/to/TensorRT-7.x.x.x/include) #X is your TensorRT version
-	link_directories(path/to/TensorRT-7.x.x.x/lib)
-	```
- 
-	```sh
-	#include <NvInferRuntime.h>
-	#include <NvInfer.h>
-	#include <NvOnnxParser.h>
-	```
+		#TensorRT
+		include_directories(path/to/TensorRT-7.x.x.x/include) #X is your TensorRT version
+		link_directories(path/to/TensorRT-7.x.x.x/lib)
+		```
+		
+ 	- In Cpp file:
+		```sh
+		#include <NvInferRuntime.h>
+		#include <NvInfer.h>
+		#include <NvOnnxParser.h>
+		```
