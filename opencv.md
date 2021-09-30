@@ -60,8 +60,7 @@ mkdir build && cd build
     ```
 - **Make & make install:**
     ```sh
-    sudo make -j$(($(nproc) - 1))
-    sudo make install
+    sudo make -j$(($(nproc) - 1)) && sudo make install
     ```
 
 - **Export Path:**
