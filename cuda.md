@@ -1,132 +1,144 @@
-# Install CUDA + cuDNN + TensorRT for Deep Learning Model Inference 
+# Install CUDA + cuDNN + TensorRT.
 
 ## Content 
 
-- [I - Download CUDA Toolkit and Preprequisted.](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/cuda.md#i-download-cuda-toolkit-and-preprequisted)
+- [I - Download CUDA Toolkit and Prerequisted.](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/cuda.md#i-download-cuda-toolkit-and-prerequisted)
 - [II - CUDA Toolkit](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/cuda.md#ii-cuda-toolkit)
 - [III - cuDNN](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/cuda.md#iii-cudnn)
 - [IV - TensorRT](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/cuda.md#iv-tensorrt)
 
-## I. Download CUDA Toolkit and Preprequisted.
+## I. Download CUDA Toolkit and Prerequisted.
 
-### 1. Download Cuda ToolKit.
-- Go to [NVIDIA CUDA Download Page](https://developer.nvidia.com/cuda-toolkit-archive)
-- Choose Version
-- `[Linux] -> [x86_64] -> [Ubuntu] -> [xx.04] -> [runfile(local)]`
-- Just download the CUDA by the following `wget` command. ***DON'T INSTALL!***
+- **Download Cuda ToolKit.**
+	- Go to [NVIDIA CUDA Download Page](https://developer.nvidia.com/cuda-toolkit-archive)
+	- Choose Version
+	- `[Linux] -> [x86_64] -> [Ubuntu] -> [xx.04] -> [runfile(local)]`
+	- Just **download** the Cuda Toolkit by the following `wget` command. 
+	- **DON'T INSTALL!**
 
-### 2. Install NVIDIA Driver:
+- **Install coresponding NVIDIA Driver:**
 
-The downloaded Cuda file similar to: `cuda_11.1.0_455.23.05_linux.run` which `455` stand for NVIDIA Driver version. Install that version:
-```sh
-sudo apt-get install --no-install-recommends nvidia-driver-4xx 
-sudo reboot
-```
+	- The downloaded Cuda Toolkit file's name similar to: `cuda_11.1.0_455.23.05_linux.run` which `455` stand for NVIDIA Driver version.
+	- Install that version:
+		```sh
+		sudo apt-get install --no-install-recommends nvidia-driver-455 
+		sudo reboot
+		```
 
-  - Use `nvidia-smi` to check NVIDIA driver installed.(Don't care about the CUDA Version or Driver Version show)
-	```sh
-	Sun Aug 16 12:34:19 2020       
-	+-----------------------------------------------------------------------------+
-	| NVIDIA-SMI 450.51.06    Driver Version: 450.51.06    CUDA Version: 11.0     |
-	|-------------------------------+----------------------+----------------------+
-	| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
-	| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
-	|                               |                      |               MIG M. |
-	|===============================+======================+======================|
-	|   0  GeForce GTX 950     On   | 00000000:01:00.0  On |                  N/A |
-	| 35%   38C    P8    11W /  75W |    330MiB /  1999MiB |      0%      Default |
-	|                               |                      |                  N/A |
-	+-------------------------------+----------------------+----------------------+
-	```                                                                             
+	- Use `nvidia-smi` to verify NVIDIA driver installed. ***(Don't care the version shown)***
+		<details>
+		<summary><b>Output</b></summary>
 
-### 3. GCC:
-- Check GCC Version: `gcc --version`
+		```sh
+		Sun Aug 16 12:34:19 2020       
+		+-----------------------------------------------------------------------------+
+		| NVIDIA-SMI 450.51.06    Driver Version: 450.51.06    CUDA Version: 11.0     |
+		|-------------------------------+----------------------+----------------------+
+		| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+		| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+		|                               |                      |               MIG M. |
+		|===============================+======================+======================|
+		|   0  GeForce GTX 950     On   | 00000000:01:00.0  On |                  N/A |
+		| 35%   38C    P8    11W /  75W |    330MiB /  1999MiB |      0%      Default |
+		|                               |                      |                  N/A |
+		+-------------------------------+----------------------+----------------------+
+		```
 
-- Check below table to get the coressponding gcc version with your CUDA Driver.
+		</details>
 
-<table align="center" style="width:100%">
-  <tr align="center">
-    <th>CUDA Version</th>
-    <th>max supported GCC version</th>
-  </tr>
-  <tr align="center">
-	<td>11.1, 11.2, 11.3</td>
-    	<td>10</td>
-  </tr>
-  <tr align="center">
-	<td>11.0</td>
-	<td>9</td>
-  </tr>
-  <tr align="center">
-	<td>10.1, 10.2</td>
-	<td>8</td>
-  </tr>
-  <tr align="center">
-	<td>9.2, 10.0</td>
-	<td>7</td>
-  </tr>
-  <tr align="center">
-	<td>9.0, 9.1</td>
-	<td>6</td>
-  </tr>
-  <tr align="center">
-	<td>8.0</td>
-	<td>5.3</td>
-  </tr>
-  <tr align="center">
-	<td>7.0</td>
-	<td>4.9</td>
-  </tr>
-  <tr align="center">
-	<td>5.5, 6.0</td>
-	<td>4.8</td>
-  </tr>
-  <tr align="center">
-	<td>4.2, 5.0</td>
-	<td>4.6</td>
-  </tr>
-  <tr align="center">
-	<td>4.1</td>
-	<td>4.5</td>
-  </tr>
-  <tr align="center">
-	<td>4.0</td>
-	<td>4.4</td>
-  </tr>	
-</table>
-
-- Re-install gcc if you have unsupported gcc Version:
-	```sh
-	MAX_GCC_VERSION=x #x stand for the supported GCC version
-	sudo apt install gcc-$MAX_GCC_VERSION g++-$MAX_GCC_VERSION
-	```
-
-- Change Gcc current version (Example: change from `9.0` to `8.0`):
-	- Remove Alternative:
-	```
-	sudo update-alternatives --remove-all gcc 
-	sudo update-alternatives --remove-all g++
-	```
-	- Set priority:
-	```
-	sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9.0 10
-	sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8.0 20
-
-	sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-9.0 10
-	sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-8.0 20
-
-	sudo update-alternatives --install /usr/bin/cc cc /usr/bin/gcc 30
-	sudo update-alternatives --set cc /usr/bin/gcc
-
-	sudo update-alternatives --install /usr/bin/c++ c++ /usr/bin/g++ 30
-	sudo update-alternatives --set c++ /usr/bin/g++
-	```
+- **Install supported gcc & g++.**
+	- Install:
+		```sh
+		MAX_GCC_VERSION=x #x stand for the max supported GCC version
+		sudo apt install gcc-$MAX_GCC_VERSION g++-$MAX_GCC_VERSION
+		``` 
+		
+	<table align="center" style="width:100%">
+		<tr align="center">
+			<th>CUDA Version</th>
+			<th>max supported GCC version</th>
+		</tr>
+		<tr align="center">
+		<td>11.1, 11.2, 11.3</td>
+				<td>10</td>
+		</tr>
+		<tr align="center">
+		<td>11.0</td>
+		<td>9</td>
+		</tr>
+		<tr align="center">
+		<td>10.1, 10.2</td>
+		<td>8</td>
+		</tr>
+		<tr align="center">
+		<td>9.2, 10.0</td>
+		<td>7</td>
+		</tr>
+		<tr align="center">
+		<td>9.0, 9.1</td>
+		<td>6</td>
+		</tr>
+		<tr align="center">
+		<td>8.0</td>
+		<td>5.3</td>
+		</tr>
+		<tr align="center">
+		<td>7.0</td>
+		<td>4.9</td>
+		</tr>
+		<tr align="center">
+		<td>5.5, 6.0</td>
+		<td>4.8</td>
+		</tr>
+		<tr align="center">
+		<td>4.2, 5.0</td>
+		<td>4.6</td>
+		</tr>
+		<tr align="center">
+		<td>4.1</td>
+		<td>4.5</td>
+		</tr>
+		<tr align="center">
+		<td>4.0</td>
+		<td>4.4</td>
+		</tr>	
+	</table>
 	
-	- Update Alternatives:
-	```
-	sudo update-alternatives --config gcc
-	sudo update-alternatives --config g++
-	```
+	- Verify the install gcc version: `gcc --version`		
+
+		<details>
+		<summary><b>If you have unsupported gcc Version.</b></summary>
+
+		- ***Note:*** There aren't safety way to remove gcc. So we will install both version then switch to the supported one. 
+
+		- **Change Gcc current version (Example: change from `9.0` to `8.0`):**
+			- ***Remove Alternative:***
+				```sh
+				sudo update-alternatives --remove-all gcc 
+				sudo update-alternatives --remove-all g++
+				```
+			- ***Add alternatives for gcc/g++ and set their priority:***
+				```sh
+				sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9.0 10
+				sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8.0 20
+
+				sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-9.0 10
+				sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-8.0 20
+
+				sudo update-alternatives --install /usr/bin/cc cc /usr/bin/gcc 30
+				sudo update-alternatives --set cc /usr/bin/gcc
+
+				sudo update-alternatives --install /usr/bin/c++ c++ /usr/bin/g++ 30
+				sudo update-alternatives --set c++ /usr/bin/g++
+				```
+
+			- ***Update Alternatives:***
+				```sh
+				sudo update-alternatives --config gcc #Choose coressponding index with installed gcc version
+				sudo update-alternatives --config g++	#Choose coressponding index with installed g++ version
+				```
+
+		</details>
 
 ## II. CUDA Toolkit.
  
@@ -147,7 +159,10 @@ sudo reboot
 	│   Options                                                                    │
 	│   Install 								       |
 	```
-- **Result:**
+	
+	<details>
+	<summary><b>Install Complete logs.</b></summary>
+		
 	```sh
 	= Summary =
 	===========
@@ -167,9 +182,35 @@ sudo reboot
 
 	Logfile is /var/log/cuda-installer.log
 	```
+	
+	</details>
+		
   - `sudo reboot`
-  - Add below scripts to `~/.bashrc`
-
+  - Add below scripts to `~/.bashrc` **(Choose one)**:
+	
+	<details>
+	<summary><b>Single CUDA version.</b></summary>
+	
+	```sh
+	export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}
+	export LD_LIBRARY_PATH=/usr/local/cuda/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+	```
+	
+	</details>
+	
+	<details>
+	<summary><b>Specific CUDA version.</b></summary>
+	
+	```sh
+	export PATH=/usr/local/cuda-11.1/bin${PATH:+:${PATH}}
+	export LD_LIBRARY_PATH=/usr/local/cuda-11.1/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+	```
+	
+	</details>
+		
+	<details>
+	<summary><b>Multiple CUDA versions.<i>(Enable all installed Cuda)</i></b></summary>
+	
 	```sh 
 	/sbin/modprobe nvidia
 
@@ -210,6 +251,8 @@ sudo reboot
 	export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/extras/CUPTI/lib64
 
 	```
+	
+	</details>
 		
   - Verify Installation.
 	```sh 
@@ -230,12 +273,21 @@ sudo reboot
   	- Download the `cuDNN Library for Linux (x86_64)`.
 
 - ***Install:***
-	```sh 
-	tar -xzvf cudnn-x.x-linux-x64-v8.x.x.x.tgz
-	sudo cp cuda/include/cudnn*.h /usr/local/cuda/include
-	sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
-	sudo chmod a+r /usr/local/cuda/include/cudnn*.h /usr/local/cuda/lib64/libcudnn*
-	```
+	- **If you only one Cuda version.**
+		```sh 
+		tar -xzvf cudnn-x.x-linux-x64-v8.x.x.x.tgz
+		sudo cp cuda/include/cudnn*.h /usr/local/cuda/include
+		sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
+		sudo chmod a+r /usr/local/cuda/include/cudnn*.h /usr/local/cuda/lib64/libcudnn*
+		```
+	- **If you use multiple Cuda version.**
+		```sh 
+		tar -xzvf cudnn-x.x-linux-x64-v8.x.x.x.tgz
+		sudo cp cuda/include/cudnn*.h /usr/local/cuda/include
+		sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
+		sudo chmod a+r /usr/local/cuda-11.1/include/cudnn*.h /usr/local/cuda-11.1/lib64/libcudnn* #Paste them to specific cuda directory
+		```
+		
 
 ## IV. TensorRT.
 
@@ -249,50 +301,46 @@ sudo reboot
   	- Download `TAR Package` with corresponding CUDA ToolkitVersion.
   	- Extract downloaded file to `/home/username/` folder. This place will become installed folder.
 
-- **Install with Tar File:**
-
-  - ***Step 1: Go to installed folder.***
-  	```sh
+- **Add below srcipt to ~/.bashrc:**
+	```sh
+	export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/path/to/TensorRT-7.x.x.x/lib #Chage path to your installed TensorRT folder.
+	```
+	
+<details>
+<summary><b>Install TensorRT-Python <i>(Linux Only / Windows does not support TensorRT-Python yet)</i></b></summary>
+	
+- ***Go to installed folder:***
+	```sh
 	cd TensorRT-7.x.x.x...
 	```
 
-  - ***Step 2: Install the Python `TensorRT` wheel file.***
-	Choose the Python version using in your system: (mine was 3.7)
+- ***Install coresponding Python `TensorRT` wheel file (cp37 stand for python 3.7):***
 	```sh
 	cd python 
 	pip install tensorrt-*-cp37-none-linux_x86_64.whl
 	```
 
-  - ***Step 3: Install the Python `UFF` wheel file.***
+- ***Install addition wheel files:***
 	```sh
 	cd ../uff
 	pip install uff-*-py2.py3-none-any.whl
-	```
-
-  - ***Step 4: Install the Python `graphsurgeon` wheel file.***
-	```sh 
 	cd ../graphsurgeon
 	pip install graphsurgeon-*-py2.py3-none-any.whl
-	```
-
-  - ***Step 5: Install the Python `onnx-graphsurgeon` wheel file.***
-	```sh 
 	cd ../onnx_graphsurgeon
 	pip install onnx_graphsurgeon-*-py2.py3-none-any.whl
 	```
-  - ***Step 6: Add below srcipt to ~/.bashrc:*** `gedit ~/.bashrc`
- 
-  	**Change username and "x" to your TensorRT version:**
-	```sh
-	export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/username/TensorRT-7.x.x.x/lib
-	```
-- **Verify:**
+
+</details>
+	
+<details>
+<summary><b>Verify and Use.</b></summary>
+
   - ***Python:*** [TensorRT Parser Python](https://github.com/CuteBoiz/TensorRT_Parser_Python)
 	 ```sh
 	 exec bash #Reload terminal
 	 python3 -c "import tensorrt as trt; print(trt.__version__)"
 	 ```
-	 ***Note:*** Python had not support TensorRT on Windows yet. 
+	 ***Note:*** Python does not support TensorRT on Windows yet. 
 	 
   - ***C++:***  [TensorRT Parser C++](https://github.com/CuteBoiz/TensorRT_Parser_Cpp)
 
@@ -313,3 +361,4 @@ sudo reboot
 		#include <NvInfer.h>
 		#include <NvOnnxParser.h>
 		```
+</details>
