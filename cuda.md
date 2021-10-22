@@ -19,8 +19,8 @@
 - **Install coresponding NVIDIA Driver:**
 
 	- The downloaded Cuda Toolkit file's name similar to: `cuda_11.1.0_455.23.05_linux.run` which `455` stand for NVIDIA Driver version.
-	- Install that version:
 		```sh
+		#Replace 455 with your coresponding version.
 		sudo apt-get install --no-install-recommends nvidia-driver-455 
 		sudo reboot
 		```
