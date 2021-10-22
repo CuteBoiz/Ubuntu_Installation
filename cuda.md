@@ -27,7 +27,7 @@
 
 	- Use `nvidia-smi` to verify NVIDIA driver installed. ***(Don't care the version shown)***
 		<details>
-		<summary><b>Output</b></summary>
+		<summary><b>Output Logs:</b></summary>
 
 		```sh
 		Sun Aug 16 12:34:19 2020       
@@ -272,21 +272,23 @@
   	- **Choose the corresponding version with your CUDA Toolkit Version.**
   	- Download the `cuDNN Library for Linux (x86_64)`.
 
-- ***Install:***
-	- **If you only one Cuda version.**
+- **Install: *(You can do both below methods)*.**
+	- ***If you use only one Cuda version.***
 		```sh 
 		tar -xzvf cudnn-x.x-linux-x64-v8.x.x.x.tgz
 		sudo cp cuda/include/cudnn*.h /usr/local/cuda/include
 		sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
 		sudo chmod a+r /usr/local/cuda/include/cudnn*.h /usr/local/cuda/lib64/libcudnn*
 		```
-	- **If you use multiple Cuda version.**
+	- ***If you use specific version or multiple cuda versions.***
 		```sh 
 		tar -xzvf cudnn-x.x-linux-x64-v8.x.x.x.tgz
-		sudo cp cuda/include/cudnn*.h /usr/local/cuda/include
-		sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
-		sudo chmod a+r /usr/local/cuda-11.1/include/cudnn*.h /usr/local/cuda-11.1/lib64/libcudnn* #Paste them to specific cuda directory
+		#Replace 11.1 with you installed version.
+		sudo cp cuda/include/cudnn*.h /usr/local/cuda-11.1/include
+		sudo cp cuda/lib64/libcudnn* /usr/local/cuda-11.1/lib64
+		sudo chmod a+r /usr/local/cuda-11.1/include/cudnn*.h /usr/local/cuda-11.1/lib64/libcudnn* 
 		```
+- **Delete extracted `cuda` folder**.
 		
 
 ## IV. TensorRT.
