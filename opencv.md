@@ -27,15 +27,19 @@
     git clone https://github.com/opencv/opencv.git
     git clone https://github.com/opencv/opencv_contrib.git
     ```
-
-- **Switch version (optional):**
-    ```sh
-    cd ~/opencv_build/opencv
-    git checkout <opencv-version>
-    cd ~/opencv_build/opencv_contrib
-    git checkout <opencv-version>
-    ```
-
+<details> 
+<summary><b>Switch version (optional):</b></summary>
+    
+```sh
+cd ~/opencv_build/opencv
+git checkout <opencv-version>
+cd ~/opencv_build/opencv_contrib
+git checkout <opencv-version>
+```
+**Note:** *`opencv` and `opencv_contrib` version must match!*
+    
+</details> 
+    
 ## III. Build.
 
 ```sh
@@ -71,8 +75,8 @@ mkdir build && cd build
     ```
     
 ## IV. Verify and use.
-
-### 1. Using with python:
+<details>
+<summary><b>Using in Python:</b></summary>
 
 - Remove opencv-python ***(if installed)***.
 
@@ -81,8 +85,12 @@ mkdir build && cd build
     exec bash #Reload Terminal
     python3 -c "import cv2; print(cv2.__version__)"
     ```
-
-### 2. Using with C++:
+    
+</details>
+    
+<details>
+<summary><b>Using in C++:</b></summary>
+    
 - **Add below script to `CMakeLists.txt`:**
     ```sh
     find_package(OpenCV REQUIRED)
@@ -95,3 +103,5 @@ mkdir build && cd build
     #include <opencv2/highgui/highgui.hpp>
     ...
     ```
+    
+</details>
