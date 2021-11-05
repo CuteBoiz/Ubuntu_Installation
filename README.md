@@ -25,7 +25,11 @@ Installation/wiki & Basic Turtorial for some Popular Applications.
 
 ### III. Server.
 
-- [Server management with SSH](https://github.com/CuteBoiz/Sever_Management)
+- [Setup SSH Server](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/wiki/setup_ssh.md)
+
+- [Server management with SSH](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/wiki/basic_ssh.md)
+
+- [Direct Server's coding with VSC](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/wiki/vscode_ssh.md)
 
 ### IV. Clean Cache
 
