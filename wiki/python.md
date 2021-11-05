@@ -1,16 +1,16 @@
 # Python Installation
 
-*Install Python 3 Version From Source Code.*
+*Install Python 3 From Source.*
 
-## I. Install Lastest Python 3 Version
+## I. Install.
 
-- **Download Lastest Python Version**
-	- Go to [Python download page](https://www.python.org/downloads/source/)
-	- Choose version. (If you use with TensorRT use the version 3.6.x or 3.7.x)
-	- Download `Gzipped source tarball`.
-	- Extract downloaded file in `/home/` this place will be your Python installed Path.
+- ***Download***
+	- [Python download page](https://www.python.org/downloads/source/)
+	- Choose version. (Stable versions are 3.6, 3.7 or 3.8)
+	- Download `Gzipped source tarball` one.
+	- Extract downloaded file at `/home/username/` this place will be your Python installed Path.
 
-- **Install Prerequistes (IMPORTANT)**
+- ***Install Prerequistes (IMPORTANT)***
 	```sh
 	sudo apt-get install gcc
 
@@ -25,39 +25,27 @@
 	sudo apt-get install libopencv-*
 	```
 
-- **Install**
+- ***Install***
 	```sh
+	#Install python 3.7.4 example
 	cd Python-3.7.4
 	./configure --enable-optimizations
-	sudo make
+	sudo make -j$(($(nproc) - 1))
 	sudo make install
 	python3.7 -V
-	sudo python3 -m pip install --upgrade pip
+	sudo python3.7 -m pip install --upgrade pip
 	```
-
-- **TYPE "python" instead of "python3".**
-	- This will help you avoid confusing between **python3** and **python2**.
-	- Add below srcipts to bottom of the file: `gedit ~/.bashrc`
-	```sh
-	alias python=python3
-	alias pip=pip3
-	```
-	
-- **Verify:**
+- ***Verify:***
 	```sh
 	exec bash
-	python
+	python3
 	```
-	You will see something similar to this:
-	```sh
-	Python 3.8.10 (default, Jun  2 2021, 10:49:15) 
-	[GCC 9.4.0] on linux
-	Type "help", "copyright", "credits" or "license" for more information.
-	>>> 
-	```
-	**Note:** *If the version ***does not*** match with your installed one. Use below step.*
 
-- Change Python3 version **(If you have multiple Python 3 versions)**
+<details>
+<summary><b>If the version doesn't match with your installed version.</b></summary>
+
+- **DON'T REMOVE ANY PYTHON VERSION.** This can cause some OS errors.
+- Example: If you want change from python 3.6 to 3.7: 
 	```sh
 	sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 1
 	sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.7 2
@@ -65,9 +53,21 @@
 	2
 	python3 #verify
 	```
-	**Note:** *The python you installed might be on different directory.*
-	*[Cannot find python ERROR Handle](https://askubuntu.com/questions/1070610/having-troubles-updating-to-python-3-6-on-ubuntu-16-04)*
+**Note:** *The python you installed might be on different directory.*	
+</details>
 
+<details>
+<summary><b>Type "python" instead of "python3".</b></summary>
+	
+- This will help you avoid confusing between **python3** and **python2**.
+- Add below srcipts to bottom of the file: `gedit ~/.bashrc`
+	```sh
+	alias python=python3
+	alias pip=pip3
+	```
+	
+</details>
+	
 
 ## II. Virtual Environment Python
 
