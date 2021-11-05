@@ -2,10 +2,10 @@
 
 ## Content 
 
-- [I - Download CUDA Toolkit and Prerequisted.](https://github.com/CuteBoiz/Ubuntu_Installation/wiki/blob/master/cuda.md#i-download-cuda-toolkit-and-prerequisted)
-- [II - Install CUDA Toolkit](https://github.com/CuteBoiz/Ubuntu_Installation/wiki/blob/master/cuda.md#ii-cuda-toolkit)
-- [III - Install cuDNN](https://github.com/CuteBoiz/Ubuntu_Installation/wiki/blob/master/cuda.md#iii-cudnn)
-- [IV - Install TensorRT](https://github.com/CuteBoiz/Ubuntu_Installation/wiki/blob/master/cuda.md#iv-tensorrt)
+- [I - Download CUDA Toolkit and Prerequisted.](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/wiki/cuda.md#i-download-cuda-toolkit-and-prerequisted)
+- [II - Install CUDA Toolkit](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/wiki/cuda.md#ii-cuda-toolkit)
+- [III - Install cuDNN](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/wiki/cuda.md#iii-cudnn)
+- [IV - Install TensorRT](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/wiki/cuda.md#iv-tensorrt)
 
 ## I. Download CUDA Toolkit and Prerequisted.
 
