@@ -1,12 +1,11 @@
-# Sever Management with SSH
+# Sever Management
 
-### 1. Connect to a server.
-
+## 1. Connect to a server.
 ```sh
 ssh -p port_number username@server-ip-address
 ```
 
-### 2. Add an user.
+## 2. Add an user.
 
 #### Add user
 
@@ -29,55 +28,65 @@ sudo useradd [Options] username
 sudo passwd username
 ```
 
-### 3. Management
+## 3. Management
 
-- **User Management.**
+<details>
+<summary><i>User Management.</i></summary>
 
-  - List users: `getent passwd | cut -d: -f1`
+- List users: `getent passwd | cut -d: -f1`
 
-  - Check user's id: `id -u username`
+- Check user's id: `id -u username`
 
-  - Kill all processes of a user: `pkill -U UID`
+- Kill all processes of a user: `pkill -U UID`
 
-  - Delete an user: `sudo userdel username`
+- Delete an user: `sudo userdel username`
 
-  - Check account expire day: `sudo chage -l username`
+- Check account expire day: `sudo chage -l username`
 
-  - Add HomeDir for a user: `sudo mkhomedir_helper username`
+- Add HomeDir for a user: `sudo mkhomedir_helper username`
 
-  - Change user password: `sudo passwd username`
+- Change user password: `sudo passwd username`
 
-- **Group Management.**
+</details>
   
-  - Create a group: `sudo groupadd groupname
-  `
+<details>
+<summary><i>Group users management.</i></summary>
+  
+- Create a group: `sudo groupadd groupname`
 
-  - Delete a group: `sudo groupdel groupname`
+- Delete a group: `sudo groupdel groupname`
 
-   - Assign group ownership: `sudo chown groupname foldername/filename`
+- Assign group ownership: `sudo chown groupname foldername/filename`
 
-  - Check user's groups: `id -gn username`
+- Check user's groups: `id -gn username`
 
-  - Add user to a group: `sudo usermod -a -G groupname username`
+- Add user to a group: `sudo usermod -a -G groupname username`
 
-  - Give a user admin access: `sudo usermod -a -G sudo username`
+- Give a user admin access: `sudo usermod -a -G sudo username`
 
-  - Remove user from a group: `sudo gpasswd -d username groupname`
+- Remove user from a group: `sudo gpasswd -d username groupname`
 
+</details>
 
-- **System Management.**
+<details>
+<summary><i>System Management.</i></summary>
 
-  - Check CPU & RAM Performance: `htop`
+- Check CPU & RAM Performance: `htop`
 
-  - Check Disk Space: `df -H`
+- Check Disk Space: `df -H`
 
-  - Check all users's disk usage: `cd /home/ && sudo du -h --max-depth=1 | sort -hr`
+- Check all users's disk usage: `cd /home/ && sudo du -h --max-depth=1 | sort -hr`
 
-  - Check GPU Performance: `nvidia-smi`
+- Check GPU Performance: `nvidia-smi`
+  
+</details>
+  
+## 4. Tools
 
-### 4. Tools
-
-- a. Tranfer a file via SSH:**(Type this command in local computer)**
+<details open>
+<summary><b>Tranfer a file via SSH. </b></summary>
+  
+  **Type below command at local computer.**
   - *From local computer to ssh server:*
     ```sh
     scp -P port_number path/to/file_name username@server-ip:/path/to/destiny
@@ -86,13 +95,15 @@ sudo passwd username
     ```sh
     scp -P port_number username@server-ip:/path/to/file_name path/to/destiny 
     ```
-  
-- b. Tranfer a folder via SSH: **(Add -r argument)**
-  ```sh
-  scp -P port_number -r username@server-ip:/path/to/directory /home/Desktop/ 
-  ```
+  If you want transfer a folder add `-r` prefix
 
-- c. Check Server's Tensorboard-Logs on Local machine:
+</details>
+  
+<details open>
+<summary><b>Check Server's Tensorboard-Logs on Local machine.</b></summary>
+  
   ```sh
   tensorboard --logdir=logs_dir --host localhost --port 8888
   ```
+  
+</details>
