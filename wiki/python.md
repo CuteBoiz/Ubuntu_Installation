@@ -69,7 +69,6 @@
 	*[Cannot find python ERROR Handle](https://askubuntu.com/questions/1070610/having-troubles-updating-to-python-3-6-on-ubuntu-16-04)*
 
 
-
 ## II. Virtual Environment Python
 
 - **Install:** `sudo apt install -y python3-venv`
@@ -84,15 +83,5 @@
 
 - **Import Requirement:** `pip install -r requirement.txt`
 
-## III. Popular Packages For Programming.
-```sh 
-pip install numpy scipy matplotlib
-
-export DISABLE_BCOLZ_AVX2=true
-pip install bcolz
-
-pip install jupyter notebook
-jupyter notebook #Then open your web browser at: http://localhost:8888/
-```
 
 
