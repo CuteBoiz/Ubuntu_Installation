@@ -77,13 +77,13 @@ sudo passwd username
 
 - Check all users's disk usage: `cd /home/ && sudo du -h --max-depth=1 | sort -hr`
 
-- Check GPU Performance: `nvidia-smi`
+- Check GPU Usage: `gpustat`
   
 </details>
   
 ## 4. Tools
 
-<details open>
+<details>
 <summary><b>Tranfer a file via SSH. </b></summary>
   
   **Type below command at local computer.**
@@ -98,8 +98,19 @@ sudo passwd username
   If you want transfer a folder add `-r` prefix
 
 </details>
+
+<details>
+<summary><b>Limit cpu usage of a running process.</b></summary>
   
-<details open>
+  ```sh
+  cpulimit -l cpu_usage_limitation(%) -p PID_num_of_process
+  cpulimit -l 120 -p 3198
+  ```
+  To check PID_num of a running prosess use `htop`.
+  
+</details>
+
+<details>
 <summary><b>Check Server's Tensorboard-Logs on Local machine.</b></summary>
   
   ```sh
@@ -107,3 +118,5 @@ sudo passwd username
   ```
   
 </details>
+
+
