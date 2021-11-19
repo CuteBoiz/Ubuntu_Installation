@@ -22,6 +22,7 @@ Installation/wiki & Basic Turtorial for some Popular Applications.
 
 - [OpenCV From Source (CUDA support)](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/wiki/opencv.md)
 
+- [Tmux Cheat Sheet](https://github.com/CuteBoiz/Ubuntu_Installation/blob/master/wiki/tmux.md)
 
 ### III. Server.
 
