@@ -29,48 +29,48 @@ sudo apt-get install tmux
 
 > A Tmux session had at last one window. If you create a tmux session a window would be auto generated.
 
-- **Create new window:** `Ctrl` + `b`  `c`
+- **Create new window:** `Ctrl` + `b` &nbsp; `c`
 
-- **Rename current window:** `Ctrl` + `b`  `,`
+- **Rename current window:** `Ctrl` + `b` &nbsp; `,`
 
-- **Close current window:** `Ctrl` + `b`  `&`
+- **Close current window:** `Ctrl` + `b` &nbsp; `&`
 
-- **Next window:** `Ctrl` + `b`  `n`
+- **Next window:** `Ctrl` + `b` &nbsp; `n`
 
-- **Previous window:** `Ctrl` + `b`  `n`
+- **Previous window:** `Ctrl` + `b` &nbsp; `p`
 
-- **Switch/select window by number:** `Ctrl` + `b`  `0`...`9`
+- **Switch/select window by number:** `Ctrl` + `b` &nbsp; `0`...`9`
 
 
 ## Panels
 
 > You can split a window into multiple panels.
 
-- **Split pane horizontally:** `Ctrl` + `b`  `%`
+- **Split pane horizontally:** `Ctrl` + `b` &nbsp; `%`
 
-- **Split pane vertically:** `Ctrl` + `b`  `"`
+- **Split pane vertically:** `Ctrl` + `b` &nbsp; `"`
 
-- **Switch to pane to the direction:** `Ctrl` + `b`  `arrow key`
+- **Switch to pane to the direction:** `Ctrl` + `b` &nbsp; `arrow_keys`
 
-- **Convert a pane into a window:** `Ctrl` + `b`  `!`
+- **Convert a pane into a window:** `Ctrl` + `b` &nbsp; `!`
 
 - **Resize current pane height:**
 	- `Ctrl` + `b` + `up_arrow`
 	- `Ctrl` + `b` + `down_arrow`
-	- `Ctrl` + `b`  `Ctrl` + `up_arrow`
-	- `Ctrl` + `b`  `Ctrl` + `down_arrow`
+	- `Ctrl` + `b` &nbsp; `Ctrl` + `up_arrow`
+	- `Ctrl` + `b` &nbsp; `Ctrl` + `down_arrow`
 
 - **Resize current pane width:**
-	- `Ctrl` + `b` + `->`
-	- `Ctrl` + `b` + `<-`
-	- `Ctrl` + `b`  `Ctrl` + `->`
-	- `Ctrl` + `b`  `Ctrl` + `<-`
+	- `Ctrl` + `b` + `left_arrow`
+	- `Ctrl` + `b` + `right_arrow`
+	- `Ctrl` + `b` &nbsp; `Ctrl` + `left_arrow`
+	- `Ctrl` + `b` &nbsp; `Ctrl` + `right_arrow`
 
 - **Close current panel:** `Ctrl` + `b`  `x`
 
 ## Copy mode
 
-- **Start copy mode:** `Ctrl` + `b`  `[`
+- **Start copy mode:** `Ctrl` + `b` &nbsp; `[`
 
 - **Quit copy mode:** `q` or `Esc`
 
@@ -100,7 +100,7 @@ sudo apt-get install tmux
 
 - **Copy selection:** `Enter`
 
-- **Paste content:** `Ctrl` + `b`  `]`
+- **Paste content:** `Ctrl` + `b` &nbsp; `]`
 	
 
 
