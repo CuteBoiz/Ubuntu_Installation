@@ -188,7 +188,7 @@
   - `sudo reboot`
   - Add below scripts to `~/.bashrc` **(Choose one)**:
 	
-	<details>
+	<details open>
 	<summary><b>Single CUDA version.</b></summary>
 	
 	```sh
@@ -198,7 +198,7 @@
 	
 	</details>
 	
-	<details>
+	<details open>
 	<summary><b>Specific CUDA version.</b></summary>
 	
 	```sh
@@ -208,7 +208,7 @@
 	
 	</details>
 		
-	<details>
+	<details open>
 	<summary><b>Multiple CUDA versions.<i>(Enable all installed Cuda)</i></b></summary>
 	
 	```sh 
@@ -308,7 +308,7 @@
 	export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/path/to/TensorRT-7.x.x.x/lib #Chage path to your installed TensorRT folder.
 	```
 	
-<details>
+<details open>
 <summary><b>Install TensorRT-Python <i>(Linux Only / Windows does not support TensorRT-Python yet)</i></b></summary>
 	
 - ***Go to installed folder:***
