@@ -15,6 +15,10 @@ sudo apt-get install tmux
 	tmux new -t ses_name
 	```
 
+- **Detact from session:** `Ctrl` + `b` &nbsp; `d`
+  > Running commands in a session is still run after you detach from session. This is one of the best features of tmux.
+	
+
 - **Attach to an detached session:**
 	```sh
 	tmux a -t ses_name
@@ -40,7 +44,6 @@ sudo apt-get install tmux
 - **Previous window:** `Ctrl` + `b` &nbsp; `p`
 
 - **Switch/select window by number:** `Ctrl` + `b` &nbsp; `0`...`9`
-
 
 ## Panels
 
