@@ -27,7 +27,7 @@
     git clone https://github.com/opencv/opencv.git
     git clone https://github.com/opencv/opencv_contrib.git
     ```
-<details> 
+<details open> 
 <summary><b>Switch version (optional):</b></summary>
     
 ```sh
