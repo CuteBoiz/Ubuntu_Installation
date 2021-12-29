@@ -30,7 +30,7 @@
 		sudo systemctl status ssh
 		```
 
-		If not running enable the ssh server and start it as follows by typing the systemctl command:
+		If not running, typing the systemctl command:
 
 		```sh
 		sudo systemctl enable ssh
@@ -39,8 +39,8 @@
 
 	- ***Config:***
 		```sh
-		sudo ufw allow ssh #Port 22
-		sudo ufw allow port_num/tcp #With specific port_num
+		sudo ufw allow ssh #Port 22 as default
+		# or specific port_num: sudo ufw allow port_num/tcp
 		
 		sudo ufw enable
 		sudo ufw status
@@ -48,10 +48,12 @@
 
 - **Setup Global server with ngrok.**
 	- Setup ssh LAN server.
-	- Create account and get Authtoken & download ngrok [here](https://dashboard.ngrok.com/get-started/setup)
-	- `./ngrok authtoken AUTHTOKEN_ID`
-	- `./ngrok tcp 22`
-	- Connect Example: `ssh <YOUR_USERNAME>@0.tcp.jp.ngrok.io -p 11111`
+	- Download [ngrok](https://ngrok.com/download).
+	- `./ngrok` or `ngrok` to verify.
+	- Create account & Get Authtoken [here](https://dashboard.ngrok.com/get-started/setup).
+	- `./ngrok authtoken AUTHTOKEN_ID` or `ngrok authtoken AUTHTOKEN_ID`.
+	- `./ngrok tcp 22` or `ngrok tcp 22`.
+	- Connect Example: `ssh <server_username>@0.tcp.jp.ngrok.io -p 11111`.
 
 
 
