@@ -202,14 +202,15 @@
 	<summary><b>Specific CUDA version.</b></summary>
 	
 	```sh
-	export PATH=/usr/local/cuda-11.1/bin${PATH:+:${PATH}}
-	export LD_LIBRARY_PATH=/usr/local/cuda-11.1/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+	#Replace 1x.x with your installed cuda version
+	export PATH=/usr/local/cuda-1x.x/bin${PATH:+:${PATH}}
+	export LD_LIBRARY_PATH=/usr/local/cuda-1x.x/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 	```
 	
 	</details>
 		
 	<details open>
-	<summary><b>Multiple CUDA versions.<i>(Enable all installed Cuda)</i></b></summary>
+	<summary><b>Multiple CUDA versions.<i>(Enable all installed Cuda) (RECOMMENDED)</i></b></summary>
 	
 	```sh 
 	/sbin/modprobe nvidia
@@ -272,23 +273,16 @@
   	- **Choose the corresponding version with your CUDA Toolkit Version.**
   	- Download the `cuDNN Library for Linux (x86_64)`.
 
-- **Install: *(You can do both below methods)*.**
-	- ***If you use only one Cuda version.***
-		```sh 
-		tar -xzvf cudnn-x.x-linux-x64-v8.x.x.x.tgz
-		sudo cp cuda/include/cudnn*.h /usr/local/cuda/include
-		sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
-		sudo chmod a+r /usr/local/cuda/include/cudnn*.h /usr/local/cuda/lib64/libcudnn*
-		```
-	- ***If you use specific version or multiple cuda versions.***
-		```sh 
-		tar -xzvf cudnn-x.x-linux-x64-v8.x.x.x.tgz
-		#Replace 11.1 with you installed version.
-		sudo cp cuda/include/cudnn*.h /usr/local/cuda-11.1/include
-		sudo cp cuda/lib64/libcudnn* /usr/local/cuda-11.1/lib64
-		sudo chmod a+r /usr/local/cuda-11.1/include/cudnn*.h /usr/local/cuda-11.1/lib64/libcudnn* 
-		```
-- **Delete extracted `cuda` folder**.
+- **Copy CuDNN library to Cuda installed place:**
+	```sh 
+	tar -xzvf cudnn-x.x-linux-x64-v8.x.x.x.tgz
+	#Replace 1x.x with you installed version(e.g: 10.2, 11.1, 11.3, ...).
+	CUDA_VER=1x.x
+	sudo cp cuda/include/cudnn*.h /usr/local/cuda-$CUDA_VER/include
+	sudo cp cuda/lib64/libcudnn* /usr/local/cuda-$CUDA_VER/lib64
+	sudo chmod a+r /usr/local/cuda-$CUDA_VER/include/cudnn*.h /usr/local/cuda-$CUDA_VER/lib64/libcudnn* 
+	```
+- **Delete extracted folder**.
 		
 
 ## IV. TensorRT.
