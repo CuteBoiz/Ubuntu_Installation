@@ -32,6 +32,7 @@ sudo passwd username
 
 <details>
 <summary><i>User Management.</i></summary>
+  
 - Assign a user to data: `sudo chown username 'foldername or filename'`
   
 - List users: `getent passwd | cut -d: -f1`
