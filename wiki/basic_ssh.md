@@ -32,7 +32,8 @@ sudo passwd username
 
 <details>
 <summary><i>User Management.</i></summary>
-
+- Assign a user to data: `sudo chown username 'foldername or filename'`
+  
 - List users: `getent passwd | cut -d: -f1`
 
 - Check user's id: `id -u username`
@@ -56,7 +57,7 @@ sudo passwd username
 
 - Delete a group: `sudo groupdel groupname`
 
-- Assign group ownership: `sudo chown groupname foldername/filename`
+- Assign group ownership: `sudo chown :groupname 'foldername or filename'`
 
 - Check user's groups: `id -gn username`
 
