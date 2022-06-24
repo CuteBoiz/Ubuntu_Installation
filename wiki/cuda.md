@@ -12,7 +12,7 @@
 - **Download Cuda ToolKit.**
 	- Go to [NVIDIA CUDA Download Page](https://developer.nvidia.com/cuda-toolkit-archive)
 	- Choose Version
-	- `[Linux] -> [x86_64] -> [Ubuntu] -> [xx.04] -> [runfile(local)]`
+	- **`[Linux]`** -> **`[x86_64]`** -> **`[Ubuntu]`** -> **`[xx.04]`** -> **`[runfile(local)]`**
 	- Just **download** the Cuda Toolkit by the following `wget` command. 
 	- **DON'T INSTALL!**
 
@@ -47,11 +47,7 @@
 		</details>
 
 - **Install supported gcc & g++.**
-	- Install:
-		```sh
-		MAX_GCC_VERSION=x #x stand for the max supported GCC version
-		sudo apt install gcc-$MAX_GCC_VERSION g++-$MAX_GCC_VERSION
-		``` 
+	- Check gcc version: `gcc --version`
 		
 	<table align="center" style="width:100%">
 		<tr align="center">
@@ -104,10 +100,18 @@
 		</tr>	
 	</table>
 	
-	- Verify the install gcc version: `gcc --version`		
+	- Install:
+		```sh
+		MAX_GCC_VERSION=x #x stand for the max supported GCC version
+		sudo apt install gcc-$MAX_GCC_VERSION g++-$MAX_GCC_VERSION
+		gcc --version 
+		``` 
+		*If you got unsupport version you can `downgrade gcc verion` or `choose another cuda version`.*
+		
+			
 
 		<details>
-		<summary><b>If you have unsupported gcc Version.</b></summary>
+		<summary><b>Downgrade gcc Version.</b></summary>
 
 		- ***Note:*** There aren't safety way to remove gcc. So we will install both version then switch to the supported one. 
 
@@ -257,7 +261,7 @@
 		
   - Verify Installation.
 	```sh 
-	exec bash
+	bash
 	nvcc -V
 	```
 
