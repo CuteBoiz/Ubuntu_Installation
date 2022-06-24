@@ -157,9 +157,9 @@
 	│ - [ ] Driver                                                                 │
 	│      [ ] 450.51.06                                                           │
 	│ + [X] CUDA Toolkit 11.0                                                      │
-	│   [X] CUDA Samples 11.0                                                      │
-	│   [X] CUDA Demo Suite 11.0                                                   │
-	│   [X] CUDA Documentation 11.0                                                │
+	│   [ ] CUDA Samples 11.0                                                      │
+	│   [ ] CUDA Demo Suite 11.0                                                   │
+	│   [ ] CUDA Documentation 11.0                                                │
 	│   Options                                                                    │
 	│   Install 								       |
 	```
