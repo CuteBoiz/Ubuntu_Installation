@@ -72,7 +72,6 @@ mkdir build && cd build
     Add below script to ~/.bashrc file by: `gedit ~/.bashrc`
     ```sh
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/opencv_build/opencv/build/lib
-    export PYTHONPATH=/usr/local/lib/python3.x/site-packages:$PYTHONPATH #Replace x with your python version.
     ```
     
 ## IV. Verify and use.
