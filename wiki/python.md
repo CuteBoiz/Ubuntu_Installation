@@ -38,22 +38,22 @@
 - ***Verify:***
 	```sh
 	exec bash
-	python3
+	python3 
 	```
+	NOTE: ***If the version doesn't match with which version you just installed earlier. Use `Change Python version` below.***
 
 <details>
-<summary><b>If the version doesn't match with your installed version.</b></summary>
-
-- **DON'T REMOVE ANY PYTHON VERSION.** This can cause some OS errors.
-- Example: If you want change from python 3.6 to 3.7: 
+<summary><b>Change Python version.</b></summary>
+	
+- `DON'T REMOVE ANY PYTHON VERSION`. **This can cause some OS errors.**
+- **Example**: If you just installed `3.7` earlier and the defauft os version was `3.10` **(3.10 -> Downgrade to 3.7): 
 	```sh
-	sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 1
-	sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.7 2
+	sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 1
+	sudo update-alternatives --install /usr/bin/python3 python3 /usr/local/bin/python3.7 2
 	sudo update-alternatives --config python3
 	2
-	python3 #verify
 	```
-**Note:** *The python you installed might be on different directory.*	
+- **Verify:** `python3`
 </details>
 
 <details>
@@ -67,9 +67,15 @@
 	```
 	
 </details>
-	
 
-## II. Virtual Environment Python
+## II. Add installed Python lib to $Path.
+
+- **Add below script to .bashrc file (replace `X` with your python version):**
+	```sh
+	export PYTHONPATH=/usr/local/lib/python3.X/site-packages:$PYTHONPATH #Replace X with your python version.
+	```
+
+## III. Virtual Environment Python
 
 - **Install:** `sudo apt install -y python3-venv`
 
