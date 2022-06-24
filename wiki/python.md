@@ -25,16 +25,24 @@
 	sudo apt-get install libopencv-*
 	```
 
-- ***Install***
+- ***Install:***
 	```sh
-	#Install python 3.7.4 example
-	cd Python-3.7.4
+	# Replace X with your installing python version. 
+	cd Python-3.X.Y
 	./configure --enable-optimizations
 	sudo make -j$(($(nproc) - 1))
 	sudo make install
-	python3.7 -V
-	sudo python3.7 -m pip install --upgrade pip
+	python3.X -V
+	sudo python3.X -m pip install --upgrade pip
 	```
+- ***Add Path:***
+
+
+	*Add below script to .bashrc file (replace `X` with your installing python version):*
+	```sh
+	export PYTHONPATH=/usr/local/lib/python3.X/site-packages:$PYTHONPATH #Replace X with your installing python version.
+	```
+	
 - ***Verify:***
 	```sh
 	exec bash
@@ -68,14 +76,7 @@
 	
 </details>
 
-## II. Add installed Python lib to $Path.
-
-- **Add below script to .bashrc file (replace `X` with your python version):**
-	```sh
-	export PYTHONPATH=/usr/local/lib/python3.X/site-packages:$PYTHONPATH #Replace X with your python version.
-	```
-
-## III. Virtual Environment Python
+## II. Virtual Environment Python
 
 - **Install:** `sudo apt install -y python3-venv`
 
