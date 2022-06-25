@@ -49,19 +49,24 @@ mkdir build && cd build
 
 ***Note:*** *You must installed CUDA and cuDNN before use below script*
 - **Build CMakeCache:**
-    ```sh 
-    cmake -D CMAKE_BUILD_TYPE=RELEASE \
-        -D CMAKE_INSTALL_PREFIX=/usr/local \
-        -D_GLIBCXX_USE_CXX11_ABI=0 \
-        -D INSTALL_C_EXAMPLES=ON \
-        -D INSTALL_PYTHON_EXAMPLES=ON \
-        -D OPENCV_GENERATE_PKGCONFIG=ON \
-        -D OPENCV_EXTRA_MODULES_PATH=~/opencv_build/opencv_contrib/modules \
-        -D BUILD_EXAMPLES=ON \
-        -D WITH_CUDA=ON \
-        -D ENABLE_FAST_MATH=1 \
-        -D CUDA_FAST_MATH=1 ..
-    ```
+    - ***Install without python env:***
+        ```sh 
+        cmake -D CMAKE_BUILD_TYPE=RELEASE \
+            -D CMAKE_INSTALL_PREFIX=/usr/local \
+            -D_GLIBCXX_USE_CXX11_ABI=0 \
+            -D OPENCV_GENERATE_PKGCONFIG=ON \
+            -D OPENCV_EXTRA_MODULES_PATH=~/opencv_build/opencv_contrib/modules \
+            -D WITH_CUDA=ON \
+            -D ENABLE_FAST_MATH=1 \
+            -D CUDA_FAST_MATH=1 ..
+        ```
+    - ***Install with python env:***
+    
+        **Add this prefix** (Edit `/path/to/env`):
+        ```sh
+            -D OPENCV_PYTHON3_INSTALL_PATH=path/to/env/lib/python3.7/site-packages \
+        ```
+   
 - **Make & make install:**
     ```sh
     sudo make -j$(($(nproc) - 1)) && sudo make install
