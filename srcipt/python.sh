@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Enter version
-read -p "Enter Python Version: " X
+read -p "Enter Python Version (3.6, 3.7, 3.8, 3.9, 3.10): " X
 PYTHON_VERS=("3.6" "3.7" "3.8" "3.9" "3.10") 
 INSTALL_VER="NONE"
 

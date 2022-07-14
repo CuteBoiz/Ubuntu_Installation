@@ -1,3 +1,4 @@
+#!/bin/bash
 cd ~/Downloads
 mkdir -p .temp
 
