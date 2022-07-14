@@ -72,6 +72,7 @@ mkdir build && cd build
     sudo bash
     make -j$(($(nproc) - 1)) && make install
     echo "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/opencv_build/opencv/build/lib" >> ~/.bashrc
+    bash
     ```
 
 ## IV. Verify and use.
