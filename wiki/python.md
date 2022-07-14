@@ -25,28 +25,22 @@
 	sudo apt-get install libopencv-*
 	```
 
-- ***Install:***
+- ***Install & Verify:***
 	```sh
-	# Replace X with your installing python version. 
-	cd Python-3.X.Y
+	# Replace X and Y with your installing python version. (Example 3.7.12 => X=7, Y=12)
+	X=7 #major_ver
+	Y=12 #minor_ver
+	```
+	```sh
+	cd Python-3.$X.$Y
 	./configure --enable-optimizations
 	sudo make -j$(($(nproc) - 1))
 	sudo make install
-	python3.X -V
-	sudo python3.X -m pip install --upgrade pip
-	```
-- ***Add Path:***
-
-
-	*Add below script to .bashrc file (replace `X` with your installing python version):*
-	```sh
-	export PYTHONPATH=/usr/local/lib/python3.X/site-packages:$PYTHONPATH #Replace X with your installing python version.
-	```
-	
-- ***Verify:***
-	```sh
-	exec bash
-	python3 
+	python3.$X -V
+	sudo python3.$X -m pip install --upgrade pip
+	echo "export PYTHONPATH=/usr/local/lib/python3.$X/site-packages:\$PYTHONPATH" >> ~/.bashrc
+	source ~/.bashrc
+	python3
 	```
 	NOTE: ***If the version doesn't match with which version you just installed earlier. Use `Change Python version` below.***
 
@@ -68,10 +62,8 @@
 <summary><b>Type "python" instead of "python3".</b></summary>
 	
 - This will help you avoid confusing between **python3** and **python2**.
-- Add below srcipts to bottom of the file: `gedit ~/.bashrc`
 	```sh
-	alias python=python3
-	alias pip=pip3
+	echo $'#Python3\nalias python=python3\nalias pip=pip3' >> ~/.bashrc
 	```
 	
 </details>
