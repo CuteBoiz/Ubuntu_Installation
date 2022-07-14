@@ -67,18 +67,13 @@ mkdir build && cd build
             -D OPENCV_PYTHON3_INSTALL_PATH=path/to/env/lib/python3.7/site-packages \
         ```
    
-- **Make & make install:**
+- **Install:**
     ```sh
-    sudo make -j$(($(nproc) - 1)) && sudo make install
+    sudo bash
+    make -j$(($(nproc) - 1)) && make install
+    echo "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/opencv_build/opencv/build/lib" >> ~/.bashrc
     ```
 
-- **Export Path:**
-    
-    Add below script to ~/.bashrc file by: `gedit ~/.bashrc`
-    ```sh
-    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/opencv_build/opencv/build/lib
-    ```
-    
 ## IV. Verify and use.
 <details>
 <summary><b>Using in Python:</b></summary>
