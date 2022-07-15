@@ -1,20 +1,25 @@
 #!/bin/bash
 
-# Enter version
-read -p "Enter Python Version (3.6, 3.7, 3.8, 3.9, 3.10): " X
+BBLUE='\033[1;34m'
+BGREEN='\033[1;32m'
+BRED='\033[1;31m'
+NC='\033[0m'
+
+# Choose version
+read -p "$(echo -e $BBLUE"Enter Python Version $BRED(3.6, 3.7, 3.8, 3.9, 3.10): $NC")" X
 PYTHON_VERS=("3.6" "3.7" "3.8" "3.9" "3.10") 
 INSTALL_VER="NONE"
 
 for VER in ${PYTHON_VERS[@]}; do
-    if [[ "$X" == *"$VER"* ]]; then
+    if [[ "$X" == "$VER" ]]; then
         INSTALL_VER=$VER
     fi
 done
 if [[ "$INSTALL_VER" == "NONE" ]]; then
-    echo "Undifined Version: \"$X\"!"
+    echo -e "Error: ${BRED}Undifined Version: \"$X\"!${NC}"
     exit 0 
 else
-    echo "Install Python-$INSTALL_VER"
+    echo -e "${BGREEN}Install Python-$INSTALL_VER ...${NC}"
 fi
 
 # Relative packages
@@ -26,10 +31,14 @@ sudo apt-get install -y build-essential git libexpat1-dev libssl-dev zlib1g-dev 
    libsqlite3-dev libffi-dev tcl-dev linux-headers-generic libgdbm-dev \
    libreadline-dev tk tk-dev libgtk2.0-dev pkg-config
 
-sudo apt-get install libopencv-*
+sudo apt-get -y install libopencv-*
 
 # Install python
 git clone https://github.com/python/cpython
+if ! [ -d cpython ]; then
+    echo -e "${BRED}Error: Could not clone Python from \"https://github.com/python/cpython\".${NC}"
+    exit 1
+fi
 cd cpython
 git checkout $INSTALL_VER
 ./configure --enable-optimizations
@@ -49,4 +58,4 @@ echo -e "$((j+1))\n" | sudo update-alternatives --config python3
 source ~/.bashrc
 cd ..
 rm -rf cpython
-python3
+echo -e "${BGREEN}Done!${NC}"

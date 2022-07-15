@@ -3,8 +3,9 @@
 ## I. Install:
 
 ```sh
-sudo bash 
-bash srcipt/opencv.sh
+wget https://raw.githubusercontent.com/CuteBoiz/Ubuntu_Installation/master/script/opencv.sh
+sudo bash
+bash opencv.sh
 ```
 
 ## II. Verify and use.

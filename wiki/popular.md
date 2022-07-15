@@ -1,5 +1,12 @@
 #  Popular Programs
 
+```sh
+wget https://raw.githubusercontent.com/CuteBoiz/Ubuntu_Installation/master/script/popular.sh
+sudo bash
+bash popular.sh
+```
+
+
 <details>
 <summary><b>1. Google Chrome</b></summary>
   
