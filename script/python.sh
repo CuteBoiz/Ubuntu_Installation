@@ -45,7 +45,7 @@ git checkout $INSTALL_VER
 sudo make -j$(($(nproc) - 1))
 sudo make install
 sudo python$INSTALL_VER -m pip install --upgrade pip
-echo -e "#Python3\nalias python=python3\nalias pip=pip3\nexport PYTHONPATH=/usr/local/lib/python$INSTALL_VER/site-packages:\$PYTHONPATH\n" >> ~/.bashrc
+echo -e "\n# Python3\nalias python=python3\nalias pip=pip3\nexport PYTHONPATH=/usr/local/lib/python$INSTALL_VER/site-packages:\$PYTHONPATH\n" >> ~/.bashrc
 
 # Change python version
 old_ver_array=`find /usr/bin/python3.* -maxdepth 0 -type f -not -name "*m"`

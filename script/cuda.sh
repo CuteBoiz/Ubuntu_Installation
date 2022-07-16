@@ -11,6 +11,7 @@ if [[ "$NVIDIA_CHECK" ==  *"nvidia"* ]]; then
     echo -e "${BGREEN}Nvidia driver installed!${NC}"    
 else
     echo -e "${BRED}Error: System has not installed nvidia-driver yet!${NC}"
+    echo -e "${BBLUE}Try \"sudo apt -y install nvidia-driver-470\". Then reboot.${NC}"
     exit 1
 fi
 
@@ -44,7 +45,7 @@ elif [[ "$INSTALL_VER" == "11.3" ]]; then
     CUDA_LINK="https://developer.download.nvidia.com/compute/cuda/11.3.1/local_installers/cuda_11.3.1_465.19.01_linux.run"
     MAX_GCC_VER="10"
 fi
-
+sudo apt-get install g++ freeglut3-dev build-essential libx11-dev libxmu-dev libxi-dev libglu1-mesa libglu1-mesa-dev
 # Check available gcc version
 CURRENT_GCC_VER="$(gcc --version  | head -n1 | cut -d" " -f4 )"
 readarray -d . -t strarr <<< "$CURRENT_GCC_VER"
@@ -85,14 +86,17 @@ fi
 
 sh $TEMP_DIR/$CUDA_FILE_NAME
 
-echo -e "# Cuda\nexport PATH=/usr/local/cuda-$INSTALL_VER/bin\${PATH:+:\${PATH}}" >> ~/.bashrc
+echo -e "\n# Cuda\nexport PATH=/usr/local/cuda-$INSTALL_VER/bin\${PATH:+:\${PATH}}" >> ~/.bashrc
 echo -e "export LD_LIBRARY_PATH=/usr/local/cuda-$INSTALL_VER/lib64\${LD_LIBRARY_PATH:+:\${LD_LIBRARY_PATH}}" >> ~/.bashrc
 echo -e "export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:/usr/local/cuda/extras/CUPTI/lib64" >> ~/.bashrc
 source ~/.bashrc
-if [[ -d /usr/local/cuda-$INSTALL_VER]]; then
+if [[ -d /usr/local/cuda-$INSTALL_VER ]]; then
     echo -e "${BGREEN}Installed CUDA-$INSTALL_VER successful!${NC}"
     sudo rm -rf $TEMP_DIR
     nvcc -V
+    echo -e "${BGREEN}Done!${NC}"
 else
+    echo -e "${BRED}Error: No such directory \"/usr/local/cuda-$INSTALL_VER\"!${NC}"
     echo -e "${BRED}Error: Installation Failed!${NC}"
+    exit 1
 fi
