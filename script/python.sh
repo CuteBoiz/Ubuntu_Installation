@@ -1,25 +1,25 @@
 #!/bin/bash
 
-BBLUE='\033[1;34m'
-BGREEN='\033[1;32m'
-BRED='\033[1;31m'
+BBlue='\033[1;34m'
+BGreen='\033[1;32m'
+BRed='\033[1;31m'
 NC='\033[0m'
-
+pythonLink="https://github.com/python/cpython"
 # Choose version
-read -p "$(echo -e $BBLUE"Enter Python Version $BRED(3.6, 3.7, 3.8, 3.9, 3.10): $NC")" X
-PYTHON_VERS=("3.6" "3.7" "3.8" "3.9" "3.10") 
-INSTALL_VER="NONE"
+read -p "$(echo -e $BBlue"Enter Python Version $BRed(3.6, 3.7, 3.8, 3.9, 3.10): $NC")" X
+pythonVers=("3.6" "3.7" "3.8" "3.9" "3.10") 
+installVer="NONE"
 
-for VER in ${PYTHON_VERS[@]}; do
+for VER in ${pythonVers[@]}; do
     if [[ "$X" == "$VER" ]]; then
-        INSTALL_VER=$VER
+        installVer=$VER
     fi
 done
-if [[ "$INSTALL_VER" == "NONE" ]]; then
-    echo -e "Error: ${BRED}Undifined Version: \"$X\"!${NC}"
+if [[ "$installVer" == "NONE" ]]; then
+    echo -e "Error: ${BRed}Undifined Version: \"$X\"!${NC}"
     exit 0 
 else
-    echo -e "${BGREEN}Install Python-$INSTALL_VER ...${NC}"
+    echo -e "${BGreen}Install Python-$installVer ...${NC}"
 fi
 
 # Relative packages
@@ -33,19 +33,21 @@ sudo apt-get install -y build-essential git libexpat1-dev libssl-dev zlib1g-dev 
 
 # Install python
 cd $HOME
-git clone https://github.com/python/cpython
 if ! [ -d cpython ]; then
-    echo -e "${BRED}Error: Could not clone Python from \"https://github.com/python/cpython\".${NC}"
+    git clone $pythonLink
+fi
+if ! [ -d cpython ]; then
+    echo -e "${BRed}Error: Could not clone Python from \"$pythonLink\".${NC}"
     exit 1
 fi
 cd cpython
-git checkout $INSTALL_VER
+git checkout $installVer
 ./configure --enable-optimizations
 sudo make -j$(($(nproc) - 1))
 sudo make install
-sudo python$INSTALL_VER -m pip install --upgrade pip
-echo -e "\n# Python3\nalias python=python3\nalias pip=pip3\nexport PYTHONPATH=/usr/local/lib/python$INSTALL_VER/site-packages:\$PYTHONPATH\n" >> ~/.bashrc
-source ~/.bashrc
+sudo python$installVer -m pip install --upgrade pip
+echo -e "\n# Python3\nalias python=python3\nalias pip=pip3\nexport PYTHONPATH=/usr/local/lib/python$installVer/site-packages:\$PYTHONPATH\n" >> ~/.bashrc
+source $HOME/.bashrc
 
 # Change python version
 # old_ver_array=`find /usr/bin/python3.* -maxdepth 0 -type f -not -name "*m"`
@@ -53,7 +55,7 @@ source ~/.bashrc
 # for (( j=0; j<${length}; j++ )); do
 #     sudo update-alternatives --install /usr/bin/python3 python3 ${old_ver_array[$j]} $((j+1))
 # done
-# sudo update-alternatives --install /usr/bin/python3 python3 /usr/local/bin/python$INSTALL_VER $((j+1))
+# sudo update-alternatives --install /usr/bin/python3 python3 /usr/local/bin/python$installVer $((j+1))
 # echo -e "$((j+1))\n" | sudo update-alternatives --config python3
 
-echo -e "${BGREEN}Done!${NC}"
+echo -e "${BGreen}Done!${NC}"
