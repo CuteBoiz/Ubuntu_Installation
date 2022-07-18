@@ -31,9 +31,8 @@ sudo apt-get install -y build-essential git libexpat1-dev libssl-dev zlib1g-dev 
    libsqlite3-dev libffi-dev tcl-dev linux-headers-generic libgdbm-dev \
    libreadline-dev tk tk-dev libgtk2.0-dev pkg-config
 
-sudo apt-get -y install libopencv-*
-
 # Install python
+cd $HOME
 git clone https://github.com/python/cpython
 if ! [ -d cpython ]; then
     echo -e "${BRED}Error: Could not clone Python from \"https://github.com/python/cpython\".${NC}"
@@ -46,16 +45,15 @@ sudo make -j$(($(nproc) - 1))
 sudo make install
 sudo python$INSTALL_VER -m pip install --upgrade pip
 echo -e "\n# Python3\nalias python=python3\nalias pip=pip3\nexport PYTHONPATH=/usr/local/lib/python$INSTALL_VER/site-packages:\$PYTHONPATH\n" >> ~/.bashrc
+source ~/.bashrc
 
 # Change python version
-old_ver_array=`find /usr/bin/python3.* -maxdepth 0 -type f -not -name "*m"`
-length=${#old_ver_array[@]}
-for (( j=0; j<${length}; j++ )); do
-    sudo update-alternatives --install /usr/bin/python3 python3 ${old_ver_array[$j]} $((j+1))
-done
-sudo update-alternatives --install /usr/bin/python3 python3 /usr/local/bin/python$INSTALL_VER $((j+1))
-echo -e "$((j+1))\n" | sudo update-alternatives --config python3
-source ~/.bashrc
-cd ..
-rm -rf cpython
+# old_ver_array=`find /usr/bin/python3.* -maxdepth 0 -type f -not -name "*m"`
+# length=${#old_ver_array[@]}
+# for (( j=0; j<${length}; j++ )); do
+#     sudo update-alternatives --install /usr/bin/python3 python3 ${old_ver_array[$j]} $((j+1))
+# done
+# sudo update-alternatives --install /usr/bin/python3 python3 /usr/local/bin/python$INSTALL_VER $((j+1))
+# echo -e "$((j+1))\n" | sudo update-alternatives --config python3
+
 echo -e "${BGREEN}Done!${NC}"
