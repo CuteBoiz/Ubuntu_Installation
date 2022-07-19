@@ -58,7 +58,7 @@ else
     echo -e "${BGreen}Installed Skype.\n${NC}"
 fi 
 
-sudo rm -rf temp
+sudo rm -rf $tempDir
 sudo apt-get update
 sudo apt-get -y upgrade
 echo -e "${BGreen}Done!${NC}"

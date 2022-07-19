@@ -5,6 +5,13 @@ BGreen='\033[1;32m'
 BRed='\033[1;31m'
 NC='\033[0m'
 pythonLink="https://github.com/python/cpython"
+
+if [[ "$SUDO_USER" == "" ]]; then
+    echo -e "${BRed}Use \"sudo bash\" before executing this script!${NC}"
+    exit 1
+fi
+
+
 # Choose version
 read -p "$(echo -e $BBlue"Enter Python Version $BRed(3.6, 3.7, 3.8, 3.9, 3.10): $NC")" X
 pythonVers=("3.6" "3.7" "3.8" "3.9" "3.10") 
@@ -48,6 +55,7 @@ sudo make install
 sudo python$installVer -m pip install --upgrade pip
 echo -e "\n# Python3\nalias python=python3\nalias pip=pip3\nexport PYTHONPATH=/usr/local/lib/python$installVer/site-packages:\$PYTHONPATH\n" >> ~/.bashrc
 source $HOME/.bashrc
+sudo chmod 777 $HOME/.local/lib/python$installVer/site-packages
 
 # Change python version
 # old_ver_array=`find /usr/bin/python3.* -maxdepth 0 -type f -not -name "*m"`

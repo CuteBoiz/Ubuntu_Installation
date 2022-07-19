@@ -5,6 +5,12 @@ BGreen='\033[1;32m'
 BRed='\033[1;31m'
 NC='\033[0m'
 
+
+if [[ "$SUDO_USER" == "" ]]; then
+    echo -e "${BRed}Use \"sudo bash\" before executing this script!${NC}"
+    exit 1
+fi
+
 # Check nvidia-driver installed
 nvidiaCheck="$(lsmod | grep ^nvidia | awk {'print $1'})"
 if [[ "$nvidiaCheck" ==  *"nvidia"* ]]; then

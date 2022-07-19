@@ -7,6 +7,12 @@ opencvLink="https://github.com/opencv/opencv.git"
 contribLink="https://github.com/opencv/opencv_contrib.git"
 installCuda=0
 
+if [[ "$SUDO_USER" == "" ]]; then
+    echo -e "${BRed}Use \"sudo bash\" before executing this script!${NC}"
+    exit 1
+fi
+pip3 uninstall opencv_python
+
 # Install folder
 installDir="$HOME/Libraries"
 mkdir -p $installDir && cd $installDir
@@ -134,10 +140,11 @@ if [[ "installCuda" -eq 1 ]]; then
         -D CMAKE_INSTALL_PREFIX=/usr/local \
         -D_GLIBCXX_USE_CXX11_ABI=0 \
         -D OPENCV_GENERATE_PKGCONFIG=ON \
+        -D BUILD_opencv_python2=OFF \
         -D PYTHON3_EXECUTABLE=$(which python3) \
         -D PYTHON3_INCLUDE_DIR=$(python3 -c "from distutils.sysconfig import get_python_inc; print(get_python_inc())") \
         -D PYTHON3_PACKAGES_PATH=$(python3 -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())") \
-        -D OPENCV_EXTRA_MODULES_PATH=$installDir/opencv_contrib/modules \
+        -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules \
         -D WITH_CUDA=ON \
         -D ENABLE_FAST_MATH=1 \
         -D CUDA_FAST_MATH=1 ..
@@ -146,10 +153,11 @@ else
         -D CMAKE_INSTALL_PREFIX=/usr/local \
         -D_GLIBCXX_USE_CXX11_ABI=0 \
         -D OPENCV_GENERATE_PKGCONFIG=ON \
+        -D BUILD_opencv_python2=OFF \
         -D PYTHON3_EXECUTABLE=$(which python3) \
         -D PYTHON3_INCLUDE_DIR=$(python3 -c "from distutils.sysconfig import get_python_inc; print(get_python_inc())") \
         -D PYTHON3_PACKAGES_PATH=$(python3 -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())") \
-        -D OPENCV_EXTRA_MODULES_PATH=$installDir/opencv_contrib/modules ..
+        -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules ..
 fi
 sudo make -j$(($(nproc) - 1)) 
 sudo make install
