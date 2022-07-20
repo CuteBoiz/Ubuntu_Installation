@@ -31,7 +31,7 @@ sudo passwd username
 ## 3. Management
 
 <details>
-<summary><i>User Management.</i></summary>
+<summary><b>User Management.</b></summary>
   
 - Assign a user to data: `sudo chown username 'foldername or filename'`
   
@@ -52,7 +52,7 @@ sudo passwd username
 </details>
   
 <details>
-<summary><i>Group users management.</i></summary>
+<summary><b>Group users management.</b></summary>
   
 - Create a group: `sudo groupadd groupname`
 
@@ -71,7 +71,7 @@ sudo passwd username
 </details>
 
 <details>
-<summary><i>System Management.</i></summary>
+<summary><b>System Management.</b></summary>
 
 - Check CPU & RAM Performance: `htop`
 
