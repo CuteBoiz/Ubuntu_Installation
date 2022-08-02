@@ -7,6 +7,13 @@ opencvLink="https://github.com/opencv/opencv.git"
 contribLink="https://github.com/opencv/opencv_contrib.git"
 installCuda=0
 
+export_bashrc () {
+    if ! grep -Fxq "$1" $HOME/.bashrc; then
+        echo $1 >> $HOME/.bashrc
+    fi
+}
+
+# Check Sudo bash
 if [[ "$SUDO_USER" == "" ]]; then
     echo -e "${BRed}Use \"sudo bash\" before executing this script!${NC}"
     exit 1
@@ -161,7 +168,9 @@ else
 fi
 sudo make -j$(($(nproc) - 1)) 
 sudo make install
-echo -e "\n# OpenCV\nexport LD_LIBRARY_PATH=$installDir/opencv/build/lib:\$LD_LIBRARY_PATH\n" >> $HOME/.bashrc
-source $HOME/.bashrc
+
+export_bashrc "# OpenCV"
+export_bashrc "export LD_LIBRARY_PATH=$installDir/opencv/build/lib:\$LD_LIBRARY_PATH"
+export LD_LIBRARY_PATH=$installDir/opencv/build/lib:$LD_LIBRARY_PATH
 python3 -c "import cv2; print(cv2.__version__)"
 echo -e "${BGreen}Done!${NC}"
