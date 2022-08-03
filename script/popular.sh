@@ -6,6 +6,13 @@ NC='\033[0m'
 tempDir="./temp_downloads"
 chromeLink="https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
 skypeLink="https://go.skype.com/skypeforlinux-64.deb"
+
+# Check Sudo bash
+if [[ "$SUDO_USER" == "" ]]; then
+    echo -e "${BRed}Use 'sudo bash' before executing this script!${NC}"
+    exit 1
+fi
+
 mkdir -p $tempDir
 
 # Unikey

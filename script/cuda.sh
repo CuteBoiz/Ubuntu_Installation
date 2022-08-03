@@ -46,7 +46,7 @@ installCuda () {
         cudaLink="https://developer.download.nvidia.com/compute/cuda/11.3.1/local_installers/cuda_11.3.1_465.19.01_linux.run"
         maxGccVer="10"
     fi
-    sudo apt-get install g++ freeglut3-dev build-essential libx11-dev libxmu-dev libxi-dev libglu1-mesa libglu1-mesa-dev
+    sudo apt-get install -y g++ freeglut3-dev build-essential libx11-dev libxmu-dev libxi-dev libglu1-mesa libglu1-mesa-dev
     # Check available gcc version
     curGccVer="$(gcc --version  | head -n1 | cut -d" " -f4 )"
     readarray -d . -t strarr <<< "$curGccVer"

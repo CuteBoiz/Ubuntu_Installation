@@ -15,7 +15,7 @@ export_bashrc () {
 
 # Check Sudo bash
 if [[ "$SUDO_USER" == "" ]]; then
-    echo -e "${BRed}Use \"sudo bash\" before executing this script!${NC}"
+    echo -e "${BRed}Use 'sudo bash' before executing this script!${NC}"
     exit 1
 fi
 pip3 uninstall opencv_python
@@ -41,19 +41,30 @@ while : ; do
         fi
         # Check Cuda
         cudaCheck=$(find /usr/local/cuda-*   -maxdepth 0)
-        cudaVer=$(nvcc -V | sed -n 4p | cut -d" " -f5)
-        cudaVer=${cudaVer:0:4}
         if [[ "$cudaCheck" == "" ]]; then            
             echo -e "${BRed}Error: Cuda not installed!${NC}"
             exit 1
         else
+            cudaVer=$(nvcc -V | sed -n 4p | cut -d" " -f5)
+            cudaVer=${cudaVer:0:4}
             if [[ "$cudaVer" == "" ]]; then
-                echo -e "${BRed}Found Cuda installed. But did not add it to \$PATH. Add cuda to $PATH then use \"nvcc -V\" to check!"
-                exit 1
-            else
-                echo -e "Found CUDA-$cudaVer"
-                installCuda=1
+               for i in $cudaCheck; do
+                    if [ -d "$i/bin" ] & [ -d "$i/lib64" ]; then
+                        export_bashrc "# Cuda"
+                        export_bashrc "export PATH=$i/bin\${PATH:+:\${PATH}}"
+                        export_bashrc "export LD_LIBRARY_PATH=$i/lib64\${LD_LIBRARY_PATH:+:\${LD_LIBRARY_PATH}}"
+                        export PATH=$i/bin${PATH:+:${PATH}}
+                        export LD_LIBRARY_PATH=$i/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+                        cudaVer=$(nvcc -V | sed -n 4p | cut -d" " -f5)
+                        cudaVer=${cudaVer:0:4}
+                    else
+                        echo -e "${BRed}Error: Cuda Install error at '$i'!${NC}"
+                        sleep 2
+                    fi
+                done                
             fi
+            echo -e "Found CUDA-$cudaVer"
+            installCuda=1
         fi
         break
     elif [[ "$A" == "N" || "$A" == "NO" ]]; then

@@ -44,7 +44,7 @@ installPython () {
     export_bashrc "# Python3"
     export_bashrc "alias python=python3"
     export_bashrc "alias pip=pip3"
-    export_bashrc "export PYTHONPATH=/usr/local/lib/python$1/site-packages:\$PYTHONPATH\n"
+    export_bashrc "export PYTHONPATH=/usr/local/lib/python$1/site-packages:\$PYTHONPATH"
     sudo chmod 777 $HOME/.local/lib/python$1/site-packages
 }
 
@@ -62,7 +62,6 @@ changePythonVersion () {
     sudo update-alternatives --install /usr/bin/python3 python3 /usr/local/bin/python$1 $((j+1))
     echo -e "$((j+1))\n" | sudo update-alternatives --config python3
 }
-
 
 # Check sudo bash
 if [[ "$SUDO_USER" == "" ]]; then
