@@ -39,7 +39,7 @@ sudo passwd username
 
 - Check user's id: `id -u username`
 
-- Kill all processes of a user: `pkill -U UID`
+- Kill all processes of a user: `pkill -U $(id -u username)`
 
 - Delete an user: `sudo userdel username`
 
