@@ -2,76 +2,72 @@
 
 ## 1. Connect to a server.
 ```sh
-ssh -p port_number username@server-ip-address
+ssh -p port_num username@server-ip-address
 ```
 
-## 2. Add an user.
+## 2. User.
+- **Add user:**
+  ```sh
+  sudo useradd [Options] username
 
-#### Add user
+  -m:                 Create the user’s home directory.
+  -d [directory]:     Set scpecific home directory. Default /home/username/ .
+  -u [id]:            Add user ID.
+  -g [group_name]:    Assign user to group.
+  -e [yyyy-mm-dd]:    Add expire date.
+  -G sudo:            Give admin access to user.
+  ```
 
-```sh
-sudo useradd [Options] username
+- **Set password to be able to access or change user's password:**
+  ```sh
+  sudo passwd username
+  ```
 
--m:                 Create the user’s home directory.
--d [directory]:     Set scpecific home directory. Default /home/username/ .
--u [id]:            Add user ID.
--g [group_name]:    Assign user to group.
--s [login_shell]:   Set specific Login Shell. Default /bin/bash .
--c [Comment]:       Create user with custom comment.
--e [yyyy-mm-dd]:    Add expire date.
--G sudo:            Give admin access to user.
--D [username]:      Change user infromation.
-```
+- **Delete a user:**
+  - Kill all processes of a user: `pkill -U $(id -u username)`
+  - Delete an user: `sudo userdel username`
 
-#### Set password to be able to access
-```sh
-sudo passwd username
-```
-
-## 3. Management
+## 3. Management.
 
 <details>
-<summary><b>User Management.</b></summary>
+<summary><b>Users.</b></summary>
   
-- Assign a user to data: `sudo chown username 'foldername or filename'`
-  
-- List users: `getent passwd | cut -d: -f1`
-
-- Check user's id: `id -u username`
-
-- Kill all processes of a user: `pkill -U $(id -u username)`
-
-- Delete an user: `sudo userdel username`
+- List all users: `getent passwd | cut -d: -f1`
 
 - Check account expire day: `sudo chage -l username`
 
 - Add HomeDir for a user: `sudo mkhomedir_helper username`
 
-- Change user password: `sudo passwd username`
+</details>
+
+<details>
+<summary><b>Files/Folders.</b></summary>
+  
+- Assign a folder/file to a user: `sudo chown username foldername/filename`
+  
+- Assign a folder/file to a group: `sudo chown :groupname foldername/filename`
 
 </details>
-  
+
 <details>
-<summary><b>Group users management.</b></summary>
+<summary><b>Groups.</b></summary>
   
 - Create a group: `sudo groupadd groupname`
 
 - Delete a group: `sudo groupdel groupname`
 
-- Assign group ownership: `sudo chown :groupname 'foldername or filename'`
-
-- Check user's groups: `id -gn username`
-
 - Add user to a group: `sudo usermod -a -G groupname username`
 
 - Give a user admin access: `sudo usermod -a -G sudo username`
+  
+- Check user's groups: `id -gn username`
 
 - Remove user from a group: `sudo gpasswd -d username groupname`
 
 </details>
 
 <details>
-<summary><b>System Management.</b></summary>
+<summary><b>System.</b></summary>
 
 - Check CPU & RAM Performance: `htop`
 
@@ -79,7 +75,7 @@ sudo passwd username
 
 - Check all users's disk usage: `cd /home/ && sudo du -h --max-depth=1 | sort -hr`
 
-- Check GPU Usage: `gpustat`
+- Check GPU Usage: `gpustat` or `nvidia-smi`
   
 </details>
   
