@@ -1,9 +1,8 @@
 #  Popular Programs
 
 ```sh
-wget https://raw.githubusercontent.com/CuteBoiz/Ubuntu_Installation/master/script/popular.sh
-sudo bash
-bash popular.sh
+git clone https://github.com/CuteBoiz/Ubuntu_Installation.git
+cd Ubuntu_Installation
 ```
 
 

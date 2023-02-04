@@ -4,9 +4,9 @@
 
 ## I. Install.
 ```sh
-wget https://raw.githubusercontent.com/CuteBoiz/Ubuntu_Installation/master/script/python.sh
-sudo bash
-bash python.sh
+git clone https://github.com/CuteBoiz/Ubuntu_Installation.git
+cd Ubuntu_Installation
+bash script/INSTALL_python.sh
 ```
 
 ## II. Virtual Environment Python

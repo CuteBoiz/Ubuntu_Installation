@@ -3,10 +3,11 @@
 ## I. Install:
 
 ```sh
-wget https://raw.githubusercontent.com/CuteBoiz/Ubuntu_Installation/master/script/opencv.sh
+git clone https://github.com/CuteBoiz/Ubuntu_Installation.git
+cd Ubuntu_Installation
 sudo bash
 # If you want to install for python-env. Activate it before run below script.
-bash opencv.sh
+bash script/INSTALL_opencv.sh
 ```
 
 ## II. Verify and use.
