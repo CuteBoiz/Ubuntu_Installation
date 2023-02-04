@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Author: Leonard
+# Author: phatnt
 # Date modify: Jan-03-23
 # Usage: Install VSCode
 

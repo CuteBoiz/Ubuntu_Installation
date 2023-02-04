@@ -6,7 +6,7 @@
 ```sh
 git clone https://github.com/CuteBoiz/Ubuntu_Installation.git
 cd Ubuntu_Installation
-bash script/INSTALL_python.sh
+sudo bash script/INSTALL_python.sh
 ```
 
 ## II. Virtual Environment Python

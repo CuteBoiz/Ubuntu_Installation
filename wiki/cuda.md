@@ -3,11 +3,9 @@
 ## I. CUDA.
 
 ```sh
-sudo apt-get -y install nvidia-driver-470
-sudo reboot
-wget https://raw.githubusercontent.com/CuteBoiz/Ubuntu_Installation/master/script/cuda.sh
-sudo bash
-bash cuda.sh
+git clone https://github.com/CuteBoiz/Ubuntu_Installation.git
+cd Ubuntu_Installation
+sudo bash script/INSTALL_cuda.sh
 ```
 
   - `continue`.

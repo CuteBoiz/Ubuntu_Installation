@@ -1,4 +1,9 @@
 #!/bin/bash
+
+# Author: phatnt
+# Date modify: Feb-03-23
+# Usage: Install popular programs for ubuntu
+
 BBlue='\033[1;34m'
 BGreen='\033[1;32m'
 BRed='\033[1;31m'

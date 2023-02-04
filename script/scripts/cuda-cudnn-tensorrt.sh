@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Author: Leonard
+# Author: phatnt
 # Date modify: Jan-03-23
-# Usage: Install TOMO imaging-server packages
+# Usage: Install cuda - cudnn - tensorrt
 
 cudaPath="/usr/local/cuda-$cudaVer"
 cudnnFilename="cudnn.tar.xz"
