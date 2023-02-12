@@ -15,14 +15,14 @@ if [[ $isJetson == 1 ]]; then
 	tensorrtCheck=$(pip3 list --format=columns | grep tensorrt)
 	if [[ -z "$tensorrtCheck" ]]; then
 		echo -e "${BRYellow}[WARNING]: TensorRT not installed!${NC}"
-		sleep 1
-		echo -e "[INFO]: Installing TensorRT ... ${NC}"
-        sleep 1
+		sleep 2
+		echo -e "${BBlue}[INFO]: Installing TensorRT ... ${NC}"
+        sleep 2
         sudo apt-get update
         F_checkAndInstall "nvidia-jetpack"
 	else
 		echo -e "${BGreen}Found $tensorrtCheck!${NC}"
-		sleep 1
+		sleep 2
 	fi
     exit 1
 fi
@@ -132,12 +132,12 @@ fi
 # Nvidia-driver
 nvidiaDriverVer="$(lsmod | grep ^nvidia | awk {'print $1'})"
 if [[ "$nvidiaDriverVer" ==  *"nvidia"* ]]; then
-    echo -e "[INFO]: Nvidia driver installed."
-    sleep 1
+    echo -e "${BBlue}[INFO]: Nvidia driver installed.${NC}"
+    sleep 2
 else
     echo -e "${BYellow}[WARNING]: Could not found Nvidia driver!${NC}"
-    echo -e "[INFO]: Installing nvidia driver ..."
-    sleep 1
+    echo -e "${BBlue}[INFO]: Installing nvidia driver ...${NC}"
+    sleep 2
     sudo apt-get install -y nvidia-driver-525
     >&2 echo -e "${BRed}[REBOOT REQUIRED]: ${NC}Reboot to apply nvidia-driver installation then re-run this script!"
     exit 1
@@ -147,7 +147,7 @@ fi
 # Cuda
 if ! [ -d $cudaPath ]; then
     echo -e "${BYellow}[WARNING]: Cuda not installed!${NC}"
-    echo -e "[INFO] Installing Cuda-$cudaVer ..."
+    echo -e "${BBlue}[INFO] Installing Cuda-$cudaVer ...${NC}"
     sleep 2
     # Check GCC
     sudo apt-get -y install g++ freeglut3-dev build-essential libx11-dev libxmu-dev libxi-dev libglu1-mesa libglu1-mesa-dev
@@ -183,11 +183,11 @@ if ! [ -d $cudaPath ]; then
     export LD_LIBRARY_PATH=$cudaPath/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
     cudaCheck=$(nvcc -V | sed -n 4p | cut -d" " -f5)
     cudaCheck=${cudaCheck:0:4}
-    if [[ "$cudaCheck" != "" ]]; then
+    if [[ -n "$cudaCheck" ]]; then
         cd /tmp
         rm $cudaFilename
         echo -e "${BGreen}[INFO]: Install CUDA-$cudaCheck successfully!${NC}"
-        sleep 1
+        sleep 2
     fi
 else
     # Check nvcc
@@ -205,8 +205,8 @@ else
             exit 1
         fi
     fi
-    echo -e "[INFO]: Found CUDA-$cudaCheck."
-    sleep 1
+    echo -e "${BBlue}[INFO]: Found CUDA-$cudaCheck.${NC}"
+    sleep 2
 fi
 
 # CuDNN
@@ -214,8 +214,8 @@ cudnnCheck1=$(find $cudaPath/include/cudnn*.h)
 cudnnCheck2=$(find $cudaPath/lib64/libcudnn*)
 if [[ -z "$cudnnCheck1" ]] || [[ -z "$cudnnCheck2" ]]; then
     echo -e "${BYellow}[WARNING]: Cudnn not installed!${NC}"
-    echo -e "[INFO]: Installing cuDNN ..."
-    sleep 1
+    echo -e "${BBlue}[INFO]: Installing cuDNN ...${NC}"
+    sleep 2
     cd /tmp
     if ! [ -f $cudnnFilename ]; then
         gdown $cudnnLink 
@@ -242,17 +242,17 @@ if [[ -z "$cudnnCheck1" ]] || [[ -z "$cudnnCheck2" ]]; then
     rm $cudnnFilename
     rm -rf $cudnnFoldername
     echo -e "${BGreen}[INFO]: Install Cudnn successfully!${NC}"
-    sleep 1
+    sleep 2
 else
-    echo -e "[INFO]: Installed Cudnn."
-    sleep 1
+    echo -e "${BBlue}[INFO]: Installed Cudnn.${NC}"
+    sleep 2
 fi
 
 # TensorRT
 tensorrtCheck=$(pip3 list --format=columns | grep tensorrt)
 if [[ -z "$tensorrtCheck" ]]; then
     echo -e "Installing TensorRT ..."
-    sleep 1
+    sleep 2
     mkdir -p /home/$(logname)/Libraries && cd /home/$(logname)/Libraries
     if ! [ -d $trtFoldername ]; then
         if ! [ -f $trtFilename ]; then
@@ -290,8 +290,8 @@ if [[ -z "$tensorrtCheck" ]]; then
     cd /home/$(logname)/Libraries
     rm $trtFilename
     echo -e "${BGreen}[INFO]: Install $tensorrtCheck successfully!${NC}"
-    sleep 1
+    sleep 2
 else
-    echo -e "Found $tensorrtCheck."
-    sleep 1
+    echo -e "${BBlue}[INFO]: Found $tensorrtCheck.${NC}"
+    sleep 2
 fi
