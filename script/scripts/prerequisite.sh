@@ -15,7 +15,7 @@ F_checkAndInstall () {
         versionCheck=$(dpkg -s $1 | grep Version)
         versionCheck=${versionCheck:9:-1}
         if [[ -z "$versionCheck" ]]; then
-            >&2 echo -e "${BRed}Error: 'sudo apt-get -y install $1' failed!${NC}"
+            >&2 echo -e "${BRed}[ERROR]: 'sudo apt-get -y install $1' failed!${NC}"
             exit 1
         fi
     fi

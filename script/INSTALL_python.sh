@@ -10,16 +10,18 @@ BRed='\033[1;31m'
 BYellow='\033[1;33m'
 NC='\033[0m'
 
-scriptFolder=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
 export BBlue
 export BGreen
 export BRed
 export BYellow
 export NC
 
-# Check sudo bash
+# Get script folder 
+scriptFolder=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
+
+# Check Sudo bash
 if [[ "$SUDO_USER" == "" ]]; then
-    echo -e "${BRed}Use \"sudo bash\" before executing this script!${NC}"
+    >&2 echo -e "${BRed}[ERROR]: This script should be run with sudo privileges. Use 'sudo bash' before execute this script!${NC}"
     exit 1
 fi
 
@@ -42,7 +44,7 @@ fi
 
 export pythonVer
 cd "$scriptFolder"
-sudo bash -E ./scripts/python3.sh
+bash -E ./scripts/python3.sh
 if [[ $? -ne 0 ]] ; then
     exit 1
 fi

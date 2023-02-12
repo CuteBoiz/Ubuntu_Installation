@@ -46,7 +46,7 @@ F_checkAndInstall () {
         versionCheck=$(dpkg -s $1 | grep Version)
         versionCheck=${versionCheck:9:-1}
         if [[ -z "$versionCheck" ]]; then
-            >&2 echo -e "${BRed}Error: 'sudo apt-get -y install $1' failed!${NC}"
+            >&2 echo -e "${BRed}[ERROR]: 'sudo apt-get -y install $1' failed!${NC}"
             exit 1
         fi
     fi
@@ -57,12 +57,12 @@ F_installPythonPackage () {
 	A=${strarr[0]}
     versionCheck=$(pip3 list --format=columns | grep $A)
     if [[ -n "$versionCheck" ]]; then
-        echo -e "Already installed $A"
+        echo -e "[INFO]: Already installed $A"
     else
         python3 -m pip install $1
         versionCheck=$(pip3 list --format=columns | grep $A)
         if [[ -z "$versionCheck" ]]; then
-            echo -e "${BRed}Install package '$1' failed!${NC}"
+            echo -e "${BRed}[ERROR]: Install package '$1' failed!${NC}"
             exit 1
         fi
     fi

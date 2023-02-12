@@ -19,7 +19,7 @@ F_exportBashrc () {
 pythonCheck=$(python3 -c 'import sys; print(".".join(map(str, sys.version_info[:2])))')
 if [[ "$pythonCheck" != "3.6" ]] && [[ "$pythonCheck" != "3.7" ]] && [[ "$pythonCheck" != "3.8" ]] && [[ "$pythonCheck" != "3.9" ]]; then
 	echo -e "Installing Python-$pythonVer from source"
-	sleep 1
+	sleep 2
 	sudo apt-get update
 	sudo apt-get -y install libopenblas-dev libhdf5-serial-dev hdf5-tools libhdf5-dev \
 		zlib1g-dev zip libjpeg8-dev liblapack-dev libblas-dev gfortran
@@ -53,11 +53,11 @@ if [[ "$pythonCheck" != "3.6" ]] && [[ "$pythonCheck" != "3.7" ]] && [[ "$python
 	cd $HOME
 	pythonCheck=$(python3 -c 'import sys; print(".".join(map(str, sys.version_info[:2])))')
 	if ! [[ "$pythonCheck" == "$pythonVer" ]]; then
-		>&2 echo -e "${BRed}Error: Install Python from source failed!${NC}"
+		>&2 echo -e "${BRed}[ERROR]: Install Python from source failed!${NC}"
 		exit 1
 	else
-		echo -e "${BGreen}Install Python-$pythonVer successfully!${NC}"
-		sleep 1
+		echo -e "${BGreen}[INFO]: Install Python-$pythonVer successfully!${NC}"
+		sleep 2
 	fi
 else
 	F_exportBashrc "# Python3"
@@ -71,6 +71,6 @@ else
 		sudo chmod 777 /usr/local/lib/python$pythonCheck/site-packages
 		sudo chmod 777 $HOME/.local/lib/python$pythonCheck/site-packages
 	fi
-	echo -e "${BGreen}Found Python-$pythonCheck!${NC}"
-	sleep 1
+	echo -e "${BGreen}[INFO]: Found Python-$pythonCheck!${NC}"
+	sleep 2
 fi

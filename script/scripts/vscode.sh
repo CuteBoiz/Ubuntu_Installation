@@ -7,8 +7,8 @@
 # VSCode
 vscodeCheck=$(dpkg -s code | grep Version)
 if [[ -z "$vscodeCheck" ]]; then
-	echo -e "${BBlue}Installing VSCode ...${NC}"
-	sleep 1
+	echo -e "${BBlue}[INFO]: Installing VSCode ...${NC}"
+	sleep 2
 	sudo apt-get update 
 	sudo apt-get -y install software-properties-common apt-transport-https wget
 	wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
@@ -18,11 +18,11 @@ if [[ -z "$vscodeCheck" ]]; then
 	vscodeCheck=$(dpkg -s code | grep Version)
 	vscodeCheck=$(dpkg -s code| grep Version)
     if [[ -z "$vscodeCheck" ]]; then
-        echo -e "${BRed}Error: Install VSCode failed!${NC}"
+        echo -e "${BRed}[ERROR]: Install VSCode failed!${NC}"
         sleep 3
     fi
-    echo -e "${BGreen}Install VSCode success!${NC}"
+    echo -e "${BGreen}[INFO]: Install VSCode successfully!${NC}"
 else
-	echo -e "${BGreen}Installed VSCode already.\n${NC}"
-	sleep 1
+	echo -e "${BBlue}[INFO]: Installed VSCode already.${NC}"
+	sleep 2
 fi

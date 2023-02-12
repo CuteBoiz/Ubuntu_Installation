@@ -10,17 +10,18 @@ BRed='\033[1;31m'
 BYellow='\033[1;33m'
 NC='\033[0m'
 
-scriptFolder=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
 export BBlue
 export BGreen
 export BRed
 export BYellow
 export NC
 
+# Get script folder 
+scriptFolder=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
 
 # Check Sudo bash
 if [[ "$SUDO_USER" == "" ]]; then
-    echo -e "${BRed}Use 'sudo bash' before executing this script!${NC}"
+    >&2 echo -e "${BRed}[ERROR]: This script should be run with sudo privileges. Use 'sudo bash' before execute this script!${NC}"
     exit 1
 fi
 
@@ -29,7 +30,7 @@ sudo apt-get -y upgrade
 
 # Prerequisite
 cd "$scriptFolder"
-sudo bash -E ./scripts/prerequisite.sh
+bash -E ./scripts/prerequisite.sh
 if [[ $? -ne 0 ]] ; then
     exit 1
 fi
@@ -38,9 +39,9 @@ fi
 while : ; do
     read -p "$(echo -e $BBlue"Do you want install Unikey ? (Y\\\n): $NC")" A
     A=${A^^}
-    if [[ "$A" == "Y" || "$A" == "n" || "$A" == "" ]]; then
+    if [[ "$A" == "Y" || "$A" == "y" || "$A" == "" ]]; then
 		cd "$scriptFolder"
-		sudo bash -E ./scripts/unikey.sh
+		bash -E ./scripts/unikey.sh
 		if [[ $? -ne 0 ]] ; then
 			exit 1
 		fi
@@ -55,9 +56,9 @@ done
 while : ; do
     read -p "$(echo -e $BBlue"Do you want install VSCode ? (Y\\\n): $NC")" A
     A=${A^^}
-    if [[ "$A" == "Y" || "$A" == "n" || "$A" == "" ]]; then
+    if [[ "$A" == "Y" || "$A" == "y" || "$A" == "" ]]; then
 		cd "$scriptFolder"
-		sudo bash -E ./scripts/vscode.sh
+		bash -E ./scripts/vscode.sh
 		if [[ $? -ne 0 ]] ; then
 			exit 1
 		fi
@@ -72,7 +73,7 @@ done
 while : ; do
     read -p "$(echo -e $BBlue"Do you want install Microsoft Edge ? (Y\\\n): $NC")" A
     A=${A^^}
-    if [[ "$A" == "Y" || "$A" == "n" || "$A" == "" ]]; then
+    if [[ "$A" == "Y" || "$A" == "y" || "$A" == "" ]]; then
 		cd "$scriptFolder"
 		sudo bash -E ./scripts/microsoft-edge.sh
 		if [[ $? -ne 0 ]] ; then
@@ -88,9 +89,9 @@ done
 while : ; do
     read -p "$(echo -e $BBlue"Do you want install Google Chrome ? (Y\\\n): $NC")" A
     A=${A^^}
-    if [[ "$A" == "Y" || "$A" == "n" || "$A" == "" ]]; then
+    if [[ "$A" == "Y" || "$A" == "y" || "$A" == "" ]]; then
 		cd "$scriptFolder"
-		sudo bash -E ./scripts/chrome.sh
+		bash -E ./scripts/chrome.sh
 		if [[ $? -ne 0 ]] ; then
 			exit 1
 		fi
@@ -104,9 +105,9 @@ done
 while : ; do
     read -p "$(echo -e $BBlue"Do you want install Skype ? (Y\\\n): $NC")" A
     A=${A^^}
-    if [[ "$A" == "Y" || "$A" == "n" || "$A" == "" ]]; then
+    if [[ "$A" == "Y" || "$A" == "y" || "$A" == "" ]]; then
 		cd "$scriptFolder"
-		sudo bash -E ./scripts/skype.sh
+		bash -E ./scripts/skype.sh
 		if [[ $? -ne 0 ]] ; then
 			exit 1
 		fi

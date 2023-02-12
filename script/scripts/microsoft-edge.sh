@@ -6,6 +6,8 @@
 
 edgeCheck=$(dpkg -s microsoft-edge-stable| grep Version)
 if [[ -z "$edgeCheck" ]]; then
+    echo -e "${BBlue}[INFO]: Installing Microsoft Edge ... ${NC}"
+    sleep 2
     cd /tmp
     sudo apt-get update 
     sudo apt-get -y install software-properties-common apt-transport-https wget
@@ -15,12 +17,12 @@ if [[ -z "$edgeCheck" ]]; then
     sudo apt-get -y install microsoft-edge-stable
     edgeCheck=$(dpkg -s microsoft-edge-stable| grep Version)
     if [[ -z "$edgeCheck" ]]; then
-        echo -e "${BRed}Error: Install Microsoft Edge failed!${NC}"
+        echo -e "${BRed}[ERROR]: Install Microsoft Edge failed!${NC}"
         sleep 3
     fi
-    echo -e "${BGreen}Install Microsoft Edge success!${NC}"
-    sleep 1
+    echo -e "${BGreen}[INFO]: Install Microsoft Edge success!${NC}"
+    sleep 2
 else
-    echo -e "${BGreen}Installed Microsoft Edge already!${NC}"
-    sleep 1
+    echo -e "${BBlue}[INFO]: Installed Microsoft Edge already!${NC}"
+    sleep 2
 fi

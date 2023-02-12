@@ -6,15 +6,15 @@
 
 unikeyCheck=$(dpkg -l| grep ibus-bamboo)
 if [[ -z "$unikeyCheck" ]]; then
-	echo -e "${BBlue}Installing Unikey ...${NC}"
+	echo -e "${BBlue}[INFO]: Installing ibus-bamboo ...${NC}"
 	echo -ne '\n' | sudo add-apt-repository ppa:bamboo-engine/ibus-bamboo
 	sudo apt-get update
 	sudo apt-get -y install ibus-bamboo
-	echo -e "${BGreen}Install ibus-bamboo sucess!\n${NC}"
-	sleep 1
+	echo -e "${BGreen}[INFO]: Install ibus-bamboo sucess!${NC}"
+	sleep 2
 else
-	echo -e "${BGreen}Installed ibus-bamboo already.\n${NC}"
-	sleep 1
+	echo -e "${BBlue}[INFO]: Installed ibus-bamboo already.${NC}"
+	sleep 2
 fi
 
 
