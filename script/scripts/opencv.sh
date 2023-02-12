@@ -1,8 +1,11 @@
 #!/bin/bash
 
 # Author: phatnt
-# Date modify: Feb-04-23
+# Date modify: Feb-12-23
 # Usage: Install OpenCV from source
+# Global variables:
+#   + cudaSupport (int 0/1): install with cuda support
+#   + opencvVer (string): OpenCv version (ex: 3.4.12, 4.5.5, master, etc)
 
 opencvLink="https://github.com/opencv/opencv.git"
 contribLink="https://github.com/opencv/opencv_contrib.git"
@@ -21,16 +24,16 @@ opencvCheck=$(pkg-config --modversion opencv)
 opencv4Check=$(pkg-config --modversion opencv4)
 contribCheck=$(python3 -c 'import cv2; print(cv2.aruco)')
 if [[ -z "$opencvCheck" && -z "$opencv4Check" ]] || [[ -z "$contribCheck" ]]; then
-    echo -e "Installing OpenCV $opencvVer"
-    sleep 1
+    echo -e "${BBlue}[INFO]: Installing OpenCV $opencvVer ... ${NC}"
+    sleep 2
     pip3 uninstall opencv-python
 	pip3 uninstall opencv-python-headless
 	pip3 uninstall opencv-contrib-python
 	pip3 uninstall opencv-contrib-python-headless
     installDir="/home/$(logname)/Libraries/OpenCV_$opencvVer"
     mkdir -p $installDir && cd $installDir
-    echo -e "OpenCV will be install in '$PWD'"
-    sleep 1
+    echo -e "${BBlue}[INFO]: OpenCV will be install in '$PWD'${NC}"
+    sleep 2
 
     git clone $opencvLink -b $opencvVer
     git clone $contribLink -b $opencvVer
@@ -47,16 +50,34 @@ if [[ -z "$opencvCheck" && -z "$opencv4Check" ]] || [[ -z "$contribCheck" ]]; th
     if [ -f "CMakeCache.txt" ]; then
         sudo rm CMakeCache.txt
     fi
-
-	cmake -D CMAKE_BUILD_TYPE=RELEASE \
-		-D CMAKE_INSTALL_PREFIX=/usr/local \
-		-D_GLIBCXX_USE_CXX11_ABI=0 \
-		-D OPENCV_GENERATE_PKGCONFIG=ON \
-		-D BUILD_opencv_python2=OFF \
-		-D PYTHON3_EXECUTABLE=$(which python3) \
-		-D PYTHON3_INCLUDE_DIR=$(python3 -c "from distutils.sysconfig import get_python_inc; print(get_python_inc())") \
-		-D PYTHON3_PACKAGES_PATH=$(python3 -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())") \
-		-D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules ..
+    if [[ $cudaSupport == 1 ]]; then
+        cmake -D CMAKE_BUILD_TYPE=RELEASE \
+            -D CMAKE_INSTALL_PREFIX=/usr/local \
+            -D_GLIBCXX_USE_CXX11_ABI=0 \
+            -D OPENCV_GENERATE_PKGCONFIG=ON \
+            -D BUILD_opencv_python2=OFF \
+            -D PYTHON3_EXECUTABLE=$(which python3) \
+            -D PYTHON3_INCLUDE_DIR=$(python3 -c "from distutils.sysconfig import get_python_inc; print(get_python_inc())") \
+            -D PYTHON3_PACKAGES_PATH=$(python3 -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())") \
+            -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules \
+            -D ENABLE_FAST_MATH=1 \
+            -D CUDA_FAST_MATH=1 \
+            -D WITH_CUBLAS=1 \
+            -D WITH_CUDA=ON \
+            -D BUILD_opencv_cudacodec=OFF \
+            -D WITH_CUDNN=ON \
+            -D OPENCV_DNN_CUDA=ON ..
+    else
+        cmake -D CMAKE_BUILD_TYPE=RELEASE \
+            -D CMAKE_INSTALL_PREFIX=/usr/local \
+            -D_GLIBCXX_USE_CXX11_ABI=0 \
+            -D OPENCV_GENERATE_PKGCONFIG=ON \
+            -D BUILD_opencv_python2=OFF \
+            -D PYTHON3_EXECUTABLE=$(which python3) \
+            -D PYTHON3_INCLUDE_DIR=$(python3 -c "from distutils.sysconfig import get_python_inc; print(get_python_inc())") \
+            -D PYTHON3_PACKAGES_PATH=$(python3 -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())") \
+            -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules ..
+    fi
 
     sudo make -j$(($(nproc) - 1))
     sudo make install
@@ -67,15 +88,15 @@ if [[ -z "$opencvCheck" && -z "$opencv4Check" ]] || [[ -z "$contribCheck" ]]; th
     opencv4Check=$(pkg-config --modversion opencv4)
     contribCheck=$(python3 -c 'import cv2; print(cv2.aruco)') 
     if [[ -z "$opencvCheck" && -z "$opencv4Check" ]] || [[ -z "$contribCheck" ]]; then
-        >&2 echo -e "${BRed}Error: Install OpenCV failed!${NC}"
+        >&2 echo -e "${BRed}[ERROR]: Install OpenCV failed!${NC}"
         exit 1
-    else
-        echo -e "${BGreen}Install OpenCV-$opencvCheck-$opencv4Check successfully!${NC}"
-        sleep 1
     fi
-    echo 
+    cd $installDir
+    chmod 777 -R *
+    echo -e "${BGreen}[INFO]: Install OpenCV-$opencvCheck-$opencv4Check successfully!${NC}"
+    sleep 2
 else
-    echo -e "${BGreen}Found OpenCV-$opencvCheck and -$opencv4Check!${NC}"
-    sleep 1
+    echo -e "${BBlue}[INFO]: Found OpenCV-$opencvCheck and -$opencv4Check!${NC}"
+    sleep 2
 fi
 
