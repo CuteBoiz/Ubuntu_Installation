@@ -5,7 +5,7 @@
 ```sh
 git clone https://github.com/CuteBoiz/Ubuntu_Installation.git
 cd Ubuntu_Installation
-sudo bash script/INSTALL_cuda.sh
+sudo bash script/cuda_install.sh
 ```
 
   - `continue`.
@@ -50,98 +50,119 @@ sudo bash script/INSTALL_cuda.sh
 		
 ## III. cuDNN.
 
-- **Download:**
+```sh
+git clone https://github.com/CuteBoiz/Ubuntu_Installation.git
+cd Ubuntu_Installation
+sudo bash script/cudnn_install.sh
+```
 
-	- Go to [NVIDIA cuDNN home page](https://developer.nvidia.com/cudnn)
-  	- Click `Download cuDNN`.
-  	- Login then `Submit` short survey if first time download.
-  	- Check `Accept the Terms and Conditions`.
-  	- Click `Archived cuDNN Releases`.
-  	- **Choose the corresponding version with your CUDA Toolkit Version.**
-  	- Download the `cuDNN Library for Linux (x86_64)`.
+<details>
+	<summary><b>Install Cudnn Manually</b></summary>
 
-- **Copy CuDNN library to Cuda installed place:**
-	```sh 
-	tar -xzvf cudnn-x.x-linux-x64-v8.x.x.x.tgz
-	#Replace 1x.x with you installed version(e.g: 10.2, 11.1, 11.3, ...).
-	CUDA_VER=1x.x
-	sudo cp cuda/include/cudnn*.h /usr/local/cuda-$CUDA_VER/include
-	sudo cp cuda/lib64/libcudnn* /usr/local/cuda-$CUDA_VER/lib64
-	sudo chmod a+r /usr/local/cuda-$CUDA_VER/include/cudnn*.h /usr/local/cuda-$CUDA_VER/lib64/libcudnn* 
-	```
-- **Delete extracted folder**.
-		
+	- **Download:**
+
+		- Go to [NVIDIA cuDNN home page](https://developer.nvidia.com/cudnn)
+		- Click `Download cuDNN`.
+		- Login then `Submit` short survey if first time download.
+		- Check `Accept the Terms and Conditions`.
+		- Click `Archived cuDNN Releases`.
+		- **Choose the corresponding version with your CUDA Toolkit Version.**
+		- Download the `cuDNN Library for Linux (x86_64)`.
+
+	- **Copy CuDNN library to Cuda installed place:**
+		```sh 
+		tar -xvf cudnn-x.x-linux-x64-v8.x.x.x.tar.xz
+		#Replace 1x.x with you installed version(e.g: 10.2, 11.1, 11.3, ...).
+		CUDA_VER=1x.x
+		sudo cp cuda/include/cudnn*.h /usr/local/cuda-$CUDA_VER/include
+		sudo cp cuda/lib/libcudnn* /usr/local/cuda-$CUDA_VER/lib64
+		sudo chmod a+r /usr/local/cuda-$CUDA_VER/include/cudnn*.h /usr/local/cuda-$CUDA_VER/lib64/libcudnn* 
+		```
+	- **Delete extracted folder**.
+
+</details>		
 
 ## IV. TensorRT.
 
-- **Download:**
-  	- Go to: [TensorRT Page](https://developer.nvidia.com/tensorrt).
-  	- Click `Get Started`.
-  	- Click `Download Now`.
-  	- Login then `Submit` short survey if first time download.
-  	- Select the version of TensorRT that you're interested in.
-  	- Check `I Agree To the Terms of the NVIDIA TensorRT License Agreement`.
-  	- Download `TAR Package` with corresponding CUDA ToolkitVersion.
-  	- Extract downloaded file to `/home/username/` folder. This place will become installed folder.
+```sh
+git clone https://github.com/CuteBoiz/Ubuntu_Installation.git
+cd Ubuntu_Installation
+sudo bash script/tensorrt_install.sh
+```
 
-- **Add below srcipt to ~/.bashrc:**
-	```sh
-	export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/path/to/TensorRT-7.x.x.x/lib #Chage path to your installed TensorRT folder.
-	```
-	
-<details open>
-<summary><b>Install TensorRT-Python <i>(Linux Only / Windows does not support TensorRT-Python yet)</i></b></summary>
-	
-- ***Go to installed folder:***
-	```sh
-	cd TensorRT-7.x.x.x...
-	```
-
-- ***Install coresponding Python `TensorRT` wheel file (cp37 stand for python 3.7):***
-	```sh
-	cd python 
-	pip install tensorrt-*-cp37-none-linux_x86_64.whl
-	```
-
-- ***Install addition wheel files:***
-	```sh
-	cd ../uff
-	pip install uff-*-py2.py3-none-any.whl
-	cd ../graphsurgeon
-	pip install graphsurgeon-*-py2.py3-none-any.whl
-	cd ../onnx_graphsurgeon
-	pip install onnx_graphsurgeon-*-py2.py3-none-any.whl
-	```
-
-</details>
-	
 <details>
-<summary><b>Verify and Use.</b></summary>
+	<summary><b>Install TensorRT Manually</b></summary>
 
-  - ***Python:*** [TensorRT Parser Python](https://github.com/CuteBoiz/TensorRT_Parser_Python)
-	 ```sh
-	 exec bash #Reload terminal
-	 python3 -c "import tensorrt as trt; print(trt.__version__)"
-	 ```
-	 ***Note:*** Python does not support TensorRT on Windows yet. 
-	 
-  - ***C++:***  [TensorRT Parser C++](https://github.com/CuteBoiz/TensorRT_Parser_Cpp)
+	- **Download:**
+		- Go to: [TensorRT Page](https://developer.nvidia.com/tensorrt).
+		- Click `Get Started`.
+		- Click `Download Now`.
+		- Login then `Submit` short survey if first time download.
+		- Select the version of TensorRT that you're interested in.
+		- Check `I Agree To the Terms of the NVIDIA TensorRT License Agreement`.
+		- Download `TAR Package` with corresponding CUDA ToolkitVersion.
+		- Extract downloaded file to `/home/username/` folder. This place will become installed folder.
 
-	- Add those script to **CMakeLists** flie:
+	- **Add below srcipt to ~/.bashrc:**
 		```sh
-		#Cuda
-		include_directories(/usr/local/cuda/include)
-		link_directories(/usr/local/cuda/lib64)
-
-		#TensorRT
-		include_directories(path/to/TensorRT-7.x.x.x/include) #X is your TensorRT version
-		link_directories(path/to/TensorRT-7.x.x.x/lib)
+		export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/path/to/TensorRT-7.x.x.x/lib #Chage path to your installed TensorRT folder.
 		```
 		
- 	- In Cpp file:
+	<details open>
+	<summary><b>Install TensorRT-Python <i>(Linux Only / Windows does not support TensorRT-Python yet)</i></b></summary>
+		
+	- ***Go to installed folder:***
 		```sh
-		#include <NvInferRuntime.h>
-		#include <NvInfer.h>
-		#include <NvOnnxParser.h>
+		cd TensorRT-7.x.x.x...
 		```
+
+	- ***Install coresponding Python `TensorRT` wheel file (cp37 stand for python 3.7):***
+		```sh
+		cd python 
+		pip install tensorrt-*-cp37-none-linux_x86_64.whl
+		```
+
+	- ***Install addition wheel files:***
+		```sh
+		cd ../uff
+		pip install uff-*-py2.py3-none-any.whl
+		cd ../graphsurgeon
+		pip install graphsurgeon-*-py2.py3-none-any.whl
+		cd ../onnx_graphsurgeon
+		pip install onnx_graphsurgeon-*-py2.py3-none-any.whl
+		```
+
+	</details>
+		
+	<details>
+	<summary><b>Verify and Use.</b></summary>
+
+	- ***Python:*** [TensorRT Parser Python](https://github.com/CuteBoiz/TensorRT_Parser_Python)
+		```sh
+		exec bash #Reload terminal
+		python3 -c "import tensorrt as trt; print(trt.__version__)"
+		```
+		***Note:*** Python does not support TensorRT on Windows yet. 
+		
+	- ***C++:***  [TensorRT Parser C++](https://github.com/CuteBoiz/TensorRT_Parser_Cpp)
+
+		- Add those script to **CMakeLists** flie:
+			```sh
+			#Cuda
+			include_directories(/usr/local/cuda/include)
+			link_directories(/usr/local/cuda/lib64)
+
+			#TensorRT
+			include_directories(path/to/TensorRT-7.x.x.x/include) #X is your TensorRT version
+			link_directories(path/to/TensorRT-7.x.x.x/lib)
+			```
+			
+		- In Cpp file:
+			```sh
+			#include <NvInferRuntime.h>
+			#include <NvInfer.h>
+			#include <NvOnnxParser.h>
+			```
+
+	</details>
 </details>

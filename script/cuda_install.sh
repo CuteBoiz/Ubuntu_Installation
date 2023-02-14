@@ -2,7 +2,7 @@
 
 # Author: phatnt
 # Date modify: Feb-12-23
-# Usage: Install cuda/cudnn/tensorrt
+# Usage: Install cuda
 
 BBlue='\033[1;34m'
 BGreen='\033[1;32m'
@@ -83,7 +83,7 @@ fi
 export isJetson
 export cudaVer
 cd "$scriptFolder"
-bash -E ./scripts/cuda-cudnn-tensorrt.sh
+bash -E ./scripts/cuda.sh
 if [[ $? -ne 0 ]] ; then
     exit 1
 fi

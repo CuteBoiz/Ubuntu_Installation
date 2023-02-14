@@ -6,8 +6,8 @@
 git clone https://github.com/CuteBoiz/Ubuntu_Installation.git
 cd Ubuntu_Installation
 sudo bash
-# If you want to install for python-env. Activate it before run below script.
-bash script/INSTALL_opencv.sh
+# If you want to install for specific python-env. Activate the python-env before run below script.
+bash script/opencv_install.sh
 ```
 
 ## II. Verify and use.

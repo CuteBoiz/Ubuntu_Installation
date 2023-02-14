@@ -52,39 +52,9 @@ F_checkAndInstall () {
     fi
 }
 
-F_installPythonPackage () {
-    readarray -d = -t strarr <<< "$1"
-	A=${strarr[0]}
-    versionCheck=$(pip3 list --format=columns | grep $A)
-    if [[ -n "$versionCheck" ]]; then
-        echo -e "[INFO]: Already installed $A"
-    else
-        python3 -m pip install $1
-        versionCheck=$(pip3 list --format=columns | grep $A)
-        if [[ -z "$versionCheck" ]]; then
-            echo -e "${BRed}[ERROR]: Install package '$1' failed!${NC}"
-            exit 1
-        fi
-    fi
-}
-
-# Prerequisted
-F_checkAndInstall "python3-pip"
-F_installPythonPackage "gdown"
-
-F_exportBashrc "# Python local package"
-F_exportBashrc "export PATH=\"`python3 -m site --user-base`/bin:\$PATH\""
-export PATH="`python3 -m site --user-base`/bin:$PATH"
-
 # Get Links 
 cudaLink=""
 maxGccVer=0
-cudnnLink=""
-cudnnFilename=""
-cudnnFoldername=""
-tensorrtLink=""
-trtFilename=""
-trtFoldername=""
 
 if [[ "$cudaVer" == "10.2" ]]; then
     cudaLink="https://developer.download.nvidia.com/compute/cuda/10.2/Prod/local_installers/cuda_10.2.89_440.33.01_linux.run"
@@ -109,26 +79,6 @@ else
     exit 1
 fi
 
-if [[ "$cudaVer" == "10.2" ]]; then
-    # cudnn link for cuda 10.2
-    cudnnLink="https://drive.google.com/uc?id=1wrttm0Db0ZY464_vMXLGHJIDxhTUIunM" #10.2
-    cudnnFilename="cudnn-linux-x86_64-8.4.1.50_cuda10.2-archive.tar.xz"
-    cudnnFoldername="cudnn-linux-x86_64-8.4.1.50_cuda10.2-archive"
-    # tensorrt link for cuda 10.2
-    tensorrtLink="https://drive.google.com/uc?id=1ctoI59nTkNJl00QllAYKw2AdIxFHhcxN" #10.2
-    trtFilename="TensorRT-8.4.3.1.Linux.x86_64-gnu.cuda-10.2.cudnn8.4.tar.gz"
-    trtFoldername="TensorRT-8.4.3.1"
-else
-    # cudnn link for cuda 11.x
-    cudnnLink="https://drive.google.com/uc?id=1VENLVmYK6yuKtu-UAhA0Su5XE5Sp89Qf" #11.x
-    cudnnFilename="cudnn-linux-x86_64-8.4.1.50_cuda11.6-archive.tar.xz"
-    cudnnFoldername="cudnn-linux-x86_64-8.4.1.50_cuda11.6-archive"
-    # tensorrrt link for cuda 11.x
-    tensorrtLink="https://drive.google.com/uc?id=1G8eKDyB88C7Pqiy-9UJ7RALivcbAMlK9" #11.x
-    trtFilename="TensorRT-8.4.3.1.Linux.x86_64-gnu.cuda-11.6.cudnn8.4.tar.gz"
-    trtFoldername="TensorRT-8.4.3.1"
-fi
-
 # Nvidia-driver
 nvidiaDriverVer="$(lsmod | grep ^nvidia | awk {'print $1'})"
 if [[ "$nvidiaDriverVer" ==  *"nvidia"* ]]; then
@@ -144,7 +94,7 @@ else
 fi
 
 
-# Cuda
+# Install cuda
 if ! [ -d $cudaPath ]; then
     echo -e "${BYellow}[WARNING]: Cuda not installed!${NC}"
     echo -e "${BBlue}[INFO] Installing Cuda-$cudaVer ...${NC}"
@@ -206,92 +156,5 @@ else
         fi
     fi
     echo -e "${BBlue}[INFO]: Found CUDA-$cudaCheck.${NC}"
-    sleep 2
-fi
-
-# CuDNN
-cudnnCheck1=$(find $cudaPath/include/cudnn*.h)
-cudnnCheck2=$(find $cudaPath/lib64/libcudnn*)
-if [[ -z "$cudnnCheck1" ]] || [[ -z "$cudnnCheck2" ]]; then
-    echo -e "${BYellow}[WARNING]: Cudnn not installed!${NC}"
-    echo -e "${BBlue}[INFO]: Installing cuDNN ...${NC}"
-    sleep 2
-    cd /tmp
-    if ! [ -f $cudnnFilename ]; then
-        gdown $cudnnLink 
-        if ! [ -f $cudnnFilename ]; then
-            >&2 echo -e "${BRed}[ERROR]: Could not download from '$cudnnLink'!${NC}"
-            exit 1
-        fi
-    fi
-    tar -xvf $cudnnFilename
-    if ! [ -d $cudnnFoldername ]; then
-        >&2 echo -e "${BRed}[ERROR]: Could not extract '$PWD/$cudnnFilename'!${NC}"
-        exit 1
-    fi
-    sudo cp $cudnnFoldername/include/cudnn*.h $cudaPath/include
-    sudo cp $cudnnFoldername/lib/libcudnn* $cudaPath/lib64
-    sudo chmod a+r $cudaPath/include/cudnn*.h $cudaPath/lib64/libcudnn*
-    cudnnCheck1=$(find $cudaPath/include/cudnn*.h)
-    cudnnCheck2=$(find $cudaPath/lib64/libcudnn*)
-    if [[ -z "$cudnnCheck1" ]] || [[ -z "$cudnnCheck2" ]]; then
-        >&2 echo -e "${BRED}[ERROR]: Copy cudnn files failed. Please copy downloaded cudnn files from '/tmp' to '$cudaPath' manually!${NC}"
-        exit 1
-    fi
-    cd /tmp
-    rm $cudnnFilename
-    rm -rf $cudnnFoldername
-    echo -e "${BGreen}[INFO]: Install Cudnn successfully!${NC}"
-    sleep 2
-else
-    echo -e "${BBlue}[INFO]: Installed Cudnn.${NC}"
-    sleep 2
-fi
-
-# TensorRT
-tensorrtCheck=$(pip3 list --format=columns | grep tensorrt)
-if [[ -z "$tensorrtCheck" ]]; then
-    echo -e "Installing TensorRT ..."
-    sleep 2
-    mkdir -p /home/$(logname)/Libraries && cd /home/$(logname)/Libraries
-    if ! [ -d $trtFoldername ]; then
-        if ! [ -f $trtFilename ]; then
-            gdown $tensorrtLink
-            if ! [ -f $trtFilename ]; then
-                >&2 echo -e "${BRed}[ERROR]: Could not download from '$tensorrtLink'!${NC}"
-                exit 1
-            fi
-        fi
-        tar -xvf $trtFilename
-        if ! [ -d $trtFoldername ]; then
-            >&2 echo -e "${BRed}[ERROR]: Could not extract '$PWD/$cudnnFilename'!${NC}"
-            exit 1
-        fi
-    fi
-    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/$(logname)/Libraries/$trtFilename/lib
-    F_exportBashrc "# TensorRT"
-    F_exportBashrc "LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:/home/$(logname)/Libraries/$trtFoldername/lib"
-    sudo chmod 777 -R $trtFoldername
-    cd $trtFoldername
-    cd python
-    pythonMinorVer=$(python3 -c 'import sys; print(sys.version_info[1])')
-    pip3 install tensorrt-*-cp3$pythonMinorVer-none-linux_x86_64.whl
-    cd ../uff
-    pip3 install uff-*-py2.py3-none-any.whl
-    cd ../graphsurgeon
-    pip3 install graphsurgeon-*-py2.py3-none-any.whl
-    cd ../onnx_graphsurgeon
-    pip3 install onnx_graphsurgeon-*-py2.py3-none-any.whl
-    tensorrtCheck=$(pip3 list --format=columns | grep tensorrt)
-    if [[ -z "$tensorrtCheck" ]]; then
-        >&2 echo -e "${BRed}Install TensorRT Failed!${NC}"
-        exit 1
-    fi
-    cd /home/$(logname)/Libraries
-    rm $trtFilename
-    echo -e "${BGreen}[INFO]: Install $tensorrtCheck successfully!${NC}"
-    sleep 2
-else
-    echo -e "${BBlue}[INFO]: Found $tensorrtCheck.${NC}"
     sleep 2
 fi
