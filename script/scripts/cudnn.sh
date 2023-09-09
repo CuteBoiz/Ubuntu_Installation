@@ -6,6 +6,15 @@
 # Global variables:
 #   + cudaVer (string) [For x86_64 only]: cuda version (10.2, 11.0, 11.1, 11.2, 11.3, 11.4)
 
+F_exportBashrc () {
+    if ! grep -Fxq "$1" /home/$(logname)/.bashrc; then
+        echo $1 >> /home/$(logname)/.bashrc
+    fi
+	if ! grep -Fxq "$1" /home/$(logname)/.bashrc; then
+        echo $1 >> /home/$(logname)/.bashrc
+    fi
+}
+
 F_checkAndInstall () {
     versionCheck=$(dpkg -s $1 | grep Version)
     versionCheck=${versionCheck:9:-1}
@@ -25,12 +34,12 @@ F_checkAndInstall () {
 F_installPythonPackage () {
     readarray -d = -t strarr <<< "$1"
 	A=${strarr[0]}
-    versionCheck=$(pip3 list --format=columns | grep $A)
+    versionCheck=$(pip3 show $A)
     if [[ -n "$versionCheck" ]]; then
         echo -e "[INFO]: Already installed $A"
     else
         python3 -m pip install $1
-        versionCheck=$(pip3 list --format=columns | grep $A)
+        versionCheck=$(pip3 show $A)
         if [[ -z "$versionCheck" ]]; then
             echo -e "${BRed}[ERROR]: Install package '$1' failed!${NC}"
             exit 1
@@ -39,6 +48,8 @@ F_installPythonPackage () {
 }
 
 # Prerequisted
+cudaPath="/usr/local/cuda-$cudaVer"
+
 F_checkAndInstall "python3-pip"
 F_installPythonPackage "gdown"
 
@@ -78,13 +89,16 @@ if [[ -z "$cudnnCheck1" ]] || [[ -z "$cudnnCheck2" ]]; then
             exit 1
         fi
     fi
-    tar -xvf $cudnnFilename
+    if ! [ -d $cudnnFoldername ]; then
+        tar -xvf $cudnnFilename
+    fi
     if ! [ -d $cudnnFoldername ]; then
         >&2 echo -e "${BRed}[ERROR]: Could not extract '$PWD/$cudnnFilename'!${NC}"
         exit 1
     fi
-    sudo cp $cudnnFoldername/include/cudnn*.h $cudaPath/include
-    sudo cp $cudnnFoldername/lib/libcudnn* $cudaPath/lib64
+    cd $cudnnFoldername
+    cp include/cudnn*.h $cudaPath/include
+    cp lib/libcudnn* $cudaPath/lib64
     sudo chmod a+r $cudaPath/include/cudnn*.h $cudaPath/lib64/libcudnn*
     cudnnCheck1=$(find $cudaPath/include/cudnn*.h)
     cudnnCheck2=$(find $cudaPath/lib64/libcudnn*)

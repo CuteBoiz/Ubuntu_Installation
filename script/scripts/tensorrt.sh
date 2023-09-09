@@ -34,12 +34,12 @@ F_checkAndInstall () {
 F_installPythonPackage () {
     readarray -d = -t strarr <<< "$1"
 	A=${strarr[0]}
-    versionCheck=$(pip3 list --format=columns | grep $A)
+    versionCheck=$(pip3 show $A)
     if [[ -n "$versionCheck" ]]; then
         echo -e "[INFO]: Already installed $A"
     else
         python3 -m pip install $1
-        versionCheck=$(pip3 list --format=columns | grep $A)
+        versionCheck=$(pip3 show $A)
         if [[ -z "$versionCheck" ]]; then
             echo -e "${BRed}[ERROR]: Install package '$1' failed!${NC}"
             exit 1
