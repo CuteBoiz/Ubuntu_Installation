@@ -28,7 +28,7 @@ fi
 export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}
 export LD_LIBRARY_PATH=/usr/local/cuda/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 cudaVer=$(nvcc -V | sed -n 4p | cut -d" " -f5)
-cudaVer=${cudaCheck:0:4}
+cudaVer=${cudaVer:0:4}
 if [[ -z "$cudaVer" ]]; then
     echo -e "${BRed}[ERROR]: Could not found Cuda installed!${NC}"
     exit 1
